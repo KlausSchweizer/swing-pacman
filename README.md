@@ -11,7 +11,7 @@
 | Power Up | |
 | HUD Menu | |
 | Leitura de Arquivos (Sprites/Animações) | Klaus |
-| Lógica Pontuação | |
+| Lógica Pontuação | Ronan |
 | Lógica Pacman| |
 
 ### Multi Player
