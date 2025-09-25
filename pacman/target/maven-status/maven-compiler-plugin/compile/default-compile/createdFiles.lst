@@ -1,6 +1,8 @@
 fantasma\FantasmaAmarelo.class
-fase\Fase.class
 fantasma\FantasmaVermelho.class
-pacman\Pacman.class
+menu\Menu$1.class
+fase\Fase.class
 fantasma\FantasmaLaranja.class
 fantasma\FantasmaAzul.class
+menu\Menu.class
+pacman\Pacman.class
