@@ -39,14 +39,15 @@ public class TxtParser {
     private BufferedImage saidaFantasmas;
     private BufferedImage baixoAberta;
     private BufferedImage cimaAberta;
-
+    private char[][] textoMapa;
+    
     public Mapa criarMapa(String filePath) {
         try (BufferedReader br = new BufferedReader(new FileReader(new File(filePath)))) {
             lerImagens();
             int quantidadeLinhas = contarLinhas(filePath);
             int quantidadeColunas = contarColunas(filePath);
 
-            char[][] textoMapa = converterMatriz(quantidadeLinhas, quantidadeColunas, br);
+            textoMapa = converterMatriz(quantidadeLinhas, quantidadeColunas, br);
             return matrizParaMapa(textoMapa);
         } catch (IOException e) {
             File file = new File("mapas/mapa.txt");
@@ -143,7 +144,7 @@ public class TxtParser {
         image = new File("imagens/tiles/lados-abertos.png");
         ladosAbertos = ImageIO.read(image);
 
-        image = new File("imagens/tiles/saida-fantasmas.png");
+        image = new File("imagens/tiles/saida-fantasma.png");
         saidaFantasmas = ImageIO.read(image);
 
         image = new File("imagens/tiles/cima-aberta.png");
@@ -210,174 +211,168 @@ public class TxtParser {
     }
 
     private Tile transformarTileLivre(List<Direcao> direcoesParede, int i, int j) {
-        for (Direcao direcao : direcoesParede) {
-            boolean hasBaixo = direcao == Direcao.BAIXO;
-            boolean hasCima = direcao == Direcao.CIMA;
-            boolean hasDireita = direcao == Direcao.DIREITA;
-            boolean hasEsquerda = direcao == Direcao.ESQUERDA;
+        boolean hasBaixo = direcoesParede.contains(Direcao.BAIXO);
+        boolean hasCima = direcoesParede.contains(Direcao.CIMA);
+        boolean hasDireita = direcoesParede.contains(Direcao.DIREITA);
+        boolean hasEsquerda = direcoesParede.contains(Direcao.ESQUERDA);
 
-            if (hasBaixo && hasCima && hasDireita && hasEsquerda) {
-                return new Tile(i, j, fechado, direcoesParede, new Ponto());
-            } else if (hasBaixo && hasCima && hasDireita) {
-                return new Tile(i, j, esquerdaAberta, direcoesParede, new Ponto());
-            } else if (hasBaixo && hasCima && hasEsquerda) {
-                return new Tile(i, j, direitaAberta, direcoesParede, new Ponto());
-            } else if (hasBaixo && hasDireita && hasEsquerda) {
-                return new Tile(i, j, cimaAberta, direcoesParede, new Ponto());
-            } else if (hasCima && hasDireita && hasEsquerda) {
-                return new Tile(i, j, baixoAberta, direcoesParede, new Ponto());
-            } else if (hasBaixo && hasCima) {
-                return new Tile(i, j, ladosAbertos, direcoesParede, new Ponto());
-            } else if (hasBaixo && hasDireita) {
-                return new Tile(i, j, esquerdaCimaAbertas, direcoesParede, new Ponto());
-            } else if (hasBaixo && hasEsquerda) {
-                return new Tile(i, j, direitaCimaAbertas, direcoesParede, new Ponto());
-            } else if (hasCima && hasDireita) {
-                return new Tile(i, j, esquerdaBaixoAbertas, direcoesParede, new Ponto());
-            } else if (hasCima && hasEsquerda) {
-                return new Tile(i, j, direitaBaixoAbertas, direcoesParede, new Ponto());
-            } else if (hasDireita && hasEsquerda) {
-                return new Tile(i, j, alturasAbertas, direcoesParede, new Ponto());
-            } else if (hasBaixo) {
-                return new Tile(i, j, baixoFechada, direcoesParede, new Ponto());
-            } else if (hasCima) {
-                return new Tile(i, j, cimaFechada, direcoesParede, new Ponto());
-            } else if (hasDireita) {
-                return new Tile(i, j, direitaFechada, direcoesParede, new Ponto());
-            } else if (hasEsquerda) {
-                return new Tile(i, j, esquerdaAberta, direcoesParede, new Ponto());
+        if (hasBaixo && hasCima && hasDireita && hasEsquerda) {
+            return new Tile(i, j, fechado, direcoesParede, new Ponto());
+        } else if (hasBaixo && hasCima && hasDireita) {
+            return new Tile(i, j, esquerdaAberta, direcoesParede, new Ponto());
+        } else if (hasBaixo && hasCima && hasEsquerda) {
+            return new Tile(i, j, direitaAberta, direcoesParede, new Ponto());
+        } else if (hasBaixo && hasDireita && hasEsquerda) {
+            return new Tile(i, j, cimaAberta, direcoesParede, new Ponto());
+        } else if (hasCima && hasDireita && hasEsquerda) {
+            return new Tile(i, j, baixoAberta, direcoesParede, new Ponto());
+        } else if (hasBaixo && hasCima) {
+            return new Tile(i, j, ladosAbertos, direcoesParede, new Ponto());
+        } else if (hasBaixo && hasDireita) {
+            return new Tile(i, j, esquerdaCimaAbertas, direcoesParede, new Ponto());
+        } else if (hasBaixo && hasEsquerda) {
+            return new Tile(i, j, direitaCimaAbertas, direcoesParede, new Ponto());
+        } else if (hasCima && hasDireita) {
+            return new Tile(i, j, esquerdaBaixoAbertas, direcoesParede, new Ponto());
+        } else if (hasCima && hasEsquerda) {
+            return new Tile(i, j, direitaBaixoAbertas, direcoesParede, new Ponto());
+        } else if (hasDireita && hasEsquerda) {
+            return new Tile(i, j, alturasAbertas, direcoesParede, new Ponto());
+        } else if (hasBaixo) {
+            if(textoMapa[i + 1][j] != '#') {
+            return new Tile(i, j, baixoFechada, direcoesParede, new Ponto());
             } else {
-                return new Tile(i, j, aberto, direcoesParede, new Ponto());
+                return new Tile(i, j,aberto, direcoesParede, null);
             }
+        } else if (hasCima) {
+            return new Tile(i, j, cimaFechada, direcoesParede, new Ponto());
+        } else if (hasDireita) {
+            return new Tile(i, j, direitaFechada, direcoesParede, new Ponto());
+        } else if (hasEsquerda) {
+            return new Tile(i, j, esquerdaAberta, direcoesParede, new Ponto());
+        } else {
+            return new Tile(i, j, aberto, direcoesParede, new Ponto());
         }
-        return null;
     }
 
     private Tile transformarTileParede(List<Direcao> direcoesParede, int i, int j) {
-        for (Direcao direcao : direcoesParede) {
-            boolean hasBaixo = direcao == Direcao.BAIXO;
-            boolean hasCima = direcao == Direcao.CIMA;
-            boolean hasDireita = direcao == Direcao.DIREITA;
-            boolean hasEsquerda = direcao == Direcao.ESQUERDA;
+        boolean hasBaixo = !direcoesParede.contains(Direcao.BAIXO);
+        boolean hasCima = !direcoesParede.contains(Direcao.CIMA);
+        boolean hasDireita = !direcoesParede.contains(Direcao.DIREITA);
+        boolean hasEsquerda = !direcoesParede.contains(Direcao.ESQUERDA);
 
-            if (hasBaixo && hasCima && hasDireita && hasEsquerda) {
-                return new Tile(i, j, fechado, direcoesParede, null);
-            } else if (hasBaixo && hasCima && hasDireita) {
-                return new Tile(i, j, esquerdaAberta, direcoesParede, null);
-            } else if (hasBaixo && hasCima && hasEsquerda) {
-                return new Tile(i, j, direitaAberta, direcoesParede, null);
-            } else if (hasBaixo && hasDireita && hasEsquerda) {
-                return new Tile(i, j, cimaAberta, direcoesParede, null);
-            } else if (hasCima && hasDireita && hasEsquerda) {
-                return new Tile(i, j, baixoAberta, direcoesParede, null);
-            } else if (hasBaixo && hasCima) {
-                return new Tile(i, j, ladosAbertos, direcoesParede, null);
-            } else if (hasBaixo && hasDireita) {
-                return new Tile(i, j, esquerdaCimaAbertas, direcoesParede, null);
-            } else if (hasBaixo && hasEsquerda) {
-                return new Tile(i, j, direitaCimaAbertas, direcoesParede, null);
-            } else if (hasCima && hasDireita) {
-                return new Tile(i, j, esquerdaBaixoAbertas, direcoesParede, null);
-            } else if (hasCima && hasEsquerda) {
-                return new Tile(i, j, direitaBaixoAbertas, direcoesParede, null);
-            } else if (hasDireita && hasEsquerda) {
-                return new Tile(i, j, alturasAbertas, direcoesParede, null);
-            } else if (hasBaixo) {
-                return new Tile(i, j, baixoFechada, direcoesParede, null);
-            } else if (hasCima) {
-                return new Tile(i, j, cimaFechada, direcoesParede, null);
-            } else if (hasDireita) {
-                return new Tile(i, j, direitaFechada, direcoesParede, null);
-            } else if (hasEsquerda) {
-                return new Tile(i, j, esquerdaAberta, direcoesParede, null);
-            }
+        if (hasBaixo && hasCima && hasDireita && hasEsquerda) {
+            return new Tile(i, j, fechado, direcoesParede, null);
+        } else if (hasBaixo && hasCima && hasDireita) {
+            return new Tile(i, j, esquerdaAberta, direcoesParede, null);
+        } else if (hasBaixo && hasCima && hasEsquerda) {
+            return new Tile(i, j, direitaAberta, direcoesParede, null);
+        } else if (hasBaixo && hasDireita && hasEsquerda) {
+            return new Tile(i, j, cimaAberta, direcoesParede, null);
+        } else if (hasCima && hasDireita && hasEsquerda) {
+            return new Tile(i, j, baixoAberta, direcoesParede, null);
+        } else if (hasBaixo && hasCima) {
+            return new Tile(i, j, ladosAbertos, direcoesParede, null);
+        } else if (hasBaixo && hasDireita) {
+            return new Tile(i, j, esquerdaCimaAbertas, direcoesParede, null);
+        } else if (hasBaixo && hasEsquerda) {
+            return new Tile(i, j, direitaCimaAbertas, direcoesParede, null);
+        } else if (hasCima && hasDireita) {
+            return new Tile(i, j, esquerdaBaixoAbertas, direcoesParede, null);
+        } else if (hasCima && hasEsquerda) {
+            return new Tile(i, j, direitaBaixoAbertas, direcoesParede, null);
+        } else if (hasDireita && hasEsquerda) {
+            return new Tile(i, j, alturasAbertas, direcoesParede, null);
+        } else if (hasBaixo) {
+            return new Tile(i, j, baixoFechada, direcoesParede, null);
+        } else if (hasCima) {
+            return new Tile(i, j, cimaFechada, direcoesParede, null);
+        } else if (hasDireita) {
+            return new Tile(i, j, direitaFechada, direcoesParede, null);
+        } else if (hasEsquerda) {
+            return new Tile(i, j, esquerdaAberta, direcoesParede, null);
         }
-        return null;
+        return new Tile(i, j, fechado, direcoesParede, null);
     }
 
     private Tile transformarTileFantasmas(List<Direcao> direcoesParede, int i, int j) {
-        for (Direcao direcao : direcoesParede) {
-            boolean hasBaixo = direcao == Direcao.BAIXO;
-            boolean hasCima = direcao == Direcao.CIMA;
-            boolean hasDireita = direcao == Direcao.DIREITA;
-            boolean hasEsquerda = direcao == Direcao.ESQUERDA;
+        boolean hasBaixo = !direcoesParede.contains(Direcao.BAIXO);
+        boolean hasCima = !direcoesParede.contains(Direcao.CIMA);
+        boolean hasDireita = !direcoesParede.contains(Direcao.DIREITA);
+        boolean hasEsquerda = !direcoesParede.contains(Direcao.ESQUERDA);
 
-            if (hasBaixo && hasCima && hasDireita && hasEsquerda) {
-                return new Tile(i, j, fechado, direcoesParede, null);
-            } else if (hasBaixo && hasCima && hasDireita) {
-                return new Tile(i, j, esquerdaAberta, direcoesParede, null);
-            } else if (hasBaixo && hasCima && hasEsquerda) {
-                return new Tile(i, j, direitaAberta, direcoesParede, null);
-            } else if (hasBaixo && hasDireita && hasEsquerda) {
-                return new Tile(i, j, saidaFantasmas, direcoesParede, null);
-            } else if (hasCima && hasDireita && hasEsquerda) {
-                return new Tile(i, j, baixoAberta, direcoesParede, null);
-            } else if (hasBaixo && hasCima) {
-                return new Tile(i, j, ladosAbertos, direcoesParede, null);
-            } else if (hasBaixo && hasDireita) {
-                return new Tile(i, j, esquerdaCimaAbertas, direcoesParede, null);
-            } else if (hasBaixo && hasEsquerda) {
-                return new Tile(i, j, direitaCimaAbertas, direcoesParede, null);
-            } else if (hasCima && hasDireita) {
-                return new Tile(i, j, esquerdaBaixoAbertas, direcoesParede, null);
-            } else if (hasCima && hasEsquerda) {
-                return new Tile(i, j, direitaBaixoAbertas, direcoesParede, null);
-            } else if (hasDireita && hasEsquerda) {
-                return new Tile(i, j, alturasAbertas, direcoesParede, null);
-            } else if (hasBaixo) {
-                return new Tile(i, j, baixoFechada, direcoesParede, null);
-            } else if (hasCima) {
-                return new Tile(i, j, cimaFechada, direcoesParede, null);
-            } else if (hasDireita) {
-                return new Tile(i, j, direitaFechada, direcoesParede, null);
-            } else if (hasEsquerda) {
-                return new Tile(i, j, esquerdaFechada, direcoesParede, null);
-            }
+        if (hasBaixo && hasCima && hasDireita && hasEsquerda) {
+            return new Tile(i, j, fechado, direcoesParede, null);
+        } else if (hasBaixo && hasCima && hasDireita) {
+            return new Tile(i, j, esquerdaAberta, direcoesParede, null);
+        } else if (hasBaixo && hasCima && hasEsquerda) {
+            return new Tile(i, j, direitaAberta, direcoesParede, null);
+        } else if (hasBaixo && hasDireita && hasEsquerda) {
+            return new Tile(i, j, saidaFantasmas, direcoesParede, null);
+        } else if (hasCima && hasDireita && hasEsquerda) {
+            return new Tile(i, j, baixoAberta, direcoesParede, null);
+        } else if (hasBaixo && hasCima) {
+            return new Tile(i, j, ladosAbertos, direcoesParede, null);
+        } else if (hasBaixo && hasDireita) {
+            return new Tile(i, j, esquerdaCimaAbertas, direcoesParede, null);
+        } else if (hasBaixo && hasEsquerda) {
+            return new Tile(i, j, direitaCimaAbertas, direcoesParede, null);
+        } else if (hasCima && hasDireita) {
+            return new Tile(i, j, esquerdaBaixoAbertas, direcoesParede, null);
+        } else if (hasCima && hasEsquerda) {
+            return new Tile(i, j, direitaBaixoAbertas, direcoesParede, null);
+        } else if (hasDireita && hasEsquerda) {
+            return new Tile(i, j, alturasAbertas, direcoesParede, null);
+        } else if (hasBaixo) {
+            return new Tile(i, j, baixoFechada, direcoesParede, null);
+        } else if (hasCima) {
+            return new Tile(i, j, saidaFantasmas, direcoesParede, null);
+        } else if (hasDireita) {
+            return new Tile(i, j, direitaFechada, direcoesParede, null);
+        } else if (hasEsquerda) {
+            return new Tile(i, j, esquerdaFechada, direcoesParede, null);
         }
-        return null;
+        return new Tile(i, j, aberto, direcoesParede, null);
     }
 
     private Tile transformarTileSaidas(List<Direcao> direcoesParede, int i, int j) {
-        for (Direcao direcao : direcoesParede) {
-            boolean hasBaixo = direcao == Direcao.BAIXO;
-            boolean hasCima = direcao == Direcao.CIMA;
-            boolean hasDireita = direcao == Direcao.DIREITA;
-            boolean hasEsquerda = direcao == Direcao.ESQUERDA;
+        boolean hasBaixo = direcoesParede.contains(Direcao.BAIXO);
+        boolean hasCima = direcoesParede.contains(Direcao.CIMA);
+        boolean hasDireita = direcoesParede.contains(Direcao.DIREITA);
+        boolean hasEsquerda = direcoesParede.contains(Direcao.ESQUERDA);
 
-            if (hasBaixo && hasCima && hasDireita && hasEsquerda) {
-                return new Tile(i, j, fechado, direcoesParede, new Ponto());
-            } else if (hasBaixo && hasCima && hasDireita) {
-                return new Tile(i, j, esquerdaAberta, direcoesParede, new Ponto());
-            } else if (hasBaixo && hasCima && hasEsquerda) {
-                return new Tile(i, j, direitaAberta, direcoesParede, new Ponto());
-            } else if (hasBaixo && hasDireita && hasEsquerda) {
-                return new Tile(i, j, cimaAberta, direcoesParede, new Ponto());
-            } else if (hasCima && hasDireita && hasEsquerda) {
-                return new Tile(i, j, baixoAberta, direcoesParede, new Ponto());
-            } else if (hasBaixo && hasCima) {
-                return new Tile(i, j, ladosAbertos, direcoesParede, new Ponto());
-            } else if (hasBaixo && hasDireita) {
-                return new Tile(i, j, esquerdaCimaAbertas, direcoesParede, new Ponto());
-            } else if (hasBaixo && hasEsquerda) {
-                return new Tile(i, j, direitaCimaAbertas, direcoesParede, new Ponto());
-            } else if (hasCima && hasDireita) {
-                return new Tile(i, j, esquerdaBaixoAbertas, direcoesParede, new Ponto());
-            } else if (hasCima && hasEsquerda) {
-                return new Tile(i, j, direitaBaixoAbertas, direcoesParede, new Ponto());
-            } else if (hasDireita && hasEsquerda) {
-                return new Tile(i, j, alturasAbertas, direcoesParede, new Ponto());
-            } else if (hasBaixo) {
-                return new Tile(i, j, baixoFechada, direcoesParede, new Ponto());
-            } else if (hasCima) {
-                return new Tile(i, j, cimaFechada, direcoesParede, new Ponto());
-            } else if (hasDireita) {
-                return new Tile(i, j, direitaFechada, direcoesParede, new Ponto());
-            } else if (hasEsquerda) {
-                return new Tile(i, j, esquerdaAberta, direcoesParede, new Ponto());
-            } else {
-                return new Tile(i, j, aberto, direcoesParede, new Ponto());
-            }
+        if (hasBaixo && hasCima && hasDireita && hasEsquerda) {
+            return new Tile(i, j, fechado, direcoesParede, new Ponto());
+        } else if (hasBaixo && hasCima && hasDireita) {
+            return new Tile(i, j, esquerdaAberta, direcoesParede, new Ponto());
+        } else if (hasBaixo && hasCima && hasEsquerda) {
+            return new Tile(i, j, direitaAberta, direcoesParede, new Ponto());
+        } else if (hasBaixo && hasDireita && hasEsquerda) {
+            return new Tile(i, j, cimaAberta, direcoesParede, new Ponto());
+        } else if (hasCima && hasDireita && hasEsquerda) {
+            return new Tile(i, j, baixoAberta, direcoesParede, new Ponto());
+        } else if (hasBaixo && hasCima) {
+            return new Tile(i, j, ladosAbertos, direcoesParede, new Ponto());
+        } else if (hasBaixo && hasDireita) {
+            return new Tile(i, j, esquerdaCimaAbertas, direcoesParede, new Ponto());
+        } else if (hasBaixo && hasEsquerda) {
+            return new Tile(i, j, direitaCimaAbertas, direcoesParede, new Ponto());
+        } else if (hasCima && hasDireita) {
+            return new Tile(i, j, esquerdaBaixoAbertas, direcoesParede, new Ponto());
+        } else if (hasCima && hasEsquerda) {
+            return new Tile(i, j, direitaBaixoAbertas, direcoesParede, new Ponto());
+        } else if (hasDireita && hasEsquerda) {
+            return new Tile(i, j, alturasAbertas, direcoesParede, new Ponto());
+        } else if (hasBaixo) {
+            return new Tile(i, j, baixoFechada, direcoesParede, new Ponto());
+        } else if (hasCima) {
+            return new Tile(i, j, cimaFechada, direcoesParede, new Ponto());
+        } else if (hasDireita) {
+            return new Tile(i, j, direitaFechada, direcoesParede, new Ponto());
+        } else if (hasEsquerda) {
+            return new Tile(i, j, esquerdaAberta, direcoesParede, new Ponto());
+        } else {
+            return new Tile(i, j, aberto, direcoesParede, new Ponto());
         }
-        return null;
     }
 }
