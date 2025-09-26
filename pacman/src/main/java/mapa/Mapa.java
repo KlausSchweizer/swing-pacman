@@ -10,4 +10,14 @@ package mapa;
  */
 public class Mapa {
     private Tile[][] mapa;
+
+    public Tile[][] getMapa() {
+        return mapa;
+    }
+
+    public void setMapa(Tile[][] mapa) {
+        this.mapa = mapa;
+    }
+    
+    
 }

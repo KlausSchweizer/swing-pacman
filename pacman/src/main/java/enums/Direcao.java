@@ -9,5 +9,5 @@ package enums;
  * @author klaus
  */
 public enum Direcao {
-    CIMA,BAIXO, ESQUERDA, DIREIRA
+    CIMA,BAIXO, ESQUERDA, DIREITA
 }
