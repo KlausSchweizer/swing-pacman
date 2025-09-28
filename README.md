@@ -10,10 +10,10 @@ O jogo é uma reprodução de pacman implementada com Java e Swing. Num modo sin
 | Sprites | Luan | 
 | Mapa | Klaus | 
 | Modelagem (Entidades) | Luan |
-| Movimentação | |
+| Movimentação | Klaus |
 | Lógica Fantasmas | Luan/Klaus |
 | Power Up | |
-| HUD Menu | |
+| HUD Menu | Luan |
 | Leitura de Arquivos (Sprites/Animações) | Klaus |
 | Lógica Pontuação |  |
 | Lógica Pacman| |
