@@ -1,13 +1,13 @@
 $$^^^^^^^^^^^$$
 $$$$$o$o$o$$$$$
 $$$$$o$o$o$$$$$
-$$oooo$o$oooo$$
+$$ooooooooooo$$
 $$o$$$ooo$$$o$$
 <oo$$$ooo$$$oo>
-$$oooo###oooo$$
+$$ooooooooooo$$
 <oo$$o###o$$oo>
-$ooooo###ooooo$
-$o$$$o###o$$$o$
+$$oooo###oooo$$
+$oo$$o###o$$oo$
 $o$$$o###o$$$o$
 $ooooooooooooo$
 $$$$$o$o$o$$$$$
