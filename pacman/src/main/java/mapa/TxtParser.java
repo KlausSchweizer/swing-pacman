@@ -6,6 +6,7 @@ package mapa;
 
 import enums.Direcao;
 import itens.Ponto;
+import itens.PowerUp;
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.File;
@@ -164,6 +165,9 @@ public class TxtParser {
                 verificarDirecoes(direcoesParede, textoMapa, i, j);
                 if (textoMapa[i][j] == 'o') {
                     matrizTile[i][j] = transformarTileLivre(direcoesParede, i, j);
+                } else if (textoMapa[i][j] == 'O')  {
+                    matrizTile[i][j] = transformarTileLivre(direcoesParede, i, j);
+                    matrizTile[i][j].setItem(new PowerUp());
                 } else if (textoMapa[i][j] == '$') {
                     matrizTile[i][j] = transformarTileParede(direcoesParede, i, j);
                 } else if (textoMapa[i][j] == '#') {
@@ -242,7 +246,7 @@ public class TxtParser {
             if (textoMapa[i + 1][j] != '#') {
                 return new Tile(i, j, baixoFechada, direcoesParede, new Ponto());
             } else {
-                return new Tile(i, j, aberto, direcoesParede, null);
+                return new Tile(i, j, aberto, direcoesParede, new Ponto());
             }
         } else if (hasCima) {
             return new Tile(i, j, cimaFechada, direcoesParede, new Ponto());

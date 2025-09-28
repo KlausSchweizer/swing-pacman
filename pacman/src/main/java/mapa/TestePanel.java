@@ -8,18 +8,18 @@
  */
 package mapa;
 
+import itens.Item;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import javax.swing.GroupLayout;
 import javax.swing.JPanel;
-import mapa.Mapa;
-import mapa.Tile;
-import mapa.TxtParser;
 
 public class TestePanel
-extends JPanel {
-    private Mapa mapa = new TxtParser().criarMapa("mapas/mapa.txt");
+        extends JPanel {
+
+    private final Mapa mapa = new TxtParser().criarMapa("mapas/mapa.txt");
 
     public TestePanel() {
         this.initComponents();
@@ -35,18 +35,25 @@ extends JPanel {
 
     @Override
     protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
+        Graphics2D g2d = (Graphics2D) g;
+        super.paintComponent(g2d);
         int tileSize = 32;
         Tile[][] tiles = this.mapa.getMapa();
         for (int linha = 0; linha < tiles.length; ++linha) {
             for (int coluna = 0; coluna < tiles[linha].length; ++coluna) {
                 Tile tile = tiles[linha][coluna];
                 if (tile != null && tile.getImage() != null) {
-                    g.drawImage(tile.getImage(), coluna * tileSize, linha * tileSize, tileSize, tileSize, null);
+                    g2d.drawImage(tile.getImage(), coluna * tileSize, linha * tileSize, tileSize, tileSize, null);
+
+                    Item item = tiles[linha][coluna].getItem();
+                    if (item != null && item.getImages().getFirst() != null) {
+                        g2d.drawImage(item.getImages().getFirst(), coluna * tileSize, linha * tileSize, tileSize, tileSize, null);
+                    }
                     continue;
                 }
-                g.setColor(Color.BLACK);
-                g.fillRect(coluna * tileSize, linha * tileSize, tileSize, tileSize);
+
+                g2d.setColor(Color.BLACK);
+                g2d.fillRect(coluna * tileSize, linha * tileSize, tileSize, tileSize);
             }
         }
     }
