@@ -4,10 +4,17 @@
  */
 package fantasma;
 
+import enums.Direcao;
+
 /**
  *
  * @author Intel
  */
-public class FantasmaVermelho {
+public class FantasmaVermelho extends Fantasma {
+
+    @Override
+    public Direcao mover() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
 }
