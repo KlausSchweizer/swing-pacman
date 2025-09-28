@@ -40,7 +40,7 @@ public class TxtParser {
     private BufferedImage baixoAberta;
     private BufferedImage cimaAberta;
     private char[][] textoMapa;
-    
+
     public Mapa criarMapa(String filePath) {
         try (BufferedReader br = new BufferedReader(new FileReader(new File(filePath)))) {
             lerImagens();
@@ -239,17 +239,17 @@ public class TxtParser {
         } else if (hasDireita && hasEsquerda) {
             return new Tile(i, j, alturasAbertas, direcoesParede, new Ponto());
         } else if (hasBaixo) {
-            if(textoMapa[i + 1][j] != '#') {
-            return new Tile(i, j, baixoFechada, direcoesParede, new Ponto());
+            if (textoMapa[i + 1][j] != '#') {
+                return new Tile(i, j, baixoFechada, direcoesParede, new Ponto());
             } else {
-                return new Tile(i, j,aberto, direcoesParede, null);
+                return new Tile(i, j, aberto, direcoesParede, null);
             }
         } else if (hasCima) {
             return new Tile(i, j, cimaFechada, direcoesParede, new Ponto());
         } else if (hasDireita) {
             return new Tile(i, j, direitaFechada, direcoesParede, new Ponto());
         } else if (hasEsquerda) {
-            return new Tile(i, j, esquerdaAberta, direcoesParede, new Ponto());
+            return new Tile(i, j, esquerdaFechada, direcoesParede, new Ponto());
         } else {
             return new Tile(i, j, aberto, direcoesParede, new Ponto());
         }
@@ -290,9 +290,9 @@ public class TxtParser {
         } else if (hasDireita) {
             return new Tile(i, j, direitaFechada, direcoesParede, null);
         } else if (hasEsquerda) {
-            return new Tile(i, j, esquerdaAberta, direcoesParede, null);
+            return new Tile(i, j, esquerdaFechada, direcoesParede, null);
         }
-        return new Tile(i, j, fechado, direcoesParede, null);
+        return new Tile(i, j, aberto, direcoesParede, null);
     }
 
     private Tile transformarTileFantasmas(List<Direcao> direcoesParede, int i, int j) {
@@ -370,7 +370,7 @@ public class TxtParser {
         } else if (hasDireita) {
             return new Tile(i, j, direitaFechada, direcoesParede, new Ponto());
         } else if (hasEsquerda) {
-            return new Tile(i, j, esquerdaAberta, direcoesParede, new Ponto());
+            return new Tile(i, j, esquerdaFechada, direcoesParede, new Ponto());
         } else {
             return new Tile(i, j, aberto, direcoesParede, new Ponto());
         }
