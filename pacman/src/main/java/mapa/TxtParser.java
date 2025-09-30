@@ -8,42 +8,25 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import mapa.criarmapa.LerImagens;
-import mapa.criarmapa.contar.ContarLinhasColunas;
-import mapa.criarmapa.matrizmapa.ConverterMatriz;
-import mapa.criarmapa.matrizmapa.MatrizParaMapa;
+import mapa.matrizmapa.MatrizMapa;
 
 /**
  *
  * @author klaus
  */
 public class TxtParser {
-    private LerImagens lerImagens;
-    private ConverterMatriz converterMatriz;
-    private MatrizParaMapa matrizParaMapa;
-    private ContarLinhasColunas contar;
-    private int i;
-    private int j;
-    private char[][] textoMapa;
-    
-    public TxtParser()throws IOException{
-    contar = new ContarLinhasColunas();
-    i = 0;
-    j = 0;
-    lerImagens = new LerImagens(i, j);
-    converterMatriz = new ConverterMatriz();
-    matrizParaMapa = new MatrizParaMapa();
-    }
-    
-    public Mapa criarMapa(String filePath) {
-        
-        try (BufferedReader br = new BufferedReader(new FileReader(new File(filePath))) ) {
-            lerImagens.executar();
-            int quantidadeLinhas = contar.contarLinhas(filePath);
-            int quantidadeColunas = contar.contarColunas(filePath);
 
-            textoMapa = converterMatriz.executar(quantidadeLinhas, quantidadeColunas, br);
-            return matrizParaMapa.executar(textoMapa);
+    private MatrizMapa matrizParaMapa;
+    private char[][] textoMapa;
+
+    public Mapa criarMapa(String filePath) {
+        try {
+            this.matrizParaMapa = new MatrizMapa(filePath);
+            int quantidadeLinhas = matrizParaMapa.getNumeroLinhas();
+            int quantidadeColunas = matrizParaMapa.getNumeroColunas();
+
+            textoMapa = converterMatriz(quantidadeLinhas, quantidadeColunas, filePath);
+            return matrizParaMapa.converterMatrizMapa(textoMapa);
         } catch (IOException e) {
             File file = new File("mapas/mapa.txt");
             System.out.println("Caminho absoluto: " + file.getAbsolutePath());
@@ -55,6 +38,22 @@ public class TxtParser {
         }
         return null;
     }
-
     
+    public char[][] converterMatriz(int quantidadeLinhas, int quantidadeColunas, String path) throws IOException {
+        try (BufferedReader br = new BufferedReader(new FileReader(new File(path)))) {
+            if (quantidadeLinhas > 0 && quantidadeColunas > 0) {
+                char[][] textoMapa = new char[quantidadeLinhas][quantidadeColunas];
+                String line = "";
+                for (int i = 0; line != null; i++) {
+                    line = br.readLine();
+                    if (line != null) {
+                        textoMapa[i] = line.toCharArray();
+                    }
+                }
+                return textoMapa;
+            }
+            return null;
+        }
     }
+
+}

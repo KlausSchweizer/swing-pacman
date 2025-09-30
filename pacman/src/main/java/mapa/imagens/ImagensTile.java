@@ -1,29 +1,39 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package mapa.criarmapa;
+package mapa.imagens;
 
-import mapa.criarmapa.imagemetile.ImagemTile;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
-/**
- *
- * @author Intel
- */
-public class LerImagens extends ImagemTile{
-    public LerImagens(int i, int j) throws IOException{
-    super(i, j);
+public class ImagensTile {
+
+    public static BufferedImage ladosAbertos;
+    public static BufferedImage fechado;
+    public static BufferedImage aberto;
+    public static BufferedImage esquerdaAberta;
+    public static BufferedImage direitaAberta;
+    public static BufferedImage alturasAbertas;
+    public static BufferedImage direitaFechada;
+    public static BufferedImage esquerdaFechada;
+    public static BufferedImage cimaFechada;
+    public static BufferedImage baixoFechada;
+    public static BufferedImage direitaCimaAbertas;
+    public static BufferedImage esquerdaCimaAbertas;
+    public static BufferedImage esquerdaBaixoAbertas;
+    public static BufferedImage direitaBaixoAbertas;
+    public static BufferedImage saidaFantasmas;
+    public static BufferedImage baixoAberta;
+    public static BufferedImage cimaAberta;
+
+    public ImagensTile() {
+        try {
+            lerImagens();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
-    public static void main(String[] args) throws IOException {
-        int i = 0;
-        int j = 0;
-        new LerImagens(i, j).executar();
-    }
-    
-    public void executar()throws IOException {
+
+    public void lerImagens() throws IOException {
         File image = new File("imagens/tiles/aberto.png");
         aberto = ImageIO.read(image);
 
