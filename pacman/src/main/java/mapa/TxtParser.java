@@ -26,7 +26,9 @@ public class TxtParser {
             int quantidadeColunas = matrizParaMapa.getNumeroColunas();
 
             textoMapa = converterMatriz(quantidadeLinhas, quantidadeColunas, filePath);
-            return matrizParaMapa.converterMatrizMapa(textoMapa);
+            Mapa mapa = matrizParaMapa.converterMatrizMapa(textoMapa);
+            mapa.setTextoMapa(textoMapa);
+            return mapa;
         } catch (IOException e) {
             File file = new File("mapas/mapa.txt");
             System.out.println("Caminho absoluto: " + file.getAbsolutePath());

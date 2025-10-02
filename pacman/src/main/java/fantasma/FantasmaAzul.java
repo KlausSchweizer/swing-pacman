@@ -5,6 +5,7 @@
 package fantasma;
 
 import enums.Direcao;
+import mapa.Mapa;
 
 /**
  *
@@ -13,13 +14,8 @@ import enums.Direcao;
 public class FantasmaAzul extends Fantasma {
 
     @Override
-    protected Direcao decidirDirecao() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void mover() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    protected Direcao decidirDirecao(int posYInicial, int posXInicial, int posYFinal, int posXFinal, Mapa mapa) {
+        return null;   
     }
 
 }

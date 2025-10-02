@@ -8,6 +8,7 @@ import enums.Direcao;
 import enums.StatusFantasma;
 import java.awt.image.BufferedImage;
 import java.util.List;
+import mapa.Mapa;
 
 /**
  *
@@ -35,10 +36,10 @@ public abstract class Fantasma {
         this.status = StatusFantasma.PERSEGUIDOR;
     }
 
-    protected abstract Direcao decidirDirecao();
+    protected abstract Direcao decidirDirecao(int posYInicial, int posXInicial, int posYFinal, int posXFinal, Mapa mapa);
 
-    public void mover() {
-        this.direcao = decidirDirecao();
+    public void mover(int posYInicial, int posXInicial, int posYFinal, int posXFinal, Mapa mapa) {
+//        this.direcao = decidirDirecao();
         if (direcao == Direcao.BAIXO) {
             posY += velocidade;
         } else if (direcao == Direcao.CIMA) {
