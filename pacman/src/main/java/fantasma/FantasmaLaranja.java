@@ -13,8 +13,14 @@ import enums.Direcao;
 public class FantasmaLaranja extends Fantasma {
 
     @Override
-    public Direcao mover() {
+    protected Direcao decidirDirecao() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+    @Override
+    public void mover() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     
 }
