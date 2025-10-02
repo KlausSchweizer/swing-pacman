@@ -13,6 +13,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.io.IOException;
 import javax.swing.GroupLayout;
 import javax.swing.JPanel;
 
@@ -21,7 +22,7 @@ public class TestePanel
 
     private final Mapa mapa = new TxtParser().criarMapa("mapas/mapa.txt");
 
-    public TestePanel() {
+    public TestePanel() throws IOException{
         this.initComponents();
         this.setPreferredSize(new Dimension(400, 300));
     }

@@ -1,9 +1,9 @@
 $$^^^^^^^^^^^$$
 $$$$$o$o$O$$$$$
 $$$$$o$o$o$$$$$
-$$ooooooooooo$$
-$$o$$$oOo$$$o$$
-<oo$$$ooo$$$oo>
+$$oooooOooooo$$
+$$o$$$o$o$$$o$$
+<oo$$$o$o$$$oo>
 $$ooooooooooo$$
 <oo$$o###o$$oo>
 $$oooo###oooo$$

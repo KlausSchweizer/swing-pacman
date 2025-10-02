@@ -6,6 +6,7 @@ package mapa;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.EventQueue;
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.GroupLayout;
@@ -15,7 +16,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 public class Teste extends JFrame {
 
-    public Teste() {
+    public Teste() throws IOException{
         this.initComponents();
         TestePanel painelPrincipal = new TestePanel();
         this.add(painelPrincipal);
@@ -57,7 +58,11 @@ public class Teste extends JFrame {
 
             @Override
             public void run() {
-                new Teste().setVisible(true);
+                try {
+                    new Teste().setVisible(true);
+                } catch (IOException ex) {
+                    System.getLogger(Teste.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+                }
             }
         });
     }
