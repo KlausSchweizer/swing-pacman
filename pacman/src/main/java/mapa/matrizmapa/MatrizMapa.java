@@ -10,6 +10,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.List;
 import mapa.Mapa;
 import mapa.Tile;
@@ -60,9 +61,11 @@ public class MatrizMapa {
     }
 
     private int contarLinhas(String filePath) throws IOException {
-        try (BufferedReader br = new BufferedReader(new FileReader(new File(filePath)))) {
+        try (BufferedReader br = new BufferedReader(
+                new InputStreamReader(getClass().getResourceAsStream(filePath)))) {
 
             String line = "";
+
             for (int i = 0; line != null; i++) {
                 line = br.readLine();
                 if (line == null) {
@@ -74,7 +77,7 @@ public class MatrizMapa {
     }
 
     private int contarColunas(String filePath) throws IOException {
-        try (BufferedReader br = new BufferedReader(new FileReader(new File(filePath)))) {
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream(filePath)))) {
             String line = br.readLine();
             if (line != null) {
                 return line.toCharArray().length;

@@ -1,4 +1,4 @@
-package fantasma.bfs;
+package personagem.fantasma.bfs;
 
 import enums.Direcao;
 import java.util.ArrayList;
@@ -58,7 +58,7 @@ public class ExplorarCaminho {
     Quando chegar ao destino, deverá percorrer o caminho inverso, passando por 
     cada célula-pai até chegar àquela que tem por célula-pai a célula inicial.
      */
-    protected Direcao decidirDirecao(int posYInicial, int posXInicial,
+    public Direcao decidirDirecao(int posYInicial, int posXInicial,
             int posYFinal, int posXFinal, Mapa mapa) {
         ConversorMapaFantasmas conversorMapa = new ConversorMapaFantasmas();
         this.textoMapa = conversorMapa.converterMapaFantasma(mapa.getTextoMapa());

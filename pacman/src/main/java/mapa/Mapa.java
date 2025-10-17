@@ -4,6 +4,10 @@
  */
 package mapa;
 
+import itens.Item;
+import java.awt.Color;
+import java.awt.Graphics2D;
+
 /**
  *
  * @author klaus
@@ -16,6 +20,26 @@ public class Mapa {
 
     public Mapa() {
         tileSize = 32;
+    }
+    
+    public void draw(Graphics2D g2d) {
+        for (int linha = 0; linha < mapa.length; ++linha) {
+            for (int coluna = 0; coluna < mapa[linha].length; ++coluna) {
+                Tile tile = mapa[linha][coluna];
+                if (tile != null && tile.getImage() != null) {
+                    g2d.drawImage(tile.getImage(), coluna * tileSize, linha * tileSize, tileSize, tileSize, null);
+
+                    Item item = mapa[linha][coluna].getItem();
+                    if (item != null && item.getImages().getFirst() != null) {
+                        g2d.drawImage(item.getImages().getFirst(), coluna * tileSize, linha * tileSize, tileSize, tileSize, null);
+                    }
+                    continue;
+                }
+
+                g2d.setColor(Color.BLACK);
+                g2d.fillRect(coluna * tileSize, linha * tileSize, tileSize, tileSize);
+            }
+        }
     }
 
     public Tile[][] getMapa() {
