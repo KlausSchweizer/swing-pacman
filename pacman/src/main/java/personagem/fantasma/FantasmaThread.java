@@ -33,12 +33,12 @@ public class FantasmaThread extends Thread {
     public void run() {
         while (true) {
             try {
+                Thread.sleep(200);
                 Direcao direcao = fantasma.decidirDirecao(pacman, mapa);
+                System.out.println("Direção escolhida: " + direcao);
                 fantasma.mover(direcao);
 
                 panel.repaint();
-
-                Thread.sleep(200);
             } catch (InterruptedException ex) {
                 Logger.getLogger(FantasmaThread.class.getName()).log(Level.SEVERE, null, ex);
             }

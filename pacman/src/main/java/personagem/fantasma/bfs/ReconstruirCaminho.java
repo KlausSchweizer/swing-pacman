@@ -12,8 +12,8 @@ import enums.Direcao;
  */
 public class ReconstruirCaminho {
     public Direcao reconstruirDirecaoCaminho(CelulaBFS celulaInicio, CelulaBFS proximaCelula) {
-        int diferencaHorizontal = celulaInicio.getPosX() - proximaCelula.getPosX();
-        int diferencaVertical = celulaInicio.getPosY() - proximaCelula.getPosY();
+        int diferencaHorizontal = proximaCelula.getPosX() - celulaInicio.getPosX();
+        int diferencaVertical = proximaCelula.getPosY() - celulaInicio.getPosY();
 
         if (diferencaVertical != 0) {
             if (diferencaVertical == ExplorarCaminho.CIMA) {

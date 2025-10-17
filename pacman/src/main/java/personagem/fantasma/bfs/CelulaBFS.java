@@ -14,7 +14,7 @@ public class CelulaBFS {
     private int posY;
     private CelulaBFS celulaPai;
 
-    public CelulaBFS(int posX, int posY, CelulaBFS celulaPai) {
+    public CelulaBFS(int posY, int posX, CelulaBFS celulaPai) {
         this.posX = posX;
         this.posY = posY;
         this.celulaPai = celulaPai;
@@ -44,4 +44,20 @@ public class CelulaBFS {
         this.celulaPai = celulaPai;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        CelulaBFS other = (CelulaBFS) obj;
+        return this.posX == other.posX && this.posY == other.posY;
+    }
+
+    @Override
+    public int hashCode() {
+        return 31 * posX + posY;
+    }
 }

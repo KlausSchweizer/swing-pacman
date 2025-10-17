@@ -60,58 +60,58 @@ public class ExplorarCaminho {
      */
     public Direcao decidirDirecao(int posYInicial, int posXInicial,
             int posYFinal, int posXFinal, Mapa mapa) {
-        ConversorMapaFantasmas conversorMapa = new ConversorMapaFantasmas();
-        this.textoMapa = conversorMapa.converterMapaFantasma(mapa.getTextoMapa());
+            ConversorMapaFantasmas conversorMapa = new ConversorMapaFantasmas();
+            this.textoMapa = conversorMapa.converterMapaFantasma(mapa.getTextoMapa());
 
-        CelulaBFS celulaInicio = new CelulaBFS(posXInicial, posYInicial, null);
-        CelulaBFS destino = new CelulaBFS(posXFinal, posYFinal, null);
+            CelulaBFS celulaInicio = new CelulaBFS(posYInicial, posXInicial, null);
+            CelulaBFS destino = new CelulaBFS(posYFinal, posXFinal, null);
+        
+            posVisitadas = new boolean[textoMapa.length][textoMapa[0].length];
 
-        posVisitadas = new boolean[textoMapa.length][textoMapa[0].length];
-
-        if (!isCelulaValida(celulaInicio) || !isCelulaValida(destino)) {
-            return null;
-        }
-
-        proximasPosicoes.add(celulaInicio);
-        posVisitadas[posXInicial][posYInicial] = true;
-
-        while (!proximasPosicoes.isEmpty()) {
-            CelulaBFS celula = proximasPosicoes.remove();
-
-            if (celula.getPosX() == posXFinal && celula.getPosY() == posYFinal) {
-                destino.setCelulaPai(celula);
-                break;
+            if (!isCelulaValida(celulaInicio) || !isCelulaValida(destino)) {
+                return null;
             }
-            explorarVizinhos(celula);
-        }
-        caminhoOrdenado = ordenarCaminho(destino, celulaInicio);
-        CelulaBFS proximaCelula = caminhoOrdenado.getLast();
 
-        ReconstruirCaminho reconstrutor = new ReconstruirCaminho();
-        return reconstrutor.reconstruirDirecaoCaminho(celulaInicio, proximaCelula);
+            proximasPosicoes.add(celulaInicio);
+            posVisitadas[posYInicial][posXInicial] = true;
+
+            while (!proximasPosicoes.isEmpty()) {
+                CelulaBFS celula = proximasPosicoes.remove();
+
+                if (celula.getPosX() == posXFinal && celula.getPosY() == posYFinal) {
+                    destino = celula;
+                    break;
+                }
+                explorarVizinhos(celula);
+            }
+            caminhoOrdenado = ordenarCaminho(destino, celulaInicio);
+            CelulaBFS proximaCelula = caminhoOrdenado.get(caminhoOrdenado.size() - 2);
+
+            ReconstruirCaminho reconstrutor = new ReconstruirCaminho();
+            return reconstrutor.reconstruirDirecaoCaminho(celulaInicio, proximaCelula);
     }
 
     private boolean isCelulaValida(CelulaBFS celula) {
         int posX = celula.getPosX();
         int posY = celula.getPosY();
 
-        if (posX < 0 || posY < 0 || posX >= textoMapa.length || posY >= textoMapa[0].length) {
+        if (posY < 0 || posX < 0 || posY >= textoMapa.length || posX >= textoMapa[0].length) {
             return false;
         }
 
-        if (posVisitadas[posX][posY]) {
+        if (posVisitadas[posY][posX]) {
             return false;
         }
 
-        return !(textoMapa[posX][posY] == MatrizMapa.SAIDA_FANTASMA
-                || textoMapa[posX][posY] == MatrizMapa.PAREDE);
+        return !(textoMapa[posY][posX] == MatrizMapa.SAIDA_FANTASMA
+                || textoMapa[posY][posX] == MatrizMapa.PAREDE);
     }
 
     private List<CelulaBFS> definirCelulasVizinhas(CelulaBFS celula) {
-        CelulaBFS celulaAbaixo = new CelulaBFS(celula.getPosX(), celula.getPosY() + BAIXO, celula);
-        CelulaBFS celulaAcima = new CelulaBFS(celula.getPosX(), celula.getPosY() + CIMA, celula);
-        CelulaBFS celulaDireita = new CelulaBFS(celula.getPosX() + DIREITA, celula.getPosY(), celula);
-        CelulaBFS celulaEsquerda = new CelulaBFS(celula.getPosX() + ESQUERDA, celula.getPosY(), celula);
+        CelulaBFS celulaAbaixo = new CelulaBFS(celula.getPosY() + BAIXO, celula.getPosX(), celula);
+        CelulaBFS celulaAcima = new CelulaBFS(celula.getPosY() + CIMA, celula.getPosX(), celula);
+        CelulaBFS celulaDireita = new CelulaBFS(celula.getPosY(), celula.getPosX() + DIREITA, celula);
+        CelulaBFS celulaEsquerda = new CelulaBFS(celula.getPosY(), celula.getPosX() + ESQUERDA, celula);
 
         List<CelulaBFS> celulasVizinhas = new ArrayList<>();
         celulasVizinhas.add(celulaAbaixo);
@@ -128,7 +128,7 @@ public class ExplorarCaminho {
         for (CelulaBFS c : celulasVizinhas) {
             if (isCelulaValida(c)) {
                 proximasPosicoes.add(c);
-                posVisitadas[c.getPosX()][c.getPosY()] = true;
+                posVisitadas[c.getPosY()][c.getPosX()] = true;
             }
         }
     }
