@@ -123,12 +123,17 @@ public class ExplorarCaminho {
     }
 
     private void explorarVizinhos(CelulaBFS celula) {
-        List<CelulaBFS> celulasVizinhas = definirCelulasVizinhas(celula);
+        for (CelulaBFS vizinho : definirCelulasVizinhas(celula)) {
+            int y = vizinho.getPosY();
+            int x = vizinho.getPosX();
 
-        for (CelulaBFS c : celulasVizinhas) {
-            if (isCelulaValida(c)) {
-                proximasPosicoes.add(c);
-                posVisitadas[c.getPosY()][c.getPosX()] = true;
+            if (y < 0 || y >= textoMapa.length || x < 0 || x >= textoMapa[0].length) {
+                continue;
+            }
+
+            if (!posVisitadas[y][x] && textoMapa[y][x] != MatrizMapa.PAREDE && textoMapa[y][x] != MatrizMapa.SAIDA_FANTASMA) {
+                posVisitadas[y][x] = true;
+                proximasPosicoes.add(new CelulaBFS(y, x, celula));
             }
         }
     }

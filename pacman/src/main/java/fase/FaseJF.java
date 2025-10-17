@@ -4,6 +4,8 @@
  */
 package fase;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author Intel
