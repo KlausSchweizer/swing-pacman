@@ -14,22 +14,34 @@ public class ConversorMapaFantasmas {
 
     //Faz os fantasmas ignorarem os '#' que só eles podem passar
     public char[][] converterMapaFantasma(char[][] textoMapa) {
-        for (int i = 0; i < textoMapa.length; i++) {
-            for (int j = 0; j < textoMapa[0].length; j++) {
-                if (textoMapa[i][j] == MatrizMapa.SAIDA_FANTASMA) {
+        char[][] mapa = copiarMapa(textoMapa);
 
-                    boolean hasParedeBaixo = textoMapa[i + 1][j] != MatrizMapa.LIVRE;
-                    boolean hasParedeCima = textoMapa[i - 1][j] != MatrizMapa.LIVRE;
-                    boolean hasParedeDireita = textoMapa[i][j + 1] != MatrizMapa.LIVRE;
-                    boolean hasParedeEsquerda = textoMapa[i][j - 1] != MatrizMapa.LIVRE;
+        for (int i = 0; i < mapa.length; i++) {
+            for (int j = 0; j < mapa[0].length; j++) {
+                if (mapa[i][j] == MatrizMapa.SAIDA_FANTASMA) {
+
+                    boolean hasParedeBaixo = mapa[i + 1][j] != MatrizMapa.LIVRE;
+                    boolean hasParedeCima = mapa[i - 1][j] != MatrizMapa.LIVRE;
+                    boolean hasParedeDireita = mapa[i][j + 1] != MatrizMapa.LIVRE;
+                    boolean hasParedeEsquerda = mapa[i][j - 1] != MatrizMapa.LIVRE;
                     if (hasParedeBaixo && hasParedeDireita && hasParedeEsquerda) {
                         if (!hasParedeCima || !(hasParedeDireita || hasParedeEsquerda)) {
-                            textoMapa[i][j] = MatrizMapa.LIVRE;
+                            mapa[i][j] = MatrizMapa.LIVRE;
                         }
                     }
                 }
             }
         }
-        return textoMapa;
+        return mapa;
+    }
+
+    private char[][] copiarMapa(char[][] textoMapa) {
+        char[][] mapa = new char[textoMapa.length][textoMapa[0].length];
+        for (int i = 0; i < textoMapa.length; i++) {
+            for (int j = 0; j < textoMapa[0].length; j++) {
+                mapa[i][j] = textoMapa[i][j];
+            }
+        }
+        return mapa;
     }
 }

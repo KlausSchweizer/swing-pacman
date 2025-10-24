@@ -33,7 +33,7 @@ public class Main {
         fase.add(painelFase);
         fase.setContentPane(painelFase);
         fase.pack();
-        
+        fase.setExtendedState(JFrame.MAXIMIZED_BOTH);
         fase.setVisible(true);
         
         Thread thread = new FantasmaThread((Fantasma) personagens.get(0), 

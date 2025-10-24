@@ -11,6 +11,7 @@ import enums.Direcao;
  * @author klaus
  */
 public class ReconstruirCaminho {
+
     public Direcao reconstruirDirecaoCaminho(CelulaBFS celulaInicio, CelulaBFS proximaCelula) {
         int diferencaHorizontal = proximaCelula.getPosX() - celulaInicio.getPosX();
         int diferencaVertical = proximaCelula.getPosY() - celulaInicio.getPosY();
@@ -28,6 +29,6 @@ public class ReconstruirCaminho {
                 return Direcao.DIREITA;
             }
         }
-        return null;
+        throw new RuntimeException("X: " + proximaCelula.getPosX() + " Y:" + proximaCelula.getPosY());
     }
 }
