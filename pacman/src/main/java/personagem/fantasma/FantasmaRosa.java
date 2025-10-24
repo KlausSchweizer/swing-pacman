@@ -15,13 +15,13 @@ import personagem.pacman.Pacman;
  *
  * @author Intel
  */
-public class FantasmaLaranja extends Fantasma {
+public class FantasmaRosa extends Fantasma {
 
-    public FantasmaLaranja(int posY, int posX) {
+    public FantasmaRosa(int posY, int posX) {
         super(posY, posX);
 
         try {
-              BufferedImage sprite1 = ImageIO.read(getClass().getResource("/imagens/fantasmas/FantasmaLaranja/FantasmLaranjaBaixo.png"));
+              BufferedImage sprite1 = ImageIO.read(getClass().getResource("/imagens/fantasmas/FantasmaRosa/FantasmRosaCima.png"));
 
             spritesAndando = new BufferedImage[]{sprite1};
             spritesAtuais = new BufferedImage[]{sprite1};

@@ -25,7 +25,6 @@ public class ExplorarCaminho {
     private LinkedList<CelulaBFS> caminhoOrdenado;
 
     public ExplorarCaminho() {
-        proximasPosicoes = new LinkedList<>();
     }
 
     /*
@@ -65,7 +64,8 @@ public class ExplorarCaminho {
 
             CelulaBFS celulaInicio = new CelulaBFS(posYInicial, posXInicial, null);
             CelulaBFS destino = new CelulaBFS(posYFinal, posXFinal, null);
-        
+            
+            proximasPosicoes = new LinkedList<>();        
             posVisitadas = new boolean[textoMapa.length][textoMapa[0].length];
 
             if (!isCelulaValida(celulaInicio) || !isCelulaValida(destino)) {

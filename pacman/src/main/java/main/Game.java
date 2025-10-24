@@ -16,7 +16,7 @@ public class Game {
     private Mapa mapa;
     
     public Game() {
-        mapa = new TxtParser().criarMapa("/mapas/mapa.txt");
+        mapa = new TxtParser().criarMapa("/mapas/mapa2.txt");
     }
 
     public Mapa getMapa() {

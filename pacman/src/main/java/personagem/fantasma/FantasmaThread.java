@@ -35,7 +35,8 @@ public class FantasmaThread extends Thread {
             try {
                 Thread.sleep(200);
                 Direcao direcao = fantasma.decidirDirecao(pacman, mapa);
-                System.out.println("Direção escolhida: " + direcao);
+                System.out.println("Direção escolhida: " + direcao
+                                    + "Fantasma: " + fantasma);
                 fantasma.mover(direcao);
 
                 panel.repaint();
