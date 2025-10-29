@@ -5,10 +5,10 @@ $$oooooOooooo$$
 $$o$$$o$o$$$o$$
 <oo$$$o$o$$$oo>
 $$ooooooooooo$$
-<oo$$o###o$$oo>
-$$oooo#G#oooo$$
+<oo$$o#G#o$$oo>
+$$oooo###oooo$$
 $oo$$o###o$$Oo$
 $o$$$ooooo$$$o$
-$Ooooo$C$ooooo$
-$$$$$o$o$o$$$$$
+$Ooooo$o$ooooo$
+$$$$$o$C$o$$$$$
 $$vvvvvvvvvvv$$

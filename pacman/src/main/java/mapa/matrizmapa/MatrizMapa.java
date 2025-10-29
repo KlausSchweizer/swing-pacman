@@ -113,10 +113,10 @@ public class MatrizMapa {
                     matrizTile[i][j] = transformarTileSaida.executar(direcoesParede, i, j);
                 } else if (textoMapa[i][j] == FANTASMA) {
                     matrizTile[i][j] = transformarTileFantasma.executar(direcoesParede, i, j);
-                    mapa.adicionarSpawnFantasma(new Posicao(i, j));
+                    mapa.adicionarSpawnFantasma(new Posicao(j, i));
                 } else if (textoMapa[i][j] == PACMAN) {
                     matrizTile[i][j] = transformarTileLivre.executar(direcoesParede, i, j);
-                    mapa.setSpawnPacman(new Posicao(i, j));
+                    mapa.setSpawnPacman(new Posicao(j, i));
                 }
             }
         }

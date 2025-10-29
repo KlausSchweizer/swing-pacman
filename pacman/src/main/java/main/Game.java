@@ -6,6 +6,8 @@ package main;
 
 import enums.StatusFantasma;
 import fase.FasePanel;
+
+import java.util.ArrayList;
 import java.util.List;
 import mapa.Mapa;
 import mapa.TxtParser;
@@ -27,11 +29,12 @@ public class Game {
 
     public Game() {
         mapa = new TxtParser().criarMapa("/mapas/mapa.txt");
+        fantasmas = new ArrayList<Fantasma>();
     }
 
     public void start() {
         for (Fantasma fantasma : fantasmas) {
-            threads.add(new FantasmaThread(fantasma, pacman, mapa));
+            threads.add(new FantasmaThread(fantasma, pacman, mapa, panel));
         }
         threads.forEach(Thread::start);
     }

@@ -84,7 +84,8 @@ public class ExplorarCaminho {
             explorarVizinhos(celula);
         }
         caminhoOrdenado = ordenarCaminho(destino, celulaInicio);
-        CelulaBFS proximaCelula = caminhoOrdenado.get(1);
+        CelulaBFS proximaCelula = caminhoOrdenado.
+                get(1);
 
         for (CelulaBFS celula : caminhoOrdenado) {
             System.out.println(celula);
