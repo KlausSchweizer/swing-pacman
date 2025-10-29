@@ -20,13 +20,11 @@ public class FantasmaThread extends Thread {
     private Fantasma fantasma;
     private Pacman pacman;
     private Mapa mapa;
-    private FasePanel panel;
 
-    public FantasmaThread(Fantasma fantasma, Pacman pacman, Mapa mapa, FasePanel panel) {
+    public FantasmaThread(Fantasma fantasma, Pacman pacman, Mapa mapa) {
         this.fantasma = fantasma;
         this.pacman = pacman;
         this.mapa = mapa;
-        this.panel = panel;
     }
 
     @Override
@@ -37,8 +35,6 @@ public class FantasmaThread extends Thread {
                 Direcao direcao = fantasma.decidirDirecao(pacman, mapa);
                 System.out.println("Direção escolhida: " + direcao);
                 fantasma.mover(direcao);
-
-                panel.repaint();
             } catch (InterruptedException ex) {
                 Logger.getLogger(FantasmaThread.class.getName()).log(Level.SEVERE, null, ex);
             }

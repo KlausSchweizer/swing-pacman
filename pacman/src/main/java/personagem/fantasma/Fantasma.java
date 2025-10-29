@@ -6,8 +6,10 @@ package personagem.fantasma;
 
 import enums.Direcao;
 import enums.StatusFantasma;
+
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
+
 import mapa.Mapa;
 import personagem.Personagem;
 import personagem.fantasma.bfs.ExplorarCaminho;
@@ -25,6 +27,10 @@ public abstract class Fantasma extends Personagem {
     protected int medoFPS;
     protected int transformandoFPS;
     protected ExplorarCaminho explorador;
+    public static final int VERMELHO = 0;
+    public static final int ROSA = 1;
+    public static final int AZUL = 2;
+    public static final int LARANJA = 3;
 
     public Fantasma(int posY, int posX) {
         super(posY, posX);
@@ -36,21 +42,7 @@ public abstract class Fantasma extends Personagem {
 
     protected abstract Direcao decidirDirecao(Pacman pacman, Mapa mapa);
 
-    public void draw(Graphics2D g2d) {
-
-    }
-
-    public void mover(Direcao direcao) {
-        if (direcao == Direcao.BAIXO) {
-            this.posY++;
-        } else if (direcao == Direcao.CIMA) {
-            this.posY--;
-        } else if (direcao == Direcao.DIREITA) {
-            this.posX++;
-        } else if (direcao == Direcao.ESQUERDA) {
-            this.posX--;
-        }
-    }
+    public abstract void draw(Graphics2D g, int tileSize, Mapa mapa);
 
     public void morrer() {
 

@@ -7,6 +7,8 @@ package mapa;
 import itens.Item;
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -17,9 +19,12 @@ public class Mapa {
     private Tile[][] mapa;
     private int tileSize;
     private char[][] textoMapa;
+    private Posicao spawnPacman;
+    private List<Posicao> spawnsFantasma;
 
     public Mapa() {
         tileSize = 32;
+        spawnsFantasma = new ArrayList<>();
     }
     
     public void draw(Graphics2D g2d) {
@@ -66,5 +71,19 @@ public class Mapa {
         this.textoMapa = textoMapa;
     }
 
-    
+    public Posicao getSpawnPacman() {
+        return spawnPacman;
+    }
+
+    public void setSpawnPacman(Posicao spawnPacman) {
+        this.spawnPacman = spawnPacman;
+    }
+
+    public List<Posicao> getSpawnsFantasma() {
+        return spawnsFantasma;
+    }
+
+    public void adicionarSpawnFantasma(Posicao posicao) {
+        this.spawnsFantasma.add(posicao);
+    }
 }

@@ -13,9 +13,9 @@ import personagem.pacman.Pacman;
  *
  * @author Intel
  */
-public class FantasmaAmarelo extends Fantasma {
+public class FantasmaRosa extends Fantasma {
 
-    public FantasmaAmarelo(int posY, int posX) {
+    public FantasmaRosa(int posY, int posX) {
         super(posY, posX);
     }
 

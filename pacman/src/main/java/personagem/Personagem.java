@@ -33,6 +33,19 @@ public abstract class Personagem {
     }
 
     public abstract void draw(Graphics2D g, int tileSize, Mapa mapa);
+    public abstract void morrer();
+    
+    public void mover(Direcao direcao) {
+        if (direcao == Direcao.BAIXO) {
+            this.posY++;
+        } else if (direcao == Direcao.CIMA) {
+            this.posY--;
+        } else if (direcao == Direcao.DIREITA) {
+            this.posX++;
+        } else if (direcao == Direcao.ESQUERDA) {
+            this.posX--;
+        }
+    }
 
     public int getPosX() {
         return posX;

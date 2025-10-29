@@ -6,9 +6,9 @@ $$o$$$o$o$$$o$$
 <oo$$$o$o$$$oo>
 $$ooooooooooo$$
 <oo$$o###o$$oo>
-$$oooo###oooo$$
+$$oooo#G#oooo$$
 $oo$$o###o$$Oo$
 $o$$$ooooo$$$o$
-$Ooooo$o$ooooo$
+$Ooooo$C$ooooo$
 $$$$$o$o$o$$$$$
 $$vvvvvvvvvvv$$
