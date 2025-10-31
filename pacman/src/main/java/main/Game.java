@@ -28,7 +28,6 @@ public class Game {
     private boolean isRunning;
 
     public Game() {
-        mapa = new TxtParser().criarMapa("/mapas/mapa1.txt");
         fantasmas = new ArrayList<>();
         isRunning = true;
     }
@@ -45,6 +44,11 @@ public class Game {
 
     public void finish() {
         isRunning = false;
+    }
+
+    public void selecionarFase(String path) {
+        mapa = new TxtParser().criarMapa(path);
+        Main.comecarFase(this, Main.getFase());
     }
 
     public void checarColisoes(Fantasma fantasma) {

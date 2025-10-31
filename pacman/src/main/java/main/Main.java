@@ -7,10 +7,12 @@ package main;
 import fase.FaseJF;
 import fase.FasePanel;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.*;
 
+import fase.SeletorFases;
 import mapa.Posicao;
 import personagem.fantasma.*;
 import personagem.pacman.Pacman;
@@ -20,10 +22,24 @@ import personagem.pacman.Pacman;
  * @author klaus
  */
 public class Main {
-    public static void main(String[] args) {
-        Game game = new Game();
-        FaseJF fase = new FaseJF();
+    private static FaseJF fase;
 
+    public static void main(String[] args) {
+        try {
+            Game game = new Game();
+            fase = new FaseJF();
+            SeletorFases seletor = new SeletorFases(game);
+            fase.add(seletor);
+            fase.setContentPane(seletor);
+            fase.pack();
+            fase.setExtendedState(JFrame.MAXIMIZED_BOTH);
+            fase.setVisible(true);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void comecarFase(Game game, FaseJF fase) {
         configurarFantasmas(game);
         configurarPacman(game);
         configurarPainelFase(game);
@@ -72,13 +88,16 @@ public class Main {
     }
 
     private static void configurarFase(FaseJF fase, FasePanel painelFase) {
-        fase.add(painelFase);
+        fase.getContentPane().removeAll();
         fase.setContentPane(painelFase);
-        fase.pack();
-        fase.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        fase.setVisible(true);
-        fase.setVisible(true);
+        fase.revalidate();
+        fase.repaint();
         painelFase.setFocusable(true);
         painelFase.requestFocusInWindow();
+
+    }
+
+    public static FaseJF getFase() {
+        return fase;
     }
 }
