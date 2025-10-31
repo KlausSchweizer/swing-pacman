@@ -20,7 +20,7 @@ public class FantasmaLaranja extends Fantasma {
     }
 
     @Override
-    protected Direcao decidirDirecao(Pacman pacman, Mapa mapa) {
+    public Direcao decidirDirecao(Pacman pacman, Mapa mapa) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 

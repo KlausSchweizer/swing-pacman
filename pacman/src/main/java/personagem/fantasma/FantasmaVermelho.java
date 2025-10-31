@@ -32,7 +32,7 @@ public class FantasmaVermelho extends Fantasma {
     }
 
     @Override
-    protected Direcao decidirDirecao(Pacman pacman, Mapa mapa) {
+    public Direcao decidirDirecao(Pacman pacman, Mapa mapa) {
         return explorador.decidirDirecao(this.posY, this.posX, pacman.getPosY(),
                 pacman.getPosX(), mapa);
     }

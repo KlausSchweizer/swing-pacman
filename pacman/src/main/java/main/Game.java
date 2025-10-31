@@ -13,7 +13,6 @@ import java.util.List;
 import mapa.Mapa;
 import mapa.TxtParser;
 import personagem.fantasma.Fantasma;
-import personagem.fantasma.FantasmaThread;
 import personagem.pacman.Pacman;
 
 /**
@@ -25,29 +24,27 @@ public class Game {
     private Mapa mapa;
     private List<Fantasma> fantasmas;
     private Pacman pacman;
-    private List<FantasmaThread> threads;
     private FasePanel panel;
+    private boolean isRunning;
 
     public Game() {
         mapa = new TxtParser().criarMapa("/mapas/mapa1.txt");
-        fantasmas = new ArrayList<Fantasma>();
-        threads = new ArrayList<>();
-    }
-
-    public void start() {
-        for (Fantasma fantasma : fantasmas) {
-            threads.add(new FantasmaThread(fantasma, pacman, mapa, panel));
-        }
-        threads.forEach(Thread::start);
+        fantasmas = new ArrayList<>();
+        isRunning = true;
     }
 
     public void update() {
-        fantasmas.forEach(this::checarColisoes);
+        for (Fantasma fantasma : fantasmas) {
+            fantasma.setDirecao(fantasma.decidirDirecao(pacman, mapa));
+            fantasma.mover(mapa);
+            checarColisoes(fantasma);
+        }
+        pacman.mover(mapa);
         panel.repaint();
     }
 
     public void finish() {
-        threads.forEach(Thread::interrupt);
+        isRunning = false;
     }
 
     public void checarColisoes(Fantasma fantasma) {
@@ -86,14 +83,6 @@ public class Game {
         this.pacman = pacman;
     }
 
-    public List<FantasmaThread> getThreads() {
-        return threads;
-    }
-
-    public void setThreads(List<FantasmaThread> threads) {
-        this.threads = threads;
-    }
-
     public FasePanel getPanel() {
         return panel;
     }
@@ -102,5 +91,8 @@ public class Game {
         this.panel = panel;
     }
 
+    public boolean isRunning() {
+        return isRunning;
+    }
 
 }

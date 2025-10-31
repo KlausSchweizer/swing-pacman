@@ -40,7 +40,7 @@ public abstract class Fantasma extends Personagem {
         this.explorador = new ExplorarCaminho();
     }
 
-    protected abstract Direcao decidirDirecao(Pacman pacman, Mapa mapa);
+    public abstract Direcao decidirDirecao(Pacman pacman, Mapa mapa);
 
     public abstract void draw(Graphics2D g, int tileSize, Mapa mapa);
 
