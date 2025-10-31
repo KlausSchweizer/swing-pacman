@@ -1,6 +1,5 @@
 personagem\fantasma\FantasmaLaranja.class
 personagem\fantasma\FantasmaThread.class
-personagem\fantasma\FantasmaAmarelo.class
 personagem\fantasma\Fantasma.class
 personagem\pacman\Pacman.class
 menu\Menu.class
@@ -11,4 +10,5 @@ personagem\fantasma\bfs\CelulaBFS.class
 personagem\fantasma\bfs\ReconstruirCaminho.class
 personagem\fantasma\bfs\ConversorMapaFantasmas.class
 personagem\Personagem.class
+personagem\pacman\PacmanThread.class
 personagem\fantasma\FantasmaAzul.class
