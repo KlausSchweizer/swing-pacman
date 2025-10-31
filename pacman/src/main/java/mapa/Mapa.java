@@ -23,7 +23,7 @@ public class Mapa {
     private List<Posicao> spawnsFantasma;
 
     public Mapa() {
-        tileSize = 32;
+        tileSize = 20;
         spawnsFantasma = new ArrayList<>();
     }
     

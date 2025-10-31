@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package personagem.fantasma;
+package personagem.pacman;
 
 import enums.Direcao;
 import fase.FasePanel;
@@ -15,15 +15,13 @@ import personagem.pacman.Pacman;
  *
  * @author klaus
  */
-public class FantasmaThread extends Thread {
+public class PacmanThread extends Thread {
 
-    private Fantasma fantasma;
     private Pacman pacman;
     private Mapa mapa;
     private FasePanel painelAtual;
 
-    public FantasmaThread(Fantasma fantasma, Pacman pacman, Mapa mapa, FasePanel painelAtual) {
-        this.fantasma = fantasma;
+    public PacmanThread(Pacman pacman, Mapa mapa, FasePanel painelAtual) {
         this.pacman = pacman;
         this.mapa = mapa;
         this.painelAtual = painelAtual;
@@ -34,10 +32,7 @@ public class FantasmaThread extends Thread {
         while (!isInterrupted()) {
             try {
                 Thread.sleep(200);
-                Direcao direcao = fantasma.decidirDirecao(pacman, mapa);
-                System.out.println("Direção escolhida: " + direcao);
-                fantasma.setDirecao(direcao);
-                fantasma.mover(mapa);
+                pacman.mover(mapa);
 
                 javax.swing.SwingUtilities.invokeLater(() -> {
                     FasePanel panel = painelAtual;
@@ -45,7 +40,7 @@ public class FantasmaThread extends Thread {
                 });
 
             } catch (InterruptedException ex) {
-                Logger.getLogger(FantasmaThread.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Pacman.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }

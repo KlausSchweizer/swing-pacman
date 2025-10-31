@@ -35,7 +35,7 @@ public abstract class Personagem {
     public abstract void draw(Graphics2D g, int tileSize, Mapa mapa);
     public abstract void morrer();
     
-    public void mover(Direcao direcao) {
+    public void mover(Mapa mapa) {
         if (direcao == Direcao.BAIXO) {
             this.posY++;
         } else if (direcao == Direcao.CIMA) {
@@ -73,10 +73,6 @@ public abstract class Personagem {
 
     public Direcao getDirecao() {
         return direcao;
-    }
-
-    public void setDirecao(Direcao direcao) {
-        this.direcao = direcao;
     }
 
     public BufferedImage[] getSpritesAtuais() {

@@ -105,4 +105,8 @@ public abstract class Fantasma extends Personagem {
     public void setTransformandoFPS(int transformandoFPS) {
         this.transformandoFPS = transformandoFPS;
     }
+
+    public void setDirecao(Direcao direcao) {
+        this.direcao = direcao;
+    }
 }

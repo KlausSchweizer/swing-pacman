@@ -4,20 +4,26 @@
  */
 package fase;
 
+import enums.Direcao;
+
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.event.KeyEvent;
 import java.util.List;
+
 import mapa.Mapa;
 import personagem.Personagem;
+import personagem.pacman.Pacman;
 
 /**
  *
  * @author klaus
  */
 public class FasePanel extends javax.swing.JPanel {
-    
+
     private Mapa mapa;
     private List<Personagem> personagens;
+
     /**
      * Creates new form FasePanel
      */
@@ -25,6 +31,8 @@ public class FasePanel extends javax.swing.JPanel {
         initComponents();
         this.mapa = mapa;
         this.personagens = personagens;
+        setFocusable(true);
+        requestFocusInWindow();
     }
 
     /**
@@ -36,32 +44,59 @@ public class FasePanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                formKeyPressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 300, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
+        for (Personagem personagem : personagens) {
+            if (personagem instanceof Pacman) {
+                Pacman pacman = (Pacman) personagem;
+                if (evt.getKeyCode() == KeyEvent.VK_UP
+                        || evt.getKeyCode() == KeyEvent.VK_W) {
+                    pacman.setDirecao(Direcao.CIMA, mapa);
+                } else if (evt.getKeyCode() == KeyEvent.VK_DOWN
+                        || evt.getKeyCode() == KeyEvent.VK_S) {
+                    pacman.setDirecao(Direcao.BAIXO, mapa);
+                } else if (evt.getKeyCode() == KeyEvent.VK_LEFT
+                        || evt.getKeyCode() == KeyEvent.VK_A) {
+                    pacman.setDirecao(Direcao.ESQUERDA, mapa);
+                } else if (evt.getKeyCode() == KeyEvent.VK_RIGHT
+                        || evt.getKeyCode() == KeyEvent.VK_D) {
+                    pacman.setDirecao(Direcao.DIREITA, mapa);
+                }
+            }
+        }
+    }//GEN-LAST:event_formKeyPressed
 
     @Override
     protected void paintComponent(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
         super.paintComponent(g2d);
-        
+
         int tileSize = mapa.getTileSize();
-        
+
         mapa.draw(g2d);
-        
-        for(Personagem personagem : personagens) {
+
+        for (Personagem personagem : personagens) {
             personagem.draw(g2d, tileSize, mapa);
         }
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
 }

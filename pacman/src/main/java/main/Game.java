@@ -9,6 +9,7 @@ import fase.FasePanel;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import mapa.Mapa;
 import mapa.TxtParser;
 import personagem.fantasma.Fantasma;
@@ -28,8 +29,9 @@ public class Game {
     private FasePanel panel;
 
     public Game() {
-        mapa = new TxtParser().criarMapa("/mapas/mapa.txt");
+        mapa = new TxtParser().criarMapa("/mapas/mapa1.txt");
         fantasmas = new ArrayList<Fantasma>();
+        threads = new ArrayList<>();
     }
 
     public void start() {
@@ -41,7 +43,6 @@ public class Game {
 
     public void update() {
         fantasmas.forEach(this::checarColisoes);
-
         panel.repaint();
     }
 
@@ -100,6 +101,6 @@ public class Game {
     public void setPanel(FasePanel panel) {
         this.panel = panel;
     }
-    
-    
+
+
 }

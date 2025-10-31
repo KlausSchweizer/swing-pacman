@@ -15,6 +15,7 @@ import mapa.Posicao;
 import personagem.Personagem;
 import personagem.fantasma.*;
 import personagem.pacman.Pacman;
+import personagem.pacman.PacmanThread;
 
 /**
  *
@@ -48,7 +49,7 @@ public class Main {
         game.setPacman((Pacman) personagens.getLast());
 
         FasePanel painelFase = new FasePanel(game.getMapa(), personagens);
-
+        game.setPanel(painelFase);
         configurarFase(fase, painelFase);
 
         List<Thread> threads = new ArrayList<>();
@@ -58,6 +59,14 @@ public class Main {
             threads.add(thread);
             thread.start();
         }
+        Thread thread = new PacmanThread(game.getPacman(), game.getMapa(), painelFase);
+        threads.add(thread);
+        thread.start();
+
+        game.start();
+        while (true) {
+            game.update();
+        }
     }
 
     private static void configurarFase(FaseJF fase, FasePanel painelFase) {
@@ -66,5 +75,8 @@ public class Main {
         fase.pack();
         fase.setExtendedState(JFrame.MAXIMIZED_BOTH);
         fase.setVisible(true);
+        fase.setVisible(true);
+        painelFase.setFocusable(true);
+        painelFase.requestFocusInWindow();
     }
 }
