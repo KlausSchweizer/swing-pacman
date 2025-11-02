@@ -4,15 +4,16 @@
  */
 package mapa.matrizmapa;
 
-import enums.Direcao;
+import main.Direcao;
 import itens.PowerUp;
+
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
+
 import mapa.Mapa;
+import mapa.Posicao;
 import mapa.Tile;
 import mapa.direcoes.VerificarDirecoes;
 import mapa.imagens.ImagensTile;
@@ -35,6 +36,8 @@ public class MatrizMapa {
     public static final char SAIDA_BAIXO = 'v';
     public static final char SAIDA_ESQUERDA = '<';
     public static final char SAIDA_DIREITA = '>';
+    public static final char FANTASMA = 'G';
+    public static final char PACMAN = 'C';
 
     private static final int INDICE_COLUNAS = 0;
 
@@ -106,6 +109,12 @@ public class MatrizMapa {
                 } else if (textoMapa[i][j] == SAIDA_CIMA || textoMapa[i][j] == SAIDA_BAIXO
                         || textoMapa[i][j] == SAIDA_ESQUERDA || textoMapa[i][j] == SAIDA_DIREITA) {
                     matrizTile[i][j] = transformarTileSaida.executar(direcoesParede, i, j);
+                } else if (textoMapa[i][j] == FANTASMA) {
+                    matrizTile[i][j] = transformarTileFantasma.executar(direcoesParede, i, j);
+                    mapa.adicionarSpawnFantasma(new Posicao(j, i));
+                } else if (textoMapa[i][j] == PACMAN) {
+                    matrizTile[i][j] = transformarTileLivre.executar(direcoesParede, i, j);
+                    mapa.setSpawnPacman(new Posicao(j, i));
                 }
             }
         }

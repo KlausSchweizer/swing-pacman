@@ -4,6 +4,8 @@
  */
 package personagem.fantasma.bfs;
 
+import java.util.Objects;
+
 /**
  *
  * @author klaus
@@ -45,19 +47,22 @@ public class CelulaBFS {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null || getClass() != obj.getClass()) {
-            return false;
-        }
-        CelulaBFS other = (CelulaBFS) obj;
-        return this.posX == other.posX && this.posY == other.posY;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof CelulaBFS)) return false;
+        CelulaBFS cel = (CelulaBFS) o;
+        return posX == cel.posX && posY == cel.posY;
     }
 
     @Override
     public int hashCode() {
-        return 31 * posX + posY;
+        return Objects.hash(posX, posY);
     }
+
+    @Override
+    public String toString() {
+        return "CelulaBFS{" + "posX=" + posX + ", posY=" + posY + '}';
+    }
+    
+    
 }

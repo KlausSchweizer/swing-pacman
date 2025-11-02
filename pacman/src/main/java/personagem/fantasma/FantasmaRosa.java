@@ -4,7 +4,7 @@
  */
 package personagem.fantasma;
 
-import enums.Direcao;
+import main.Direcao;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
@@ -21,7 +21,7 @@ public class FantasmaRosa extends Fantasma {
         super(posY, posX);
 
         try {
-              BufferedImage sprite1 = ImageIO.read(getClass().getResource("/imagens/fantasmas/FantasmaRosa/FantasmRosaCima.png"));
+              BufferedImage sprite1 = ImageIO.read(getClass().getResource("/imagens/fantasmas/FantasmaAmarelo/FantasmAmareloCima.png"));
 
             spritesAndando = new BufferedImage[]{sprite1};
             spritesAtuais = new BufferedImage[]{sprite1};
@@ -31,7 +31,7 @@ public class FantasmaRosa extends Fantasma {
     }
 
     @Override
-    protected Direcao decidirDirecao(Pacman pacman, Mapa mapa) {
+    public Direcao decidirDirecao(Pacman pacman, Mapa mapa) {
         return explorador.decidirDirecao(this.posY, this.posX, pacman.getPosY(),
                 pacman.getPosX(), mapa);
     }

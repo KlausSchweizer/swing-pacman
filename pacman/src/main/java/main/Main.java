@@ -6,79 +6,100 @@ package main;
 
 import fase.FaseJF;
 import fase.FasePanel;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JFrame;
-import personagem.Personagem;
-import personagem.fantasma.Fantasma;
-import personagem.fantasma.FantasmaAmarelo;
-import personagem.fantasma.FantasmaLaranja;
-import personagem.fantasma.FantasmaRosa;
-import personagem.fantasma.FantasmaThread;
-import personagem.fantasma.FantasmaVermelho;
+import javax.swing.*;
+
+import fase.SeletorFases;
+import mapa.Posicao;
+import personagem.fantasma.*;
 import personagem.pacman.Pacman;
+import singleplayer.Game;
 
 /**
  *
  * @author klaus
  */
 public class Main {
+    private static FaseJF fase;
+
     public static void main(String[] args) {
-        Game game = new Game();
-        FaseJF fase = new FaseJF();
-        
-        List<Personagem> personagens = new ArrayList<>();
-        personagens.add(new FantasmaVermelho(6, 10));
-        personagens.add(new Pacman(10, 4));
-        personagens.add(new FantasmaRosa(5, 10));
-        personagens.add(new FantasmaLaranja(4, 10));
-        personagens.add(new FantasmaAmarelo(3, 10));
-        
-        FasePanel painelFase = new FasePanel(game.getMapa(), personagens);
-        
-        fase.add(painelFase);
+        try {
+            Game game = new Game();
+            fase = new FaseJF();
+            SeletorFases seletor = new SeletorFases(game);
+            fase.add(seletor);
+            fase.setContentPane(seletor);
+            fase.pack();
+            fase.setExtendedState(JFrame.MAXIMIZED_BOTH);
+            fase.setVisible(true);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void comecarFase(Game game, FaseJF fase) {
+        configurarFantasmas(game);
+        configurarPacman(game);
+        configurarPainelFase(game);
+        configurarFase(fase, game.getPanel());
+
+        int intervalo = 200;
+        Timer timer = new Timer(intervalo, e ->  {
+            if(game.isRunning()) {
+                game.update();
+            } else {
+                ((Timer) e.getSource()).stop();
+            }
+        });
+        timer.start();
+    }
+
+    private static void configurarPainelFase(Game game) {
+        FasePanel painelFase = new FasePanel(game.getMapa(), game.getFantasmas(), game.getPacman());
+        game.setPanel(painelFase);
+    }
+
+    private static void configurarPacman(Game game) {
+        Posicao spawnPacman = game.getMapa().getSpawnPacman();
+        Pacman pacman = new Pacman(spawnPacman.getPosY(), spawnPacman.getPosX());
+        pacman.setEventos(game);
+        game.setPacman(pacman);
+    }
+
+    private static void configurarFantasmas(Game game) {
+        List<Fantasma> fantasmas = new ArrayList<>();
+        List<Posicao> spawnFantasmas = game.getMapa().getSpawnsFantasma();
+
+        for (int i = 0; i < spawnFantasmas.size(); i++) {
+            Posicao posicao = spawnFantasmas.get(i);
+
+            if (i == Fantasma.VERMELHO) {
+                fantasmas.add(new FantasmaVermelho(posicao.getPosY(), posicao.getPosX()));
+            } else if (i == Fantasma.ROSA) {
+                fantasmas.add(new FantasmaRosa(posicao.getPosY(), posicao.getPosX()));
+            } else if (i == Fantasma.AZUL) {
+                fantasmas.add(new FantasmaAzul(posicao.getPosY(), posicao.getPosX()));
+            } else if (i == Fantasma.LARANJA) {
+                fantasmas.add(new FantasmaLaranja(posicao.getPosY(), posicao.getPosX()));
+            }
+        }
+        game.setFantasmas(fantasmas);
+    }
+
+    private static void configurarFase(FaseJF fase, FasePanel painelFase) {
+        fase.getContentPane().removeAll();
         fase.setContentPane(painelFase);
-        fase.pack();
-        
-        fase.setVisible(true);
-        
-        Thread threadVermelho = setarThreadFantasmaVermelho(personagens, game, painelFase);
-        Thread threadRosa = setarThreadFantasmaRosa(personagens, game, painelFase);
-        Thread threadLaranja = setarThreadFantasmaLaranja(personagens, game, painelFase);
-        Thread threadAmarelo = setarThreadFantasmaAmarelo(personagens, game, painelFase);
-        
-        
-        
-        startThreads(threadRosa, threadVermelho, threadLaranja, threadAmarelo);
+        fase.revalidate();
+        fase.repaint();
+        painelFase.setFocusable(true);
+        painelFase.requestFocusInWindow();
+
     }
 
-    private static Thread setarThreadFantasmaLaranja(List<Personagem> personagens, Game game, FasePanel painelFase) {
-        Thread threadLaranja = new FantasmaThread((Fantasma) personagens.get(3),
-                (Pacman) personagens.get(1), game.getMapa(), painelFase);
-        return threadLaranja;
-    }
-
-    private static Thread setarThreadFantasmaRosa(List<Personagem> personagens, Game game, FasePanel painelFase) {
-        Thread threadRosa = new FantasmaThread((Fantasma) personagens.get(2),
-                (Pacman) personagens.get(1), game.getMapa(), painelFase);
-        return threadRosa;
-    }
-
-    private static Thread setarThreadFantasmaVermelho(List<Personagem> personagens, Game game, FasePanel painelFase) {
-        Thread threadVermelho = new FantasmaThread((Fantasma) personagens.get(0),
-                (Pacman) personagens.get(1), game.getMapa(), painelFase);
-        return threadVermelho;
-    }
-    private static Thread setarThreadFantasmaAmarelo(List<Personagem> personagens, Game game, FasePanel painelFase) {
-        Thread threadAmarelo = new FantasmaThread((Fantasma) personagens.get(4),
-                (Pacman) personagens.get(1), game.getMapa(), painelFase);
-        return threadAmarelo;
-    }
-
-    private static void startThreads(Thread threadRosa, Thread threadVermelho, Thread threadLaranja, Thread threadAmarelo) {
-        threadRosa.start();
-        threadVermelho.start();
-        threadLaranja.start();
-        threadAmarelo.start();
+    public static FaseJF getFase() {
+        return fase;
     }
 }

@@ -4,11 +4,11 @@
  */
 package personagem;
 
-import enums.Direcao;
+import main.Direcao;
 import java.awt.Graphics2D;
 
 import java.awt.image.BufferedImage;
-import java.util.List;
+
 import mapa.Mapa;
 
 /**
@@ -33,6 +33,19 @@ public abstract class Personagem {
     }
 
     public abstract void draw(Graphics2D g, int tileSize, Mapa mapa);
+    public abstract void morrer();
+    
+    public void mover(Mapa mapa) {
+        if (direcao == Direcao.BAIXO) {
+            this.posY++;
+        } else if (direcao == Direcao.CIMA) {
+            this.posY--;
+        } else if (direcao == Direcao.DIREITA) {
+            this.posX++;
+        } else if (direcao == Direcao.ESQUERDA) {
+            this.posX--;
+        }
+    }
 
     public int getPosX() {
         return posX;
@@ -60,10 +73,6 @@ public abstract class Personagem {
 
     public Direcao getDirecao() {
         return direcao;
-    }
-
-    public void setDirecao(Direcao direcao) {
-        this.direcao = direcao;
     }
 
     public BufferedImage[] getSpritesAtuais() {

@@ -1,10 +1,9 @@
 package personagem.fantasma.bfs;
 
-import enums.Direcao;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import main.Direcao;
+
+import java.util.*;
+
 import mapa.Mapa;
 import mapa.matrizmapa.MatrizMapa;
 
@@ -24,8 +23,6 @@ public class ExplorarCaminho {
     boolean[][] posVisitadas;
     private LinkedList<CelulaBFS> caminhoOrdenado;
 
-    public ExplorarCaminho() {
-    }
 
     /*
     Resumo do algoritmo:
@@ -59,36 +56,41 @@ public class ExplorarCaminho {
      */
     public Direcao decidirDirecao(int posYInicial, int posXInicial,
             int posYFinal, int posXFinal, Mapa mapa) {
-            ConversorMapaFantasmas conversorMapa = new ConversorMapaFantasmas();
-            this.textoMapa = conversorMapa.converterMapaFantasma(mapa.getTextoMapa());
+        ConversorMapaFantasmas conversorMapa = new ConversorMapaFantasmas();
+        this.textoMapa = conversorMapa.converterMapaFantasma(mapa.getTextoMapa());
 
-            CelulaBFS celulaInicio = new CelulaBFS(posYInicial, posXInicial, null);
-            CelulaBFS destino = new CelulaBFS(posYFinal, posXFinal, null);
-            
-            proximasPosicoes = new LinkedList<>();        
-            posVisitadas = new boolean[textoMapa.length][textoMapa[0].length];
+        CelulaBFS celulaInicio = new CelulaBFS(posYInicial, posXInicial, null);
+        CelulaBFS destino = new CelulaBFS(posYFinal, posXFinal, null);
 
-            if (!isCelulaValida(celulaInicio) || !isCelulaValida(destino)) {
-                return null;
+        proximasPosicoes = new LinkedList<>();
+        posVisitadas = new boolean[textoMapa.length][textoMapa[0].length];
+
+        if (!isCelulaValida(celulaInicio) || !isCelulaValida(destino)) {
+            return null;
+        }
+
+        proximasPosicoes.add(celulaInicio);
+        posVisitadas[posYInicial][posXInicial] = true;
+
+        while (!proximasPosicoes.isEmpty()) {
+            CelulaBFS celula = proximasPosicoes.remove();
+
+            if (celula.getPosX() == posXFinal && celula.getPosY() == posYFinal) {
+                destino = celula;
+                break;
             }
+            explorarVizinhos(celula);
+        }
+        caminhoOrdenado = ordenarCaminho(destino, celulaInicio);
+        CelulaBFS proximaCelula = caminhoOrdenado.
+                get(1);
 
-            proximasPosicoes.add(celulaInicio);
-            posVisitadas[posYInicial][posXInicial] = true;
+        for (CelulaBFS celula : caminhoOrdenado) {
+            System.out.println(celula);
+        }
 
-            while (!proximasPosicoes.isEmpty()) {
-                CelulaBFS celula = proximasPosicoes.remove();
-
-                if (celula.getPosX() == posXFinal && celula.getPosY() == posYFinal) {
-                    destino = celula;
-                    break;
-                }
-                explorarVizinhos(celula);
-            }
-            caminhoOrdenado = ordenarCaminho(destino, celulaInicio);
-            CelulaBFS proximaCelula = caminhoOrdenado.get(caminhoOrdenado.size() - 2);
-
-            ReconstruirCaminho reconstrutor = new ReconstruirCaminho();
-            return reconstrutor.reconstruirDirecaoCaminho(celulaInicio, proximaCelula);
+        ReconstruirCaminho reconstrutor = new ReconstruirCaminho();
+        return reconstrutor.reconstruirDirecaoCaminho(celulaInicio, proximaCelula);
     }
 
     private boolean isCelulaValida(CelulaBFS celula) {
@@ -149,6 +151,7 @@ public class ExplorarCaminho {
             caminho.add(celula);
         }
 
+        Collections.reverse(caminho);
         return caminho;
     }
 }
