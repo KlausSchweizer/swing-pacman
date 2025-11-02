@@ -1,4 +1,4 @@
-package main;
+package singleplayer;
 
 public interface EventosGame {
     public void adicionarPonto();

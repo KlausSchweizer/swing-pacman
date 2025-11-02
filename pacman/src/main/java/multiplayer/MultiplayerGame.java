@@ -1,4 +1,6 @@
 package multiplayer;
 
-public class MultiplayerGame {
+import singleplayer.Game;
+
+public class MultiplayerGame extends Game {
 }

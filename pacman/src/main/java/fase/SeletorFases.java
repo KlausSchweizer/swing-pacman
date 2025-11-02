@@ -4,7 +4,7 @@
  */
 package fase;
 
-import main.Game;
+import singleplayer.Game;
 
 import javax.swing.*;
 import java.awt.*;

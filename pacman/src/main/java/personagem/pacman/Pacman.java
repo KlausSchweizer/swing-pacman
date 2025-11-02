@@ -12,7 +12,7 @@ import javax.imageio.ImageIO;
 import enums.Direcao;
 import itens.Ponto;
 import itens.PowerUp;
-import main.EventosGame;
+import singleplayer.EventosGame;
 import mapa.Mapa;
 import personagem.Personagem;
 

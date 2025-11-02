@@ -2,15 +2,32 @@ package multiplayer.cliente;
 
 import personagem.Personagem;
 
-import java.net.Socket;
-
 public class Cliente {
     private int id;
     private String nome;
-    private final Socket socket;
     private Personagem personagem;
 
-    public Cliente(Socket socket) {
-        this.socket = socket;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public Personagem getPersonagem() {
+        return personagem;
+    }
+
+    public void setPersonagem(Personagem personagem) {
+        this.personagem = personagem;
     }
 }

@@ -16,6 +16,7 @@ import fase.SeletorFases;
 import mapa.Posicao;
 import personagem.fantasma.*;
 import personagem.pacman.Pacman;
+import singleplayer.Game;
 
 /**
  *

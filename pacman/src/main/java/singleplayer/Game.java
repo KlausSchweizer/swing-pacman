@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package main;
+package singleplayer;
 
 import enums.StatusFantasma;
 import fase.FasePanel;
@@ -10,6 +10,7 @@ import fase.FasePanel;
 import java.util.ArrayList;
 import java.util.List;
 
+import main.Main;
 import mapa.Mapa;
 import mapa.TxtParser;
 import personagem.fantasma.Fantasma;
