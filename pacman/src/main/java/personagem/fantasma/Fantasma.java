@@ -47,6 +47,10 @@ public abstract class Fantasma extends Personagem {
 
     }
 
+    public void contornar() {
+
+    }
+
     public void transformar() {
         if (status == StatusFantasma.PERSEGUIDOR) {
             spritesAtuais = spritesAlvo;
