@@ -22,7 +22,7 @@ public class FantasmaVermelho extends Fantasma {
 
         try {
             BufferedImage sprite1 = ImageIO.read(getClass().getResource("/imagens"
-                    + "/fantasmas/fantasmaVermelho/FantasmaVermelho-1.png"));
+                    + "/fantasmas/FantasmaVermelho/FantasmaVermelhoBaixo.png"));
 
             spritesAndando = new BufferedImage[]{sprite1};
             spritesAtuais = new BufferedImage[]{sprite1};

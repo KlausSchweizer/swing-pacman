@@ -37,7 +37,7 @@ public abstract class Fantasma extends Personagem {
         this.direcao = Direcao.CIMA;
         this.status = StatusFantasma.PERSEGUIDOR;
         this.explorador = new ExplorarCaminho();
-    }
+    } 
 
     public abstract Direcao decidirDirecao(Pacman pacman, Mapa mapa);
 

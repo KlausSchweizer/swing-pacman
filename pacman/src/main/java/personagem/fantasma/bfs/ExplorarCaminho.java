@@ -1,11 +1,9 @@
 package personagem.fantasma.bfs;
 
 import main.Direcao;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+
+import java.util.*;
+
 import mapa.Mapa;
 import mapa.matrizmapa.MatrizMapa;
 
@@ -25,7 +23,7 @@ public class ExplorarCaminho {
     boolean[][] posVisitadas;
     private LinkedList<CelulaBFS> caminhoOrdenado;
 
-    
+
     /*
     Resumo do algoritmo:
     Começa na célula inicial,
