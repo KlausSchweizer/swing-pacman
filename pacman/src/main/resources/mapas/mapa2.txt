@@ -1,5 +1,5 @@
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$
-$oooooooooooooooooooooooooo$
+$ooooooooooooCooooooooooooo$
 $o$$o$$o$$o$$$$$$o$$o$$o$$o$
 $o$$o$$o$$o$$$$$$o$$o$$o$$o$
 $ooooooo$$oooooooo$$ooooooo$
@@ -12,7 +12,7 @@ $$$$o$$$$oooooooooo$$$$o$$$$
 $$$$o$$$$oooooooooo$$$$o$$$$
 $$$$o$$$$oo######oo$$$$o$$$$
 $$$$o$$$$oo######oo$$$$o$$$$
-$$$$ooooooo######ooooooo$$$$
+$$$$ooooooo##G###ooooooo$$$$
 $$$$o$$$$oo######oo$$$$o$$$$
 $$$$o$$$$oo######oo$$$$o$$$$
 $$$$oooooooooooooooooooo$$$$

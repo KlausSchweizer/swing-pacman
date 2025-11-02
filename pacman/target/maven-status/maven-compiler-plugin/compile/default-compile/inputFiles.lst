@@ -12,6 +12,7 @@ C:\Users\klaus\Codigos\swing-pacman\pacman\src\main\java\mapa\direcoes\Verificar
 C:\Users\klaus\Codigos\swing-pacman\pacman\src\main\java\mapa\imagens\ImagensTile.java
 C:\Users\klaus\Codigos\swing-pacman\pacman\src\main\java\mapa\Mapa.java
 C:\Users\klaus\Codigos\swing-pacman\pacman\src\main\java\mapa\matrizmapa\MatrizMapa.java
+C:\Users\klaus\Codigos\swing-pacman\pacman\src\main\java\mapa\Posicao.java
 C:\Users\klaus\Codigos\swing-pacman\pacman\src\main\java\mapa\Tile.java
 C:\Users\klaus\Codigos\swing-pacman\pacman\src\main\java\mapa\transformartiles\TransformarTileFantasma.java
 C:\Users\klaus\Codigos\swing-pacman\pacman\src\main\java\mapa\transformartiles\TransformarTilelivre.java
@@ -24,10 +25,11 @@ C:\Users\klaus\Codigos\swing-pacman\pacman\src\main\java\personagem\fantasma\bfs
 C:\Users\klaus\Codigos\swing-pacman\pacman\src\main\java\personagem\fantasma\bfs\ExplorarCaminho.java
 C:\Users\klaus\Codigos\swing-pacman\pacman\src\main\java\personagem\fantasma\bfs\ReconstruirCaminho.java
 C:\Users\klaus\Codigos\swing-pacman\pacman\src\main\java\personagem\fantasma\Fantasma.java
-C:\Users\klaus\Codigos\swing-pacman\pacman\src\main\java\personagem\fantasma\FantasmaAmarelo.java
 C:\Users\klaus\Codigos\swing-pacman\pacman\src\main\java\personagem\fantasma\FantasmaAzul.java
 C:\Users\klaus\Codigos\swing-pacman\pacman\src\main\java\personagem\fantasma\FantasmaLaranja.java
+C:\Users\klaus\Codigos\swing-pacman\pacman\src\main\java\personagem\fantasma\FantasmaRosa.java
 C:\Users\klaus\Codigos\swing-pacman\pacman\src\main\java\personagem\fantasma\FantasmaThread.java
 C:\Users\klaus\Codigos\swing-pacman\pacman\src\main\java\personagem\fantasma\FantasmaVermelho.java
 C:\Users\klaus\Codigos\swing-pacman\pacman\src\main\java\personagem\pacman\Pacman.java
+C:\Users\klaus\Codigos\swing-pacman\pacman\src\main\java\personagem\pacman\PacmanThread.java
 C:\Users\klaus\Codigos\swing-pacman\pacman\src\main\java\personagem\Personagem.java

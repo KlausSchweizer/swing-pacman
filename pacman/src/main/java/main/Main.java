@@ -7,64 +7,99 @@ package main;
 import fase.FaseJF;
 import fase.FasePanel;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JFrame;
+import javax.swing.*;
 
+import fase.SeletorFases;
 import mapa.Posicao;
-import personagem.Personagem;
 import personagem.fantasma.*;
 import personagem.pacman.Pacman;
+import singleplayer.Game;
 
 /**
  *
  * @author klaus
  */
 public class Main {
-    public static void main(String[] args) {
-        Game game = new Game();
-        FaseJF fase = new FaseJF();
+    private static FaseJF fase;
 
-        List<Personagem> personagens = new ArrayList<>();
-        List<Posicao> spawnFantasmas = game.getMapa().getSpawnsFantasma();
+    public static void main(String[] args) {
+        try {
+            Game game = new Game();
+            fase = new FaseJF();
+            SeletorFases seletor = new SeletorFases(game);
+            fase.add(seletor);
+            fase.setContentPane(seletor);
+            fase.pack();
+            fase.setExtendedState(JFrame.MAXIMIZED_BOTH);
+            fase.setVisible(true);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void comecarFase(Game game, FaseJF fase) {
+        configurarFantasmas(game);
+        configurarPacman(game);
+        configurarPainelFase(game);
+        configurarFase(fase, game.getPanel());
+
+        int intervalo = 200;
+        Timer timer = new Timer(intervalo, e ->  {
+            if(game.isRunning()) {
+                game.update();
+            } else {
+                ((Timer) e.getSource()).stop();
+            }
+        });
+        timer.start();
+    }
+
+    private static void configurarPainelFase(Game game) {
+        FasePanel painelFase = new FasePanel(game.getMapa(), game.getFantasmas(), game.getPacman());
+        game.setPanel(painelFase);
+    }
+
+    private static void configurarPacman(Game game) {
         Posicao spawnPacman = game.getMapa().getSpawnPacman();
+        Pacman pacman = new Pacman(spawnPacman.getPosY(), spawnPacman.getPosX());
+        pacman.setEventos(game);
+        game.setPacman(pacman);
+    }
+
+    private static void configurarFantasmas(Game game) {
+        List<Fantasma> fantasmas = new ArrayList<>();
+        List<Posicao> spawnFantasmas = game.getMapa().getSpawnsFantasma();
 
         for (int i = 0; i < spawnFantasmas.size(); i++) {
             Posicao posicao = spawnFantasmas.get(i);
 
             if (i == Fantasma.VERMELHO) {
-                personagens.add(new FantasmaVermelho(posicao.getPosY(), posicao.getPosX()));
+                fantasmas.add(new FantasmaVermelho(posicao.getPosY(), posicao.getPosX()));
             } else if (i == Fantasma.ROSA) {
-                personagens.add(new FantasmaRosa(posicao.getPosY(), posicao.getPosX()));
+                fantasmas.add(new FantasmaRosa(posicao.getPosY(), posicao.getPosX()));
             } else if (i == Fantasma.AZUL) {
-                personagens.add(new FantasmaAzul(posicao.getPosY(), posicao.getPosX()));
+                fantasmas.add(new FantasmaAzul(posicao.getPosY(), posicao.getPosX()));
             } else if (i == Fantasma.LARANJA) {
-                personagens.add(new FantasmaLaranja(posicao.getPosY(), posicao.getPosX()));
+                fantasmas.add(new FantasmaLaranja(posicao.getPosY(), posicao.getPosX()));
             }
-            game.getFantasmas().add((Fantasma) personagens.get(i));
         }
-
-        personagens.add(new Pacman(spawnPacman.getPosY(), spawnPacman.getPosX()));
-        game.setPacman((Pacman) personagens.getLast());
-
-        FasePanel painelFase = new FasePanel(game.getMapa(), personagens);
-
-        configurarFase(fase, painelFase);
-
-        List<Thread> threads = new ArrayList<>();
-        for (Fantasma fantasma : game.getFantasmas()) {
-            Thread thread = new FantasmaThread(fantasma,
-                    game.getPacman(), game.getMapa(), painelFase);
-            threads.add(thread);
-            thread.start();
-        }
+        game.setFantasmas(fantasmas);
     }
 
     private static void configurarFase(FaseJF fase, FasePanel painelFase) {
-        fase.add(painelFase);
+        fase.getContentPane().removeAll();
         fase.setContentPane(painelFase);
-        fase.pack();
-        fase.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        fase.setVisible(true);
+        fase.revalidate();
+        fase.repaint();
+        painelFase.setFocusable(true);
+        painelFase.requestFocusInWindow();
+
+    }
+
+    public static FaseJF getFase() {
+        return fase;
     }
 }

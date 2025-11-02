@@ -4,7 +4,7 @@
  */
 package personagem.fantasma;
 
-import enums.Direcao;
+import main.Direcao;
 import java.awt.Graphics2D;
 import mapa.Mapa;
 import personagem.pacman.Pacman;
@@ -20,7 +20,7 @@ public class FantasmaRosa extends Fantasma {
     }
 
     @Override
-    protected Direcao decidirDirecao(Pacman pacman, Mapa mapa) {
+    public Direcao decidirDirecao(Pacman pacman, Mapa mapa) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 

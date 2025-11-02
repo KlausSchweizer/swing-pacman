@@ -4,7 +4,7 @@
  */
 package personagem.fantasma;
 
-import enums.Direcao;
+import main.Direcao;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
@@ -32,7 +32,7 @@ public class FantasmaVermelho extends Fantasma {
     }
 
     @Override
-    protected Direcao decidirDirecao(Pacman pacman, Mapa mapa) {
+    public Direcao decidirDirecao(Pacman pacman, Mapa mapa) {
         return explorador.decidirDirecao(this.posY, this.posX, pacman.getPosY(),
                 pacman.getPosX(), mapa);
     }

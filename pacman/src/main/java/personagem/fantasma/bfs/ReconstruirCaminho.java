@@ -4,7 +4,7 @@
  */
 package personagem.fantasma.bfs;
 
-import enums.Direcao;
+import main.Direcao;
 
 /**
  *

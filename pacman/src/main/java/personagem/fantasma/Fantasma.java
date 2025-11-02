@@ -4,8 +4,7 @@
  */
 package personagem.fantasma;
 
-import enums.Direcao;
-import enums.StatusFantasma;
+import main.Direcao;
 
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
@@ -40,11 +39,15 @@ public abstract class Fantasma extends Personagem {
         this.explorador = new ExplorarCaminho();
     }
 
-    protected abstract Direcao decidirDirecao(Pacman pacman, Mapa mapa);
+    public abstract Direcao decidirDirecao(Pacman pacman, Mapa mapa);
 
     public abstract void draw(Graphics2D g, int tileSize, Mapa mapa);
 
     public void morrer() {
+
+    }
+
+    public void contornar() {
 
     }
 
@@ -104,5 +107,9 @@ public abstract class Fantasma extends Personagem {
 
     public void setTransformandoFPS(int transformandoFPS) {
         this.transformandoFPS = transformandoFPS;
+    }
+
+    public void setDirecao(Direcao direcao) {
+        this.direcao = direcao;
     }
 }

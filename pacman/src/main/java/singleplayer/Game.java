@@ -2,51 +2,56 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package main;
+package singleplayer;
 
-import enums.StatusFantasma;
+import personagem.fantasma.StatusFantasma;
 import fase.FasePanel;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import main.Main;
 import mapa.Mapa;
 import mapa.TxtParser;
 import personagem.fantasma.Fantasma;
-import personagem.fantasma.FantasmaThread;
 import personagem.pacman.Pacman;
 
 /**
  *
  * @author klaus
  */
-public class Game {
+public class Game implements EventosGame {
 
     private Mapa mapa;
     private List<Fantasma> fantasmas;
     private Pacman pacman;
-    private List<FantasmaThread> threads;
     private FasePanel panel;
+    private int pontos;
+    private boolean isRunning;
 
     public Game() {
-        mapa = new TxtParser().criarMapa("/mapas/mapa.txt");
-        fantasmas = new ArrayList<Fantasma>();
-    }
-
-    public void start() {
-        for (Fantasma fantasma : fantasmas) {
-            threads.add(new FantasmaThread(fantasma, pacman, mapa, panel));
-        }
-        threads.forEach(Thread::start);
+        fantasmas = new ArrayList<>();
+        isRunning = true;
+        pontos = 0;
     }
 
     public void update() {
-        fantasmas.forEach(this::checarColisoes);
-
+        for (Fantasma fantasma : fantasmas) {
+            fantasma.setDirecao(fantasma.decidirDirecao(pacman, mapa));
+            fantasma.mover(mapa);
+            checarColisoes(fantasma);
+        }
+        pacman.mover(mapa);
         panel.repaint();
     }
 
     public void finish() {
-        threads.forEach(Thread::interrupt);
+        isRunning = false;
+    }
+
+    public void selecionarFase(String path) {
+        mapa = new TxtParser().criarMapa(path);
+        Main.comecarFase(this, Main.getFase());
     }
 
     public void checarColisoes(Fantasma fantasma) {
@@ -59,6 +64,16 @@ public class Game {
                 finish();
             }
         }
+    }
+
+    @Override
+    public void adicionarPonto() {
+        this.pontos++;
+    }
+
+    @Override
+    public void usarPowerUp() {
+        fantasmas.forEach(fantasma -> fantasma.setStatus(StatusFantasma.ALVO));
     }
 
     public Mapa getMapa() {
@@ -85,14 +100,6 @@ public class Game {
         this.pacman = pacman;
     }
 
-    public List<FantasmaThread> getThreads() {
-        return threads;
-    }
-
-    public void setThreads(List<FantasmaThread> threads) {
-        this.threads = threads;
-    }
-
     public FasePanel getPanel() {
         return panel;
     }
@@ -100,6 +107,8 @@ public class Game {
     public void setPanel(FasePanel panel) {
         this.panel = panel;
     }
-    
-    
+
+    public boolean isRunning() {
+        return isRunning;
+    }
 }

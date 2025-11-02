@@ -4,8 +4,8 @@
  */
 package mapa.transformartiles;
 
-import enums.Direcao;
-import java.io.IOException;
+import main.Direcao;
+
 import java.util.List;
 import mapa.Tile;
 import mapa.imagens.ImagensTile;
