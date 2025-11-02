@@ -64,6 +64,7 @@ public class Main {
     private static void configurarPacman(Game game) {
         Posicao spawnPacman = game.getMapa().getSpawnPacman();
         Pacman pacman = new Pacman(spawnPacman.getPosY(), spawnPacman.getPosX());
+        pacman.setEventos(game);
         game.setPacman(pacman);
     }
 

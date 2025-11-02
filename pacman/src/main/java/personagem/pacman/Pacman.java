@@ -10,8 +10,10 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 import enums.Direcao;
+import itens.Ponto;
+import itens.PowerUp;
+import main.EventosGame;
 import mapa.Mapa;
-import mapa.matrizmapa.MatrizMapa;
 import personagem.Personagem;
 
 /**
@@ -19,6 +21,7 @@ import personagem.Personagem;
  * @author Intel
  */
 public class Pacman extends Personagem {
+    private EventosGame eventos;
 
     public Pacman(int posY, int posX) {
         super(posY, posX);
@@ -72,6 +75,13 @@ public class Pacman extends Personagem {
                 }
             }
         }
+
+        if (mapa.getMapa()[posY][posX].getItem() instanceof Ponto && eventos != null) {
+            eventos.adicionarPonto();
+        } else if (mapa.getMapa()[posY][posX].getItem() instanceof PowerUp && eventos != null) {
+            eventos.usarPowerUp();
+        }
+        mapa.getMapa()[posY][posX].setItem(null);
     }
 
     @Override
@@ -88,5 +98,13 @@ public class Pacman extends Personagem {
                 this.direcao = direcao;
             }
         }
+    }
+
+    public EventosGame getEventos() {
+        return eventos;
+    }
+
+    public void setEventos(EventosGame eventos) {
+        this.eventos = eventos;
     }
 }

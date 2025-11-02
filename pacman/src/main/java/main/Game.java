@@ -19,17 +19,19 @@ import personagem.pacman.Pacman;
  *
  * @author klaus
  */
-public class Game {
+public class Game implements EventosGame {
 
     private Mapa mapa;
     private List<Fantasma> fantasmas;
     private Pacman pacman;
     private FasePanel panel;
+    private int pontos;
     private boolean isRunning;
 
     public Game() {
         fantasmas = new ArrayList<>();
         isRunning = true;
+        pontos = 0;
     }
 
     public void update() {
@@ -61,6 +63,16 @@ public class Game {
                 finish();
             }
         }
+    }
+
+    @Override
+    public void adicionarPonto() {
+        this.pontos++;
+    }
+
+    @Override
+    public void usarPowerUp() {
+        fantasmas.forEach(fantasma -> fantasma.setStatus(StatusFantasma.ALVO));
     }
 
     public Mapa getMapa() {
@@ -98,5 +110,4 @@ public class Game {
     public boolean isRunning() {
         return isRunning;
     }
-
 }
