@@ -8,24 +8,16 @@ O jogo é uma reprodução de pacman implementada com Java e Swing. Num modo sin
 | **Função** | **Quem faz** |
 |:-----|:---:|
 | Sprites | Luan | 
+| Música | Luan |
 | Mapa | Klaus | 
 | Modelagem (Entidades) | Luan |
-| Movimentação | Klaus |
 | Lógica Fantasmas | Luan/Klaus |
-| Power Up | |
-| HUD Menu | Luan |
-| Leitura de Arquivos (Sprites/Animações) | Klaus |
-| Lógica Pontuação |  |
-| Lógica Pacman| |
-
-### Multi Player
-| **Função** | **Quem faz** |
-|:-----|:---:|
-| Comunicação Sockets | Klaus | 
-| Protocolo |  | 
-| Câmera (viewport) | |
-| Mini-mapa | |
-| Atualizar fantasmas players | |
+| Power Up | Luan |
+| HUD Menu | Luan/Klaus |
+| Leitura de Arquivos (Sprites/Animações) | Luan/Klaus |
+| Lógica Pontuação | Luan |
+| Lógica Pacman| Klaus |
+| Multiplayer | Klaus |
 
 ## Diagrama de Classes
 
