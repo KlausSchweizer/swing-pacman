@@ -4,7 +4,7 @@
  */
 package mapa;
 
-import enums.Direcao;
+import main.Direcao;
 import itens.Item;
 import java.awt.image.BufferedImage;
 import java.util.List;

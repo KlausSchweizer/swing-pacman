@@ -9,7 +9,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
-import enums.Direcao;
+import main.Direcao;
 import itens.Ponto;
 import itens.PowerUp;
 import singleplayer.EventosGame;

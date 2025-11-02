@@ -4,11 +4,11 @@
  */
 package personagem;
 
-import enums.Direcao;
+import main.Direcao;
 import java.awt.Graphics2D;
 
 import java.awt.image.BufferedImage;
-import java.util.List;
+
 import mapa.Mapa;
 
 /**

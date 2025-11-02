@@ -4,14 +4,13 @@
  */
 package fase;
 
-import enums.Direcao;
+import main.Direcao;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.util.List;
 
 import mapa.Mapa;
-import personagem.Personagem;
 import personagem.fantasma.Fantasma;
 import personagem.pacman.Pacman;
 

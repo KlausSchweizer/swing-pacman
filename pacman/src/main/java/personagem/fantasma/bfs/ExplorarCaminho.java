@@ -1,6 +1,6 @@
 package personagem.fantasma.bfs;
 
-import enums.Direcao;
+import main.Direcao;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;

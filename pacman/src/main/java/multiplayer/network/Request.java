@@ -1,6 +1,6 @@
 package multiplayer.network;
 
-import enums.Direcao;
+import main.Direcao;
 
 public class Request {
     private int idCliente;

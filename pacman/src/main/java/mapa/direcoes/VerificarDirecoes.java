@@ -1,6 +1,6 @@
 package mapa.direcoes;
 
-import enums.Direcao;
+import main.Direcao;
 
 import java.util.ArrayList;
 import java.util.List;

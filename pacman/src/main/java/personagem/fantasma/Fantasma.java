@@ -4,8 +4,7 @@
  */
 package personagem.fantasma;
 
-import enums.Direcao;
-import enums.StatusFantasma;
+import main.Direcao;
 
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;

@@ -4,7 +4,7 @@
  */
 package singleplayer;
 
-import enums.StatusFantasma;
+import personagem.fantasma.StatusFantasma;
 import fase.FasePanel;
 
 import java.util.ArrayList;
