@@ -14,7 +14,7 @@ import mapa.imagens.ImagensTile;
  *
  * @author Intel
  */
-public class TransformarTilelivre {
+public class TransformarTileLivre {
 
     public Tile executar(List<Direcao> direcoesParede, int i, int j) {
         boolean hasParedeBaixo = direcoesParede.contains(Direcao.BAIXO);

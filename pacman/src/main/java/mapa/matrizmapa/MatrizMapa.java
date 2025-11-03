@@ -17,10 +17,7 @@ import mapa.Posicao;
 import mapa.Tile;
 import mapa.direcoes.VerificarDirecoes;
 import mapa.imagens.ImagensTile;
-import mapa.transformartiles.TransformarTileFantasma;
-import mapa.transformartiles.TransformarTileParede;
-import mapa.transformartiles.TransformarTileSaida;
-import mapa.transformartiles.TransformarTilelivre;
+import mapa.transformartiles.*;
 
 /**
  *
@@ -38,6 +35,7 @@ public class MatrizMapa {
     public static final char SAIDA_DIREITA = '>';
     public static final char FANTASMA = 'G';
     public static final char PACMAN = 'C';
+    public static final char VAZIO = '_';
 
     private static final int INDICE_COLUNAS = 0;
 
@@ -46,8 +44,9 @@ public class MatrizMapa {
 
     private TransformarTileFantasma transformarTileFantasma;
     private TransformarTileParede transformarTileParede;
-    private TransformarTilelivre transformarTileLivre;
+    private TransformarTileLivre transformarTileLivre;
     private TransformarTileSaida transformarTileSaida;
+    private TransformarTileVazio transformarTileVazio;
     private VerificarDirecoes verificarDirecoes;
     private ImagensTile imagens;
 
@@ -57,9 +56,10 @@ public class MatrizMapa {
         numeroLinhas = contarLinhas(filePath);
 
         transformarTileFantasma = new TransformarTileFantasma();
-        transformarTileLivre = new TransformarTilelivre();
+        transformarTileLivre = new TransformarTileLivre();
         transformarTileParede = new TransformarTileParede();
         transformarTileSaida = new TransformarTileSaida();
+        transformarTileVazio = new TransformarTileVazio();
         imagens = new ImagensTile();
     }
 
@@ -115,6 +115,8 @@ public class MatrizMapa {
                 } else if (textoMapa[i][j] == PACMAN) {
                     matrizTile[i][j] = transformarTileLivre.executar(direcoesParede, i, j);
                     mapa.setSpawnPacman(new Posicao(j, i));
+                } else if (textoMapa[i][j] == VAZIO) {
+                    matrizTile[i][j] = transformarTileVazio.executar(direcoesParede, i, j);
                 }
             }
         }
