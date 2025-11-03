@@ -12,7 +12,7 @@ $$$$$$o$$oooooooooo$$o$$$$$$
 $$$$$$o$$oooooooooo$$o$$$$$$
 $$$$$$o$$o########o$$o$$$$$$
 <ooooooooo###G####ooooooooo>
-<ooooooooo########ooooooooo>
+<ooooooooo##GGG###ooooooooo>
 $$$$$$o$$o########o$$o$$$$$$
 $$$$$$o$$oooooooooo$$o$$$$$$
 $$$$$$o$$oooooooooo$$o$$$$$$
