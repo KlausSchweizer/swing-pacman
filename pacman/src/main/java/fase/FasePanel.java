@@ -52,28 +52,18 @@ public class FasePanel extends javax.swing.JPanel {
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 400, Short.MAX_VALUE));
+        layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 300, Short.MAX_VALUE));
     }// </editor-fold>//GEN-END:initComponents
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
-        if (evt.getKeyCode() == KeyEvent.VK_UP
-                || evt.getKeyCode() == KeyEvent.VK_W) {
+        if (evt.getKeyCode() == KeyEvent.VK_UP || evt.getKeyCode() == KeyEvent.VK_W) {
             pacman.setDirecao(Direcao.CIMA, mapa);
-        } else if (evt.getKeyCode() == KeyEvent.VK_DOWN
-                || evt.getKeyCode() == KeyEvent.VK_S) {
+        } else if (evt.getKeyCode() == KeyEvent.VK_DOWN || evt.getKeyCode() == KeyEvent.VK_S) {
             pacman.setDirecao(Direcao.BAIXO, mapa);
-        } else if (evt.getKeyCode() == KeyEvent.VK_LEFT
-                || evt.getKeyCode() == KeyEvent.VK_A) {
+        } else if (evt.getKeyCode() == KeyEvent.VK_LEFT || evt.getKeyCode() == KeyEvent.VK_A) {
             pacman.setDirecao(Direcao.ESQUERDA, mapa);
-        } else if (evt.getKeyCode() == KeyEvent.VK_RIGHT
-                || evt.getKeyCode() == KeyEvent.VK_D) {
+        } else if (evt.getKeyCode() == KeyEvent.VK_RIGHT || evt.getKeyCode() == KeyEvent.VK_D) {
             pacman.setDirecao(Direcao.DIREITA, mapa);
         }
     }//GEN-LAST:event_formKeyPressed
@@ -83,8 +73,9 @@ public class FasePanel extends javax.swing.JPanel {
         Graphics2D g2d = (Graphics2D) g;
         super.paintComponent(g2d);
 
-        int tileSize = mapa.getTileSize();
-        mapa.draw(g2d);
+        int tileSize = Math.min(this.getWidth() / mapa.getMapa()[0].length, this.getHeight() / mapa.getMapa().length);
+        tileSize = tileSize > 40 ? 38 : tileSize;
+        mapa.draw(g2d, tileSize);
 
         for (Fantasma fantasma : fantasmas) {
             fantasma.draw(g2d, tileSize, mapa);

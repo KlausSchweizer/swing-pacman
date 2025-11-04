@@ -17,17 +17,15 @@ import java.util.List;
 public class Mapa {
 
     private Tile[][] mapa;
-    private int tileSize;
     private char[][] textoMapa;
     private Posicao spawnPacman;
     private List<Posicao> spawnsFantasma;
 
     public Mapa() {
-        tileSize = 20;
         spawnsFantasma = new ArrayList<>();
     }
     
-    public void draw(Graphics2D g2d) {
+    public void draw(Graphics2D g2d, int tileSize) {
         for (int linha = 0; linha < mapa.length; ++linha) {
             for (int coluna = 0; coluna < mapa[linha].length; ++coluna) {
                 Tile tile = mapa[linha][coluna];
@@ -53,14 +51,6 @@ public class Mapa {
 
     public void setMapa(Tile[][] mapa) {
         this.mapa = mapa;
-    }
-
-    public int getTileSize() {
-        return tileSize;
-    }
-
-    public void setTileSize(int tileSize) {
-        this.tileSize = tileSize;
     }
 
     public char[][] getTextoMapa() {
