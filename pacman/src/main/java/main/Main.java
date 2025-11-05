@@ -12,8 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.*;
 
+import fase.MenuPanel;
 import fase.SeletorFases;
+import mapa.Mapa;
 import mapa.Posicao;
+import multiplayer.MultiplayerGame;
 import personagem.fantasma.*;
 import personagem.pacman.Pacman;
 import singleplayer.Game;
@@ -26,29 +29,42 @@ public class Main {
     private static FaseJF fase;
 
     public static void main(String[] args) {
+        fase = new FaseJF();
+        MenuPanel menuPanel = new MenuPanel();
+        fase.add(menuPanel);
+        fase.setContentPane(menuPanel);
+        fase.pack();
+        fase.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        fase.setVisible(true);
+    }
+
+    public static void singlePlayer()  {
         try {
             Game game = new Game();
-            fase = new FaseJF();
             SeletorFases seletor = new SeletorFases(game);
-            fase.add(seletor);
-            fase.setContentPane(seletor);
-            fase.pack();
-            fase.setExtendedState(JFrame.MAXIMIZED_BOTH);
-            fase.setVisible(true);
+            configurarPanel(fase, seletor);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
+    }
+
+    public static void multiplayer() {
+        MultiplayerGame game = new MultiplayerGame();
+        game.selecionarFase("/mapas/lobby.txt");
+        FasePanel fasePanel = new FasePanel(game.getMapa());
+
     }
 
     public static void comecarFase(Game game, FaseJF fase) {
         configurarFantasmas(game);
         configurarPacman(game);
         configurarPainelFase(game);
-        configurarFase(fase, game.getPanel());
+        configurarPanel(fase, game.getPanel());
 
         int intervalo = 200;
-        Timer timer = new Timer(intervalo, e ->  {
-            if(game.isRunning()) {
+        Timer timer = new Timer(intervalo, e -> {
+            if (game.isRunning()) {
                 game.update();
             } else {
                 ((Timer) e.getSource()).stop();
@@ -89,7 +105,7 @@ public class Main {
         game.setFantasmas(fantasmas);
     }
 
-    private static void configurarFase(FaseJF fase, FasePanel painelFase) {
+    public static void configurarPanel(FaseJF fase, JPanel painelFase) {
         fase.getContentPane().removeAll();
         fase.setContentPane(painelFase);
         fase.revalidate();

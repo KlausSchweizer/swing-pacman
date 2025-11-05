@@ -22,12 +22,12 @@ import personagem.pacman.Pacman;
  */
 public class Game implements EventosGame {
 
-    private Mapa mapa;
-    private List<Fantasma> fantasmas;
-    private Pacman pacman;
-    private FasePanel panel;
-    private int pontos;
-    private boolean isRunning;
+    protected Mapa mapa;
+    protected List<Fantasma> fantasmas;
+    protected Pacman pacman;
+    protected FasePanel panel;
+    protected int pontos;
+    protected boolean isRunning;
 
     public Game() {
         fantasmas = new ArrayList<>();
