@@ -4,12 +4,15 @@
  */
 package fase;
 
+import main.Main;
+
+import javax.swing.*;
+
 /**
  *
  * @author klaus
  */
 public class MenuPanel extends javax.swing.JPanel {
-
     /**
      * Creates new form MenuPanel
      */
@@ -26,19 +29,101 @@ public class MenuPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        painelPrincipal = new javax.swing.JPanel();
+        sairBT = new javax.swing.JButton();
+        singleplayerBT = new javax.swing.JButton();
+        multiplayerBT = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(22, 29, 36));
+
+        painelPrincipal.setBackground(new java.awt.Color(22, 29, 36));
+
+        sairBT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/botoes/botao_sair.png"))); // NOI18N
+        sairBT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sairBTActionPerformed(evt);
+            }
+        });
+
+        singleplayerBT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/botoes/botao_single_player.png"))); // NOI18N
+        singleplayerBT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                singleplayerBTActionPerformed(evt);
+            }
+        });
+
+        multiplayerBT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/botoes/botao_multi_player.png"))); // NOI18N
+        multiplayerBT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                multiplayerBTActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout painelPrincipalLayout = new javax.swing.GroupLayout(painelPrincipal);
+        painelPrincipal.setLayout(painelPrincipalLayout);
+        painelPrincipalLayout.setHorizontalGroup(
+            painelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelPrincipalLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(painelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(sairBT, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(multiplayerBT, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(singleplayerBT, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap(456, Short.MAX_VALUE))
+        );
+        painelPrincipalLayout.setVerticalGroup(
+            painelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelPrincipalLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(singleplayerBT, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(multiplayerBT, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(sairBT, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/botoes/label_pacman.png"))); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(painelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addContainerGap(112, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(painelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void sairBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairBTActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_sairBTActionPerformed
+
+    private void singleplayerBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_singleplayerBTActionPerformed
+        Main.singlePlayer();
+    }//GEN-LAST:event_singleplayerBTActionPerformed
+
+    private void multiplayerBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_multiplayerBTActionPerformed
+        Main.multiplayer();
+    }//GEN-LAST:event_multiplayerBTActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton multiplayerBT;
+    private javax.swing.JPanel painelPrincipal;
+    private javax.swing.JButton sairBT;
+    private javax.swing.JButton singleplayerBT;
     // End of variables declaration//GEN-END:variables
 }
