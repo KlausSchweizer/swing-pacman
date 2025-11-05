@@ -97,7 +97,7 @@ public class Main {
             } else if (i == Fantasma.ROSA) {
                 fantasmas.add(new FantasmaRosa(posicao.getPosY(), posicao.getPosX()));
             } else if (i == Fantasma.AZUL) {
-                fantasmas.add(new FantasmaAzul(posicao.getPosY(), posicao.getPosX()));
+                fantasmas.add(new FantasmaCiano(posicao.getPosY(), posicao.getPosX()));
             } else if (i == Fantasma.LARANJA) {
                 fantasmas.add(new FantasmaLaranja(posicao.getPosY(), posicao.getPosX()));
             }

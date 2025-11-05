@@ -21,7 +21,7 @@ public class FantasmaRosa extends Fantasma {
         super(posY, posX);
 
         try {
-              BufferedImage sprite1 = ImageIO.read(getClass().getResource("/imagens/fantasmas/FantasmaRosa/FantasmRosaCima.png"));
+              BufferedImage sprite1 = ImageIO.read(getClass().getResource("/imagens/fantasmas/FantasmaRosa/FantasmaRosaCima.png"));
 
             spritesAndando = new BufferedImage[]{sprite1};
             spritesAtuais = new BufferedImage[]{sprite1};

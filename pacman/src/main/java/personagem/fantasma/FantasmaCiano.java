@@ -17,14 +17,14 @@ import javax.imageio.ImageIO;
  *
  * @author Intel
  */
-public class FantasmaAzul extends Fantasma {
+public class FantasmaCiano extends Fantasma {
 
-    public FantasmaAzul(int posY, int posX) {
+    public FantasmaCiano(int posY, int posX) {
         super(posY, posX);
 
         try {
             BufferedImage sprite1 = ImageIO.read(getClass().getResource("/imagens"
-                    + "/fantasmas/FantasmaAmarelo/FantasmAmareloCima.png"));
+                    + "/fantasmas/FantasmaCiano/FantasmaCianoCima.png"));
 
             spritesAndando = new BufferedImage[]{sprite1};
             spritesAtuais = new BufferedImage[]{sprite1};
