@@ -10,16 +10,11 @@ import java.net.Socket;
 
 public class ClienteHandler extends Thread {
     private Cliente cliente;
-    private Socket socket;
+    private final Socket socket;
     private ObjectInputStream in;
     private ObjectOutputStream out;
 
     public ClienteHandler(Socket socket) {
-        this.socket = socket;
-    }
-
-    public ClienteHandler(Cliente cliente, Socket socket) {
-        this.cliente = cliente;
         this.socket = socket;
     }
 
@@ -49,7 +44,8 @@ public class ClienteHandler extends Thread {
     }
 
     public Cliente solicitarCliente() throws IOException, ClassNotFoundException {
-        return (Cliente) in.readObject();
+        cliente = (Cliente) in.readObject();
+        return cliente;
     }
 
     public void enviarObjeto(Object mensagem) throws IOException {
