@@ -2,18 +2,11 @@ package multiplayer.cliente;
 
 import personagem.Personagem;
 
-public class Cliente {
-    private int id;
+import java.io.Serializable;
+
+public class Cliente implements Serializable {
     private String nome;
     private Personagem personagem;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getNome() {
         return nome;

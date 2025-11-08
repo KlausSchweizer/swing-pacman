@@ -6,6 +6,7 @@ import multiplayer.network.Response;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.net.InetAddress;
 import java.net.Socket;
 
 public class ClienteSocket {
@@ -15,16 +16,16 @@ public class ClienteSocket {
     private final ObjectInputStream in;
     private volatile Response ultimoResponse;
 
-    public ClienteSocket(String ip, int porta) throws IOException {
+    public ClienteSocket(InetAddress ip, int porta) throws IOException {
         socket = new Socket(ip, porta);
         out = new ObjectOutputStream(socket.getOutputStream());
         in = new ObjectInputStream(socket.getInputStream());
         lerDados();
     }
 
-    public void enviar(Request request) {
+    public void enviar(Object obj) {
         try {
-            out.writeObject(request);
+            out.writeObject(obj);
             out.flush();
         } catch (IOException e) {
             e.printStackTrace();

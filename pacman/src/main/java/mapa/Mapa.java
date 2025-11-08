@@ -7,6 +7,7 @@ package mapa;
 import itens.Item;
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +15,7 @@ import java.util.List;
  *
  * @author klaus
  */
-public class Mapa {
+public class Mapa implements Serializable {
 
     private Tile[][] mapa;
     private char[][] textoMapa;

@@ -123,12 +123,14 @@ public class Main {
     }
 
     public static void configurarPanel(JPanel painelFase) {
-        fase.getContentPane().removeAll();
-        fase.setContentPane(painelFase);
-        fase.revalidate();
-        fase.repaint();
-        painelFase.setFocusable(true);
-        painelFase.requestFocusInWindow();
+        SwingUtilities.invokeLater(() -> {
+            fase.getContentPane().removeAll();
+            fase.setContentPane(painelFase);
+            fase.revalidate();
+            fase.repaint();
+            painelFase.setFocusable(true);
+            painelFase.requestFocusInWindow();
+        });
 
     }
 

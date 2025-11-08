@@ -7,13 +7,14 @@ package mapa;
 import main.Direcao;
 import itens.Item;
 import java.awt.image.BufferedImage;
+import java.io.Serializable;
 import java.util.List;
 
 /**
  *
  * @author klaus
  */
-public class Tile {
+public class Tile implements Serializable {
     private int posX;
     private int posY;
     private BufferedImage image;

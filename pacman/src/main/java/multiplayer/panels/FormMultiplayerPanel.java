@@ -4,6 +4,19 @@
  */
 package multiplayer.panels;
 
+import main.Main;
+import multiplayer.cliente.Cliente;
+import multiplayer.cliente.ClienteSocket;
+import multiplayer.panels.lobby.Lobby;
+import multiplayer.panels.lobby.LobbyPanel;
+import multiplayer.server.Server;
+
+import javax.swing.*;
+import java.io.IOException;
+import java.net.InetAddress;
+import java.net.Socket;
+import java.net.UnknownHostException;
+
 /**
  *
  * @author klaus
@@ -107,11 +120,48 @@ public class FormMultiplayerPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void entrarSalaBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarSalaBTActionPerformed
-        // TODO add your handling code here:
+        try {
+            String ipString = ipTF.getText().trim();
+            InetAddress ip = InetAddress.getByName(ipString);
+            int porta = Integer.parseInt(portaTF.getText().trim());
+
+            if(ipString.isEmpty() || portaTF.getText().isEmpty()) {
+                throw new IOException("Porta ou IP vazios.");
+            }
+
+            try(Socket socket = new Socket(ip, porta)) {
+
+            }
+        } catch (UnknownHostException e) {
+            JOptionPane.showMessageDialog(this, "IP inválido, verifique se digitou corretamente com números e símbolos.",
+                    "Problemas de conectar no servidor", JOptionPane.ERROR_MESSAGE);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Porta deve ser um número inteiro", "Falha na porta", JOptionPane.ERROR_MESSAGE);
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(this, "IP inválido ou porta inválida, verifique se digitou corretamente com números e símbolos.",
+                    "Problemas ao conectar no servidor: " + e.getMessage(), JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_entrarSalaBTActionPerformed
 
     private void criarSalaBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criarSalaBTActionPerformed
-        // TODO add your handling code here:
+        new Thread(() -> {
+            try {
+                Main.criarSala();
+                Server.getInstance().setLobby(true);
+                Lobby lobby = new Lobby();
+                InetAddress ip = Server.getInstance().getServerSocket().getInetAddress();
+                int porta = Server.getInstance().getPort();
+                lobby.setClienteSocket(new ClienteSocket(ip, porta));
+                lobby.getClienteSocket().enviar(new Cliente());
+                lobby.setMeuPersonagem(lobby.escolherPersonagem());
+                lobby.start();
+            } catch (IOException e) {
+                e.printStackTrace();
+                SwingUtilities.invokeLater(() -> {
+                    JOptionPane.showMessageDialog(this, "Erro ao criar sala: " + e.getMessage());
+                });
+            }
+        }).start();
     }//GEN-LAST:event_criarSalaBTActionPerformed
 
 

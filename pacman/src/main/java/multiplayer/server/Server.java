@@ -25,6 +25,7 @@ public class Server {
         clienteHandlers = new ArrayList<>();
         this.serverSocket = new ServerSocket(port);
         isLobby = true;
+        maximoJogadores = 5;
         configureServer();
     }
 
@@ -52,7 +53,6 @@ public class Server {
 
     public void startServer() {
         Cliente clienteLocal = new Cliente();
-        clienteLocal.setId(0);
         clientes.add(clienteLocal);
 
         Thread threadConexoes = new Thread(() -> {
@@ -69,7 +69,6 @@ public class Server {
         });
 
         threadConexoes.start();
-
     }
 
     public void closeServer() {
