@@ -26,19 +26,101 @@ public class FormMultiplayerPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        entrarSalaBT = new javax.swing.JButton();
+        criarSalaBT = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        ipTF = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        portaTF = new javax.swing.JTextField();
+
+        setBackground(new java.awt.Color(22, 29, 36));
+
+        entrarSalaBT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/botoes/entrar sessões/botao_entrar_sala.png"))); // NOI18N
+        entrarSalaBT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                entrarSalaBTActionPerformed(evt);
+            }
+        });
+
+        criarSalaBT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/botoes/entrar sessões/botao_criar_sala.png"))); // NOI18N
+        criarSalaBT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                criarSalaBTActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Courier New", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(17, 104, 208));
+        jLabel1.setText("Digite o IP (números e pontos):");
+
+        ipTF.setBackground(new java.awt.Color(22, 29, 36));
+        ipTF.setFont(new java.awt.Font("Courier New", 1, 24)); // NOI18N
+        ipTF.setForeground(new java.awt.Color(17, 104, 208));
+        ipTF.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(17, 104, 208), 5));
+
+        jLabel2.setFont(new java.awt.Font("Courier New", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(17, 104, 208));
+        jLabel2.setText("Digite o número da porta:");
+
+        portaTF.setBackground(new java.awt.Color(22, 29, 36));
+        portaTF.setFont(new java.awt.Font("Courier New", 1, 24)); // NOI18N
+        portaTF.setForeground(new java.awt.Color(17, 104, 208));
+        portaTF.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(17, 104, 208), 5));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 601, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ipTF)
+                    .addComponent(portaTF)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(entrarSalaBT, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(criarSalaBT, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 57, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 354, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ipTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(portaTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(entrarSalaBT, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(criarSalaBT, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(195, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void entrarSalaBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarSalaBTActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_entrarSalaBTActionPerformed
+
+    private void criarSalaBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criarSalaBTActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_criarSalaBTActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton criarSalaBT;
+    private javax.swing.JButton entrarSalaBT;
+    private javax.swing.JTextField ipTF;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JTextField portaTF;
     // End of variables declaration//GEN-END:variables
 }

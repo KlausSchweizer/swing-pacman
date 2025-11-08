@@ -51,7 +51,7 @@ public class Game implements EventosGame {
 
     public void selecionarFase(String path) {
         mapa = new TxtParser().criarMapa(path);
-        Main.comecarFase(this, Main.getFase());
+        Main.comecarFase(this);
     }
 
     public void checarColisoes(Fantasma fantasma) {

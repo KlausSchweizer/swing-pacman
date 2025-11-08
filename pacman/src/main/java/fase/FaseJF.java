@@ -4,7 +4,13 @@
  */
 package fase;
 
+import multiplayer.server.Server;
+
 import javax.swing.JFrame;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+import java.io.IOException;
 
 /**
  *
@@ -19,6 +25,17 @@ public class FaseJF extends javax.swing.JFrame {
      */
     public FaseJF() {
         initComponents();
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent event) {
+                try {
+                    Server.getInstance().closeServer();
+                    System.exit(0);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
     }
 
     /**

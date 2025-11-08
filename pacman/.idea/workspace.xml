@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8c7b4757-7a2a-4bef-84fc-6a4f9b88602a" name="Changes" comment="Fantasma amarelo adaptado para ciano, sprites">
+      <change afterPath="$PROJECT_DIR$/src/main/java/main/TipoUsuario.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/multiplayer/cliente/ClienteSocket.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/multiplayer/fantasmas/MultiplayerFantasmaCiano.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/multiplayer/fantasmas/MultiplayerFantasmaLaranja.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/multiplayer/fantasmas/MultiplayerFantasmaRosa.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/multiplayer/fantasmas/MultiplayerFantasmaVermelho.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fase/FaseJF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fase/FaseJF.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fase/MenuPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fase/MenuPanel.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/multiplayer/MultiplayerGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/multiplayer/MultiplayerGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/multiplayer/cliente/ClienteHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/multiplayer/cliente/ClienteHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/multiplayer/network/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/multiplayer/network/Request.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/multiplayer/network/Response.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/multiplayer/network/Response.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/multiplayer/panels/FormMultiplayerPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/multiplayer/panels/FormMultiplayerPanel.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/multiplayer/panels/FormMultiplayerPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/multiplayer/panels/FormMultiplayerPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/multiplayer/panels/lobby/LobbyPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/multiplayer/panels/lobby/LobbyPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/multiplayer/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/multiplayer/server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/personagem/Personagem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/personagem/Personagem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/personagem/fantasma/FantasmaVermelho.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/personagem/fantasma/FantasmaVermelho.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/singleplayer/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/singleplayer/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapas/mapa.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapas/mapa.txt" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;KlausSchweizer&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/KlausSchweizer/swing-pacman&quot;,
+    &quot;accountId&quot;: &quot;2ed135c7-36f0-4412-9c04-625d17c02733&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="34AUDO07zdJqpjHqxmnPomFp0LT" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Multiplayer&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/klaus/Codigos/swing-pacman/pacman/src/main/java&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\klaus\Codigos\swing-pacman\pacman\src\main\java" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.Main" />
+      <module name="pacman" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="singleplayer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.26199.169" />
+        <option value="bundled-js-predefined-d6986cc7102b-9c94529fcfe0-JavaScript-IU-252.26199.169" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8c7b4757-7a2a-4bef-84fc-6a4f9b88602a" name="Changes" comment="" />
+      <created>1760655749966</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1760655749966</updated>
+      <workItem from="1760655751295" duration="133000" />
+      <workItem from="1760727726475" duration="134000" />
+      <workItem from="1761765586527" duration="2757000" />
+      <workItem from="1761768672886" duration="1993000" />
+      <workItem from="1761935699143" duration="13979000" />
+      <workItem from="1762044259744" duration="15790000" />
+      <workItem from="1762128760914" duration="1114000" />
+      <workItem from="1762133399890" duration="6661000" />
+      <workItem from="1762292308512" duration="1188000" />
+      <workItem from="1762294272931" duration="4788000" />
+      <workItem from="1762334909253" duration="229000" />
+      <workItem from="1762335250191" duration="135000" />
+      <workItem from="1762473109982" duration="9867000" />
+      <workItem from="1762606106597" duration="4000" />
+      <workItem from="1762606560698" duration="3100000" />
+    </task>
+    <task id="LOCAL-00001" summary="Fantasmas e pacman no parser">
+      <option name="closed" value="true" />
+      <created>1761768476539</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1761768476539</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Correção thread e parser">
+      <option name="closed" value="true" />
+      <created>1761770563606</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1761770563606</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Mapa1">
+      <option name="closed" value="true" />
+      <created>1761943763914</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1761943763915</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Movimento do pacman">
+      <option name="closed" value="true" />
+      <created>1761943776266</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1761943776266</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Substituição de fantasma thread e pacman thread por Timer">
+      <option name="closed" value="true" />
+      <created>1761945277848</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1761945277848</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Modelagem inicial do multiplayer">
+      <option name="closed" value="true" />
+      <created>1761950565828</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1761950565828</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Seletor de fases">
+      <option name="closed" value="true" />
+      <created>1761955123274</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1761955123274</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Itens sumir, adicionar pontos">
+      <option name="closed" value="true" />
+      <created>1762119105797</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1762119105797</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Modelagem multiplayer, singleplayer">
+      <option name="closed" value="true" />
+      <created>1762119307047</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1762119307047</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Remoção do pacote &quot;enums&quot;">
+      <option name="closed" value="true" />
+      <created>1762123971301</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1762123971301</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Contornar method">
+      <option name="closed" value="true" />
+      <created>1762124861903</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1762124861903</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Merge master into fantasmas">
+      <option name="closed" value="true" />
+      <created>1762125328603</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1762125328603</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Fantasmas add nos txt">
+      <option name="closed" value="true" />
+      <created>1762128712229</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1762128712229</updated>
+    </task>
+    <task id="LOCAL-00014" summary="TransformarTileVazio">
+      <option name="closed" value="true" />
+      <created>1762132158251</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1762132158251</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Fantasmas sem poder sair pelas laterais, mapa3 added">
+      <option name="closed" value="true" />
+      <created>1762283071153</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1762283071153</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Menu Panel">
+      <option name="closed" value="true" />
+      <created>1762334949631</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1762334949631</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Menu Panel">
+      <option name="closed" value="true" />
+      <created>1762334966359</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1762334966359</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Menu Panel">
+      <option name="closed" value="true" />
+      <created>1762334975958</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1762334975958</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Lobby added">
+      <option name="closed" value="true" />
+      <created>1762334992477</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1762334992477</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Ajustes no multiplayer">
+      <option name="closed" value="true" />
+      <created>1762335016658</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1762335016658</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Ajustes no multiplayer">
+      <option name="closed" value="true" />
+      <created>1762335040244</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1762335040244</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Fantasma amarelo adaptado para ciano, sprites">
+      <option name="closed" value="true" />
+      <created>1762335376541</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1762335376541</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Fantasmas e pacman no parser" />
+    <MESSAGE value="Correção thread e parser" />
+    <MESSAGE value="Mapa1" />
+    <MESSAGE value="Movimento do pacman" />
+    <MESSAGE value="Substituição de fantasma thread e pacman thread por Timer" />
+    <MESSAGE value="Modelagem inicial do multiplayer" />
+    <MESSAGE value="Seletor de fases" />
+    <MESSAGE value="Itens sumir, adicionar pontos" />
+    <MESSAGE value="Modelagem multiplayer, singleplayer" />
+    <MESSAGE value="Remoção do pacote &quot;enums&quot;" />
+    <MESSAGE value="Contornar method" />
+    <MESSAGE value="Merge master into fantasmas" />
+    <MESSAGE value="Fantasmas add nos txt" />
+    <MESSAGE value="TransformarTileVazio" />
+    <MESSAGE value="Fantasmas sem poder sair pelas laterais, mapa3 added" />
+    <MESSAGE value="Menu Panel" />
+    <MESSAGE value="Lobby added" />
+    <MESSAGE value="Ajustes no multiplayer" />
+    <MESSAGE value="Fantasma amarelo adaptado para ciano, sprites" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fantasma amarelo adaptado para ciano, sprites" />
+  </component>
+</project>

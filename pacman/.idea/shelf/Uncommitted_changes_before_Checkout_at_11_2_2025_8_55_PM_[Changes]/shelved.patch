@@ -1,0 +1,19 @@
+Index: src/main/java/personagem/fantasma/FantasmaRosa.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>/*\r\n * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license\r\n * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template\r\n */\r\npackage personagem.fantasma;\r\n\r\nimport main.Direcao;\r\nimport java.awt.Graphics2D;\r\nimport java.awt.image.BufferedImage;\r\nimport javax.imageio.ImageIO;\r\nimport mapa.Mapa;\r\nimport personagem.pacman.Pacman;\r\n\r\n/**\r\n *\r\n * @author Intel\r\n */\r\npublic class FantasmaRosa extends Fantasma {\r\n\r\n    public FantasmaRosa(int posY, int posX) {\r\n        super(posY, posX);\r\n\r\n        try {\r\n              BufferedImage sprite1 = ImageIO.read(getClass().getResource(\"/imagens/fantasmas/FantasmaAmarelo/FantasmAmareloCima.png\"));\r\n\r\n            spritesAndando = new BufferedImage[]{sprite1};\r\n            spritesAtuais = new BufferedImage[]{sprite1};\r\n        } catch (Exception e) {\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n\r\n    @Override\r\n    public Direcao decidirDirecao(Pacman pacman, Mapa mapa) {\r\n        return explorador.decidirDirecao(this.posY, this.posX, pacman.getPosY(),\r\n                pacman.getPosX(), mapa);\r\n    }\r\n\r\n    @Override\r\n    public void draw(Graphics2D g2d, int tileSize, Mapa mapa) {\r\n        BufferedImage imagemAtual = spritesAtuais[0];\r\n        g2d.drawImage(imagemAtual, posX * tileSize, posY * tileSize, tileSize, tileSize, null);\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/personagem/fantasma/FantasmaRosa.java b/src/main/java/personagem/fantasma/FantasmaRosa.java
+--- a/src/main/java/personagem/fantasma/FantasmaRosa.java	(revision 3c454a4d7487d8f7083f2b2a34f79a87a694b5c7)
++++ b/src/main/java/personagem/fantasma/FantasmaRosa.java	(date 1762125632569)
+@@ -21,7 +21,7 @@
+         super(posY, posX);
+ 
+         try {
+-              BufferedImage sprite1 = ImageIO.read(getClass().getResource("/imagens/fantasmas/FantasmaAmarelo/FantasmAmareloCima.png"));
++              BufferedImage sprite1 = ImageIO.read(getClass().getResource("/imagens/fantasmas/FantasmaRosa/FantasmRosaCima.png"));
+ 
+             spritesAndando = new BufferedImage[]{sprite1};
+             spritesAtuais = new BufferedImage[]{sprite1};

@@ -5,11 +5,10 @@
 package personagem;
 
 import main.Direcao;
-import java.awt.Graphics2D;
-
-import java.awt.image.BufferedImage;
-
 import mapa.Mapa;
+
+import java.awt.*;
+import java.awt.image.BufferedImage;
 
 /**
  *
@@ -33,8 +32,9 @@ public abstract class Personagem {
     }
 
     public abstract void draw(Graphics2D g, int tileSize, Mapa mapa);
+
     public abstract void morrer();
-    
+
     public void mover(Mapa mapa) {
         if (direcao == Direcao.BAIXO) {
             this.posY++;
@@ -73,6 +73,10 @@ public abstract class Personagem {
 
     public Direcao getDirecao() {
         return direcao;
+    }
+
+    public void setDirecao(Direcao direcao) {
+        this.direcao = direcao;
     }
 
     public BufferedImage[] getSpritesAtuais() {

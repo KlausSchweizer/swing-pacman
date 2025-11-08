@@ -40,7 +40,8 @@ public class ClienteHandler extends Thread {
     }
 
     private void processarRequest(Object obj) {
-        
+        Request request = (Request) obj;
+        cliente.getPersonagem().setDirecao(request.getDirecao());
     }
 
     public Cliente solicitarCliente() throws IOException, ClassNotFoundException {

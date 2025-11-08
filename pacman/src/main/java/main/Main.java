@@ -8,6 +8,7 @@ import fase.FaseJF;
 import fase.FasePanel;
 
 import java.io.IOException;
+import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.*;
@@ -17,6 +18,9 @@ import fase.SeletorFases;
 import mapa.Mapa;
 import mapa.Posicao;
 import multiplayer.MultiplayerGame;
+import multiplayer.panels.FormMultiplayerPanel;
+import multiplayer.panels.lobby.Lobby;
+import multiplayer.server.Server;
 import personagem.fantasma.*;
 import personagem.pacman.Pacman;
 import singleplayer.Game;
@@ -38,29 +42,42 @@ public class Main {
         fase.setVisible(true);
     }
 
-    public static void singlePlayer()  {
+    public static void singlePlayer() {
+        MultiplayerGame.setTipoUsuario(TipoUsuario.SINGLEPLAYER);
         try {
             Game game = new Game();
             SeletorFases seletor = new SeletorFases(game);
-            configurarPanel(fase, seletor);
+            configurarPanel(seletor);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
     }
 
     public static void multiplayer() {
-        MultiplayerGame game = new MultiplayerGame();
-        game.selecionarFase("/mapas/lobby.txt");
-        FasePanel fasePanel = new FasePanel(game.getMapa());
-
+        FormMultiplayerPanel panel = new FormMultiplayerPanel();
+        configurarPanel(panel);
     }
 
-    public static void comecarFase(Game game, FaseJF fase) {
+    public static void criarSala() {
+        MultiplayerGame.setTipoUsuario(TipoUsuario.SERVIDOR);
+        try {
+            Server server = Server.getInstance();
+            server.startServer();
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(fase, "Erro ao criar servidor", "Erro ao selecionar fase", JOptionPane.ERROR_MESSAGE);
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void entrarSala(int port, InetAddress ip) {
+        MultiplayerGame.setTipoUsuario(TipoUsuario.CLIENTE);
+    }
+
+    public static void comecarFase(Game game) {
         configurarFantasmas(game);
         configurarPacman(game);
         configurarPainelFase(game);
-        configurarPanel(fase, game.getPanel());
+        configurarPanel(game.getPanel());
 
         int intervalo = 200;
         Timer timer = new Timer(intervalo, e -> {
@@ -105,7 +122,7 @@ public class Main {
         game.setFantasmas(fantasmas);
     }
 
-    public static void configurarPanel(FaseJF fase, JPanel painelFase) {
+    public static void configurarPanel(JPanel painelFase) {
         fase.getContentPane().removeAll();
         fase.setContentPane(painelFase);
         fase.revalidate();

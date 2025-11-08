@@ -16,10 +16,11 @@ public class Server {
     private int port;
     private int maximoJogadores;
     private boolean isLobby;
+    private long ultimoBroadCast;
     public static Server instance;
 
-    private Server(int port) throws IOException {
-        this.port = port;
+    private Server() throws IOException {
+        port = escolherPorta();
         clientes = new ArrayList<>();
         clienteHandlers = new ArrayList<>();
         this.serverSocket = new ServerSocket(port);
@@ -28,17 +29,21 @@ public class Server {
     }
 
     public static Server getInstance() throws IOException {
-        if (instance == null) {
-            throw new IOException("Use o getInstance(int port), não há servidor criado");
+        if(instance == null) {
+            instance = new Server();
         }
         return instance;
     }
 
-    public static Server getInstance(int port) throws IOException {
-        if (instance == null) {
-            instance = new Server(port);
+    public int escolherPorta() {
+        int temporaryPort = 5000;
+        while (true) {
+            try (ServerSocket temporaryServerSocket = new ServerSocket(temporaryPort)) {
+                return temporaryPort;
+            } catch (IOException e) {
+                temporaryPort++;
+            }
         }
-        return instance;
     }
 
     private void configureServer() throws IOException {
@@ -125,5 +130,13 @@ public class Server {
 
     public void setLobby(boolean lobby) {
         isLobby = lobby;
+    }
+
+    public long getUltimoBroadCast() {
+        return ultimoBroadCast;
+    }
+
+    public void setUltimoBroadCast(long ultimoBroadCast) {
+        this.ultimoBroadCast = ultimoBroadCast;
     }
 }
