@@ -4,28 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8c7b4757-7a2a-4bef-84fc-6a4f9b88602a" name="Changes" comment="Fantasma amarelo adaptado para ciano, sprites">
-      <change afterPath="$PROJECT_DIR$/src/main/java/main/TipoUsuario.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/multiplayer/cliente/ClienteSocket.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/multiplayer/fantasmas/MultiplayerFantasmaCiano.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/multiplayer/fantasmas/MultiplayerFantasmaLaranja.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/multiplayer/fantasmas/MultiplayerFantasmaRosa.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/multiplayer/fantasmas/MultiplayerFantasmaVermelho.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fase/FaseJF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fase/FaseJF.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fase/MenuPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fase/MenuPanel.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/Main.java" afterDir="false" />
+    <list default="true" id="8c7b4757-7a2a-4bef-84fc-6a4f9b88602a" name="Changes" comment="Conexão do server e do cliente no update() do multiplayer, clientesocket">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/multiplayer/MultiplayerGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/multiplayer/MultiplayerGame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/multiplayer/cliente/ClienteHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/multiplayer/cliente/ClienteHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/multiplayer/network/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/multiplayer/network/Request.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/multiplayer/network/Response.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/multiplayer/network/Response.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/multiplayer/panels/FormMultiplayerPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/multiplayer/panels/FormMultiplayerPanel.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/multiplayer/panels/FormMultiplayerPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/multiplayer/panels/FormMultiplayerPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/multiplayer/panels/lobby/LobbyPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/multiplayer/panels/lobby/LobbyPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/multiplayer/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/multiplayer/server/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/personagem/Personagem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/personagem/Personagem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/personagem/fantasma/FantasmaVermelho.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/personagem/fantasma/FantasmaVermelho.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/singleplayer/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/singleplayer/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapas/mapa.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapas/mapa.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,7 +132,8 @@
       <workItem from="1762335250191" duration="135000" />
       <workItem from="1762473109982" duration="9867000" />
       <workItem from="1762606106597" duration="4000" />
-      <workItem from="1762606560698" duration="3100000" />
+      <workItem from="1762606560698" duration="3256000" />
+      <workItem from="1762621821970" duration="929000" />
     </task>
     <task id="LOCAL-00001" summary="Fantasmas e pacman no parser">
       <option name="closed" value="true" />
@@ -326,7 +311,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762335376541</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Conexão do server e do cliente no update() do multiplayer, clientesocket">
+      <option name="closed" value="true" />
+      <created>1762612706324</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1762612706324</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -352,6 +345,7 @@
     <MESSAGE value="Lobby added" />
     <MESSAGE value="Ajustes no multiplayer" />
     <MESSAGE value="Fantasma amarelo adaptado para ciano, sprites" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fantasma amarelo adaptado para ciano, sprites" />
+    <MESSAGE value="Conexão do server e do cliente no update() do multiplayer, clientesocket" />
+    <option name="LAST_COMMIT_MESSAGE" value="Conexão do server e do cliente no update() do multiplayer, clientesocket" />
   </component>
 </project>

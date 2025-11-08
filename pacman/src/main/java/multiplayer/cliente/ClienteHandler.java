@@ -21,8 +21,8 @@ public class ClienteHandler extends Thread {
     @Override
     public void run() {
         try {
-            in = new ObjectInputStream(socket.getInputStream());
             out = new ObjectOutputStream(socket.getOutputStream());
+            in = new ObjectInputStream(socket.getInputStream());
 
             cliente = solicitarCliente();
             Server.getInstance().getClientes().add(cliente);
