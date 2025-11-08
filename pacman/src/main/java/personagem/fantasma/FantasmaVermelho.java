@@ -42,5 +42,4 @@ public class FantasmaVermelho extends Fantasma {
         BufferedImage imagemAtual = spritesAtuais[0];
         g2d.drawImage(imagemAtual, posX * tileSize, posY * tileSize, tileSize, tileSize, null);
     }
-
 }
