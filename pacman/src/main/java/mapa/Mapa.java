@@ -5,9 +5,8 @@
 package mapa;
 
 import itens.Item;
-import java.awt.Color;
-import java.awt.Graphics2D;
-import java.io.Serializable;
+
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,17 +14,18 @@ import java.util.List;
  *
  * @author klaus
  */
-public class Mapa implements Serializable {
+public class Mapa {
 
+    private final List<Posicao> spawnsFantasma;
     private Tile[][] mapa;
     private char[][] textoMapa;
     private Posicao spawnPacman;
-    private List<Posicao> spawnsFantasma;
+    private String nomeMapa;
 
     public Mapa() {
         spawnsFantasma = new ArrayList<>();
     }
-    
+
     public void draw(Graphics2D g2d, int tileSize) {
         for (int linha = 0; linha < mapa.length; ++linha) {
             for (int coluna = 0; coluna < mapa[linha].length; ++coluna) {
@@ -72,6 +72,14 @@ public class Mapa implements Serializable {
 
     public List<Posicao> getSpawnsFantasma() {
         return spawnsFantasma;
+    }
+
+    public String getNomeMapa() {
+        return nomeMapa;
+    }
+
+    public void setNomeMapa(String nomeMapa) {
+        this.nomeMapa = nomeMapa;
     }
 
     public void adicionarSpawnFantasma(Posicao posicao) {

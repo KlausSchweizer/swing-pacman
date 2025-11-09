@@ -1,7 +1,9 @@
 package multiplayer;
 
+import itens.Item;
 import main.Main;
 import main.TipoUsuario;
+import mapa.Tile;
 import multiplayer.cliente.ClienteSocket;
 import multiplayer.network.Request;
 import multiplayer.network.Response;
@@ -38,22 +40,31 @@ public class MultiplayerGame extends Game {
 
             if (tipoUsuario == TipoUsuario.SERVIDOR && System.currentTimeMillis() - Server.getInstance().getUltimoBroadCast() >= 100) {
                 enviarResponseServidor();
+                for (Fantasma fantasma : fantasmas) {
+                    fantasma.mover(mapa);
+                    checarColisoes(fantasma);
+                }
+                if (pacman != null) {
+                    pacman.mover(mapa);
+                }
             }
-            for (Fantasma fantasma : fantasmas) {
-                fantasma.setDirecao(fantasma.decidirDirecao(pacman, mapa));
-                fantasma.mover(mapa);
-                checarColisoes(fantasma);
-            }
-            pacman.mover(mapa);
+
             panel.repaint();
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
     }
 
     private void enviarResponseServidor() throws IOException {
         Response responseEnvio = new Response();
         responseEnvio.setMapa(this.mapa);
+        List<Item> itens = new ArrayList<>();
+        for (Tile[] tiles : mapa.getMapa()) {
+            for (Tile tile : tiles) {
+                itens.add(tile.getItem());
+            }
+        }
+        responseEnvio.setItems(itens);
 
         List<Personagem> listaPersonagems = new ArrayList<>();
         listaPersonagems.add(this.pacman);
@@ -70,20 +81,29 @@ public class MultiplayerGame extends Game {
         if (responseSocket != null) {
             this.mapa = responseSocket.getMapa();
             List<Personagem> personagens = new ArrayList<>(responseSocket.getPersonagems());
+
+            this.fantasmas.clear();
+
             for (Personagem personagem : personagens) {
                 if (personagem instanceof Pacman) {
                     this.pacman = (Pacman) personagem;
                 } else if (personagem instanceof Fantasma) {
+                    System.out.println("Recebido Fantasma: " + personagem);
                     this.fantasmas.add((Fantasma) personagem);
                 }
             }
         }
     }
 
+
     private void enviarRequest() {
-        Request request = new Request();
-        request.setDirecao(meuPersonagem.getDirecao());
-        clienteSocket.enviar(request);
+        try {
+            Request request = new Request();
+            request.setDirecao(meuPersonagem.getDirecao());
+            clienteSocket.enviarRequest(request);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override

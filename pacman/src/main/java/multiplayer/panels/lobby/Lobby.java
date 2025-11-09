@@ -1,6 +1,7 @@
 package multiplayer.panels.lobby;
 
 import main.Main;
+import mapa.TxtParser;
 import multiplayer.MultiplayerGame;
 import multiplayer.fantasmas.MultiplayerFantasmaCiano;
 import multiplayer.fantasmas.MultiplayerFantasmaLaranja;
@@ -20,6 +21,8 @@ public class Lobby extends MultiplayerGame {
     public Lobby() {
         super();
         configurarProximosPersonagens();
+        mapa = new TxtParser().criarMapa("/mapas/lobby.txt");
+        isRunning = true;
     }
 
     public Personagem escolherPersonagem() {
@@ -43,8 +46,9 @@ public class Lobby extends MultiplayerGame {
 
     public void start() {
         this.selecionarFase("/mapas/lobby.txt");
-        LobbyPanel panel = new LobbyPanel(this.mapa, this.fantasmas, this.pacman);
+        panel = new LobbyPanel(this.mapa, this.fantasmas, this.pacman, this.getMeuPersonagem());
         Main.configurarPanel(panel);
+        Main.timerMultiplayer(this);
     }
 
     @Override

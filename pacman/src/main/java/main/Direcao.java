@@ -4,12 +4,10 @@
  */
 package main;
 
-import java.io.Serializable;
-
 /**
  *
  * @author klaus
  */
-public enum Direcao implements Serializable {
-    CIMA,BAIXO, ESQUERDA, DIREITA
+public enum Direcao {
+    CIMA, BAIXO, ESQUERDA, DIREITA
 }

@@ -37,6 +37,7 @@ public class TxtParser {
             textoMapa = converterMatriz(quantidadeLinhas, quantidadeColunas, filePath);
             Mapa mapa = matrizParaMapa.converterMatrizMapa(textoMapa);
             mapa.setTextoMapa(textoMapa);
+            mapa.setNomeMapa(filePath);
             return mapa;
         } catch (IOException e) {
             File file = new File(filePath);

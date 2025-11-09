@@ -4,24 +4,41 @@
  */
 package multiplayer.panels;
 
+import itens.Item;
 import main.Main;
+import mapa.Tile;
 import multiplayer.cliente.Cliente;
 import multiplayer.cliente.ClienteSocket;
+import multiplayer.network.Response;
 import multiplayer.panels.lobby.Lobby;
-import multiplayer.panels.lobby.LobbyPanel;
 import multiplayer.server.Server;
+import personagem.Personagem;
+import personagem.fantasma.Fantasma;
+import personagem.pacman.Pacman;
 
 import javax.swing.*;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author klaus
  */
 public class FormMultiplayerPanel extends javax.swing.JPanel {
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton criarSalaBT;
+    private javax.swing.JButton entrarSalaBT;
+    private javax.swing.JTextField ipTF;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JTextField nomeTF;
+    private javax.swing.JTextField portaTF;
 
     /**
      * Creates new form FormMultiplayerPanel
@@ -45,6 +62,8 @@ public class FormMultiplayerPanel extends javax.swing.JPanel {
         ipTF = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         portaTF = new javax.swing.JTextField();
+        nomeTF = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(22, 29, 36));
 
@@ -64,7 +83,7 @@ public class FormMultiplayerPanel extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Courier New", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(17, 104, 208));
-        jLabel1.setText("Digite o IP (números e pontos):");
+        jLabel1.setText("Digite o IP (números e pontos) para entrar na sala:");
 
         ipTF.setBackground(new java.awt.Color(22, 29, 36));
         ipTF.setFont(new java.awt.Font("Courier New", 1, 24)); // NOI18N
@@ -73,50 +92,26 @@ public class FormMultiplayerPanel extends javax.swing.JPanel {
 
         jLabel2.setFont(new java.awt.Font("Courier New", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(17, 104, 208));
-        jLabel2.setText("Digite o número da porta:");
+        jLabel2.setText("Digite o número da porta para entrar na sala:");
 
         portaTF.setBackground(new java.awt.Color(22, 29, 36));
         portaTF.setFont(new java.awt.Font("Courier New", 1, 24)); // NOI18N
         portaTF.setForeground(new java.awt.Color(17, 104, 208));
         portaTF.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(17, 104, 208), 5));
 
+        nomeTF.setBackground(new java.awt.Color(22, 29, 36));
+        nomeTF.setFont(new java.awt.Font("Courier New", 1, 24)); // NOI18N
+        nomeTF.setForeground(new java.awt.Color(17, 104, 208));
+        nomeTF.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(17, 104, 208), 5));
+
+        jLabel3.setFont(new java.awt.Font("Courier New", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(17, 104, 208));
+        jLabel3.setText("Digite o nome de usuário:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ipTF)
-                    .addComponent(portaTF)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(entrarSalaBT, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(criarSalaBT, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 57, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(ipTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(portaTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(entrarSalaBT, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(criarSalaBT, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(195, Short.MAX_VALUE))
-        );
+        layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(layout.createSequentialGroup().addContainerGap().addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(ipTF).addComponent(portaTF).addComponent(nomeTF).addGroup(layout.createSequentialGroup().addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(jLabel1).addComponent(jLabel2).addGroup(layout.createSequentialGroup().addComponent(entrarSalaBT, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED).addComponent(criarSalaBT, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)).addComponent(jLabel3)).addGap(0, 0, Short.MAX_VALUE))).addContainerGap()));
+        layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(layout.createSequentialGroup().addContainerGap().addComponent(jLabel1).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED).addComponent(ipTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE).addGap(18, 18, 18).addComponent(jLabel2).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(portaTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(jLabel3).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(nomeTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(entrarSalaBT, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE).addComponent(criarSalaBT, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)).addContainerGap(129, Short.MAX_VALUE)));
     }// </editor-fold>//GEN-END:initComponents
 
     private void entrarSalaBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarSalaBTActionPerformed
@@ -124,53 +119,74 @@ public class FormMultiplayerPanel extends javax.swing.JPanel {
             String ipString = ipTF.getText().trim();
             InetAddress ip = InetAddress.getByName(ipString);
             int porta = Integer.parseInt(portaTF.getText().trim());
+            String nomeUsuario = nomeTF.getText().trim();
 
-            if(ipString.isEmpty() || portaTF.getText().isEmpty()) {
-                throw new IOException("Porta ou IP vazios.");
+            if (ipString.isEmpty() || portaTF.getText().isEmpty() || nomeUsuario.isEmpty()) {
+                throw new IOException("Porta, IP ou nome vazios.");
             }
 
-            try(Socket socket = new Socket(ip, porta)) {
+            try (Socket socket = new Socket(ip, porta)) {
 
             }
         } catch (UnknownHostException e) {
-            JOptionPane.showMessageDialog(this, "IP inválido, verifique se digitou corretamente com números e símbolos.",
-                    "Problemas de conectar no servidor", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "IP inválido, verifique se digitou corretamente com números e símbolos.", "Problemas de conectar no servidor", JOptionPane.ERROR_MESSAGE);
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Porta deve ser um número inteiro", "Falha na porta", JOptionPane.ERROR_MESSAGE);
         } catch (IOException e) {
-            JOptionPane.showMessageDialog(this, "IP inválido ou porta inválida, verifique se digitou corretamente com números e símbolos.",
-                    "Problemas ao conectar no servidor: " + e.getMessage(), JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "IP inválido ou porta inválida, verifique se digitou corretamente com números e símbolos.", "Problemas ao conectar no servidor: " + e.getMessage(), JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_entrarSalaBTActionPerformed
 
     private void criarSalaBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criarSalaBTActionPerformed
         new Thread(() -> {
             try {
+                String nomeUsuario = nomeTF.getText().trim();
+                if (nomeUsuario.isEmpty()) {
+                    throw new IOException("Nome de usuário vazio.");
+                }
+
                 Main.criarSala();
                 Server.getInstance().setLobby(true);
                 Lobby lobby = new Lobby();
+
                 InetAddress ip = Server.getInstance().getServerSocket().getInetAddress();
                 int porta = Server.getInstance().getPort();
+
                 lobby.setClienteSocket(new ClienteSocket(ip, porta));
-                lobby.getClienteSocket().enviar(new Cliente());
-                lobby.setMeuPersonagem(lobby.escolherPersonagem());
+
+                Cliente cliente = new Cliente();
+                cliente.setNome(nomeUsuario);
+                cliente.setPersonagem(lobby.escolherPersonagem());
+                lobby.getClienteSocket().enviarCliente(cliente);
+                lobby.setMeuPersonagem(cliente.getPersonagem());
+
+                if (lobby.getMeuPersonagem() instanceof Pacman) {
+                    lobby.setPacman((Pacman) lobby.getMeuPersonagem());
+                } else if (lobby.getMeuPersonagem() instanceof Fantasma) {
+                    lobby.getFantasmas().add((Fantasma) lobby.getMeuPersonagem());
+                }
+                Response temporarioResponse = new Response();
+                temporarioResponse.setMapa(lobby.getMapa());
+                List<Personagem> personagems = new ArrayList<>();
+                if (lobby.getPacman() != null) {
+                    personagems.add(lobby.getPacman());
+                }
+                personagems.addAll(lobby.getFantasmas());
+                List<Item> itens = new ArrayList<>();
+                for (Tile[] tiles : lobby.getMapa().getMapa()) {
+                    for (Tile tile : tiles) {
+                        itens.add(tile.getItem());
+                    }
+                }
+                temporarioResponse.setItems(itens);
+                temporarioResponse.setPersonagems(personagems);
+                lobby.getClienteSocket().setUltimoResponse(temporarioResponse);
+
                 lobby.start();
             } catch (IOException e) {
-                e.printStackTrace();
-                SwingUtilities.invokeLater(() -> {
-                    JOptionPane.showMessageDialog(this, "Erro ao criar sala: " + e.getMessage());
-                });
+                SwingUtilities.invokeLater(() -> JOptionPane.showMessageDialog(this, "Erro ao criar sala: " + e.getMessage()));
             }
         }).start();
     }//GEN-LAST:event_criarSalaBTActionPerformed
-
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton criarSalaBT;
-    private javax.swing.JButton entrarSalaBT;
-    private javax.swing.JTextField ipTF;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField portaTF;
     // End of variables declaration//GEN-END:variables
 }

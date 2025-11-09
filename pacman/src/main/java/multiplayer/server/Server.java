@@ -2,6 +2,7 @@ package multiplayer.server;
 
 import multiplayer.cliente.Cliente;
 import multiplayer.cliente.ClienteHandler;
+import multiplayer.network.Response;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -81,9 +82,9 @@ public class Server {
         }
     }
 
-    public void broadcast(Object mensagem) throws IOException {
+    public void broadcast(Response response) throws IOException {
         for (ClienteHandler handler : clienteHandlers) {
-            handler.enviarObjeto(mensagem);
+            handler.enviar(response);
         }
     }
 

@@ -51,6 +51,7 @@ public class Game implements EventosGame {
 
     public void selecionarFase(String path) {
         mapa = new TxtParser().criarMapa(path);
+        mapa.setNomeMapa(path);
         Main.comecarFase(this);
     }
 

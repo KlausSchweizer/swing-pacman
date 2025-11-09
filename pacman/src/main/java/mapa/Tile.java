@@ -4,17 +4,17 @@
  */
 package mapa;
 
-import main.Direcao;
 import itens.Item;
+import main.Direcao;
+
 import java.awt.image.BufferedImage;
-import java.io.Serializable;
 import java.util.List;
 
 /**
  *
  * @author klaus
  */
-public class Tile implements Serializable {
+public class Tile {
     private int posX;
     private int posY;
     private BufferedImage image;
@@ -68,6 +68,6 @@ public class Tile implements Serializable {
     public void setItem(Item item) {
         this.item = item;
     }
-    
-    
+
+
 }

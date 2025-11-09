@@ -58,6 +58,18 @@ public class Main {
         configurarPanel(panel);
     }
 
+    public static void timerMultiplayer(Game game) {
+        int intervalo = 200;
+        Timer timer = new Timer(intervalo, e -> {
+            if (game.isRunning()) {
+                game.update();
+            } else {
+                ((Timer) e.getSource()).stop();
+            }
+        });
+        timer.start();
+    }
+
     public static void criarSala() {
         MultiplayerGame.setTipoUsuario(TipoUsuario.SERVIDOR);
         try {
@@ -97,9 +109,11 @@ public class Main {
 
     private static void configurarPacman(Game game) {
         Posicao spawnPacman = game.getMapa().getSpawnPacman();
-        Pacman pacman = new Pacman(spawnPacman.getPosY(), spawnPacman.getPosX());
-        pacman.setEventos(game);
-        game.setPacman(pacman);
+        if(spawnPacman != null) {
+            Pacman pacman = new Pacman(spawnPacman.getPosY(), spawnPacman.getPosX());
+            pacman.setEventos(game);
+            game.setPacman(pacman);
+        }
     }
 
     private static void configurarFantasmas(Game game) {
@@ -131,7 +145,6 @@ public class Main {
             painelFase.setFocusable(true);
             painelFase.requestFocusInWindow();
         });
-
     }
 
     public static FaseJF getFase() {

@@ -11,6 +11,7 @@ import java.awt.event.KeyEvent;
 import java.util.List;
 
 import mapa.Mapa;
+import personagem.Personagem;
 import personagem.fantasma.Fantasma;
 import personagem.pacman.Pacman;
 
@@ -20,19 +21,27 @@ import personagem.pacman.Pacman;
  */
 public class FasePanel extends javax.swing.JPanel {
 
-    private Mapa mapa;
-    private List<Fantasma> fantasmas;
-    private Pacman pacman;
-
-    public FasePanel(Mapa mapa) {
-        this.mapa = mapa;
-    }
+    protected Mapa mapa;
+    protected List<Fantasma> fantasmas;
+    protected Pacman pacman;
+    protected Personagem personagem;
 
     public FasePanel(Mapa mapa, List<Fantasma> fantasmas, Pacman pacman) {
         initComponents();
         this.mapa = mapa;
         this.fantasmas = fantasmas;
         this.pacman = pacman;
+        this.personagem = pacman;
+        setFocusable(true);
+        requestFocusInWindow();
+    }
+
+    public FasePanel(Mapa mapa, List<Fantasma> fantasmas, Pacman pacman, Personagem personagem) {
+        initComponents();
+        this.mapa = mapa;
+        this.fantasmas = fantasmas;
+        this.pacman = pacman;
+        this.personagem = personagem;
         setFocusable(true);
         requestFocusInWindow();
     }
@@ -61,18 +70,19 @@ public class FasePanel extends javax.swing.JPanel {
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_UP || evt.getKeyCode() == KeyEvent.VK_W) {
-            pacman.setDirecao(Direcao.CIMA, mapa);
+            personagem.setDirecao(Direcao.CIMA);
         } else if (evt.getKeyCode() == KeyEvent.VK_DOWN || evt.getKeyCode() == KeyEvent.VK_S) {
-            pacman.setDirecao(Direcao.BAIXO, mapa);
+            personagem.setDirecao(Direcao.BAIXO);
         } else if (evt.getKeyCode() == KeyEvent.VK_LEFT || evt.getKeyCode() == KeyEvent.VK_A) {
-            pacman.setDirecao(Direcao.ESQUERDA, mapa);
+            personagem.setDirecao(Direcao.ESQUERDA);
         } else if (evt.getKeyCode() == KeyEvent.VK_RIGHT || evt.getKeyCode() == KeyEvent.VK_D) {
-            pacman.setDirecao(Direcao.DIREITA, mapa);
+            personagem.setDirecao(Direcao.DIREITA);
         }
     }//GEN-LAST:event_formKeyPressed
 
     @Override
     protected void paintComponent(Graphics g) {
+        System.out.println("Paint component");
         Graphics2D g2d = (Graphics2D) g;
         super.paintComponent(g2d);
 
@@ -83,7 +93,9 @@ public class FasePanel extends javax.swing.JPanel {
         for (Fantasma fantasma : fantasmas) {
             fantasma.draw(g2d, tileSize, mapa);
         }
-        pacman.draw(g2d, tileSize, mapa);
+        if(pacman != null) {
+            pacman.draw(g2d, tileSize, mapa);
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

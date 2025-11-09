@@ -2,9 +2,7 @@ package multiplayer.network;
 
 import main.Direcao;
 
-import java.io.Serializable;
-
-public class Request implements Serializable {
+public class Request {
     private Direcao direcao;
 
     public Direcao getDirecao() {
