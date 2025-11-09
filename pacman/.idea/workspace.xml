@@ -4,27 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8c7b4757-7a2a-4bef-84fc-6a4f9b88602a" name="Changes" comment="Atualizações no código antes de mudar de Object i/o stream para Data i/o stream">
+    <list default="true" id="8c7b4757-7a2a-4bef-84fc-6a4f9b88602a" name="Changes" comment="Ajuste no movimento dos fantasmas, personagem sendo controlado pelo server">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fase/FasePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fase/FasePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/Direcao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/Direcao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mapa/Mapa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mapa/Mapa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mapa/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mapa/Tile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mapa/TxtParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mapa/TxtParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/multiplayer/MultiplayerGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/multiplayer/MultiplayerGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/multiplayer/cliente/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/multiplayer/cliente/Cliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/multiplayer/cliente/ClienteHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/multiplayer/cliente/ClienteHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/multiplayer/cliente/ClienteSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/multiplayer/cliente/ClienteSocket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/multiplayer/network/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/multiplayer/network/Request.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/multiplayer/network/Response.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/multiplayer/network/Response.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/multiplayer/panels/FormMultiplayerPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/multiplayer/panels/FormMultiplayerPanel.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fase/FaseJF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fase/FaseJF.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/menu/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/menu/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/multiplayer/panels/FormMultiplayerPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/multiplayer/panels/FormMultiplayerPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/multiplayer/panels/lobby/Lobby.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/multiplayer/panels/lobby/Lobby.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/multiplayer/panels/lobby/LobbyPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/multiplayer/panels/lobby/LobbyPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/multiplayer/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/multiplayer/server/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/singleplayer/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/singleplayer/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapas/lobby.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapas/lobby.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,7 +134,7 @@
       <workItem from="1762606560698" duration="3256000" />
       <workItem from="1762621821970" duration="14516000" />
       <workItem from="1762648433219" duration="553000" />
-      <workItem from="1762710871944" duration="1853000" />
+      <workItem from="1762710871944" duration="2315000" />
     </task>
     <task id="LOCAL-00001" summary="Fantasmas e pacman no parser">
       <option name="closed" value="true" />
@@ -376,14 +360,29 @@
       <option name="project" value="LOCAL" />
       <updated>1762633235341</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Diagrama de atividades multiplayer">
+      <option name="closed" value="true" />
+      <created>1762718945735</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1762718945735</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Ajuste no movimento dos fantasmas, personagem sendo controlado pelo server">
+      <option name="closed" value="true" />
+      <created>1762718976065</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1762718976065</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fantasmas e pacman no parser" />
     <MESSAGE value="Correção thread e parser" />
     <MESSAGE value="Mapa1" />
     <MESSAGE value="Movimento do pacman" />
@@ -407,6 +406,8 @@
     <MESSAGE value="Remoção de ID Cliente" />
     <MESSAGE value="Organizar o handler" />
     <MESSAGE value="Atualizações no código antes de mudar de Object i/o stream para Data i/o stream" />
-    <option name="LAST_COMMIT_MESSAGE" value="Atualizações no código antes de mudar de Object i/o stream para Data i/o stream" />
+    <MESSAGE value="Diagrama de atividades multiplayer" />
+    <MESSAGE value="Ajuste no movimento dos fantasmas, personagem sendo controlado pelo server" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajuste no movimento dos fantasmas, personagem sendo controlado pelo server" />
   </component>
 </project>

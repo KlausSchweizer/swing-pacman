@@ -30,21 +30,16 @@ import java.util.List;
  */
 public class FormMultiplayerPanel extends javax.swing.JPanel {
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton criarSalaBT;
-    private javax.swing.JButton entrarSalaBT;
-    private javax.swing.JTextField ipTF;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField nomeTF;
-    private javax.swing.JTextField portaTF;
-
     /**
      * Creates new form FormMultiplayerPanel
      */
     public FormMultiplayerPanel() {
         initComponents();
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -188,5 +183,15 @@ public class FormMultiplayerPanel extends javax.swing.JPanel {
             }
         }).start();
     }//GEN-LAST:event_criarSalaBTActionPerformed
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton criarSalaBT;
+    private javax.swing.JButton entrarSalaBT;
+    private javax.swing.JTextField ipTF;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JTextField nomeTF;
+    private javax.swing.JTextField portaTF;
     // End of variables declaration//GEN-END:variables
 }
