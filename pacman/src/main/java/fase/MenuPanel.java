@@ -115,7 +115,6 @@ public class MenuPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_singleplayerBTActionPerformed
 
     private void multiplayerBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_multiplayerBTActionPerformed
-        Main.multiplayer();
     }//GEN-LAST:event_multiplayerBTActionPerformed
 
 

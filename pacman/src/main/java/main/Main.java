@@ -15,12 +15,7 @@ import javax.swing.*;
 
 import fase.MenuPanel;
 import fase.SeletorFases;
-import mapa.Mapa;
 import mapa.Posicao;
-import multiplayer.MultiplayerGame;
-import multiplayer.panels.FormMultiplayerPanel;
-import multiplayer.panels.lobby.Lobby;
-import multiplayer.server.Server;
 import personagem.fantasma.*;
 import personagem.pacman.Pacman;
 import singleplayer.Game;
@@ -43,7 +38,6 @@ public class Main {
     }
 
     public static void singlePlayer() {
-        MultiplayerGame.setTipoUsuario(TipoUsuario.SINGLEPLAYER);
         try {
             Game game = new Game();
             SeletorFases seletor = new SeletorFases(game);
@@ -52,39 +46,6 @@ public class Main {
             throw new RuntimeException(e);
         }
     }
-
-    public static void multiplayer() {
-        FormMultiplayerPanel panel = new FormMultiplayerPanel();
-        configurarPanel(panel);
-    }
-
-    public static void timerMultiplayer(Game game) {
-        int intervalo = 200;
-        Timer timer = new Timer(intervalo, e -> {
-            if (game.isRunning()) {
-                game.update();
-            } else {
-                ((Timer) e.getSource()).stop();
-            }
-        });
-        timer.start();
-    }
-
-    public static void criarSala() {
-        MultiplayerGame.setTipoUsuario(TipoUsuario.SERVIDOR);
-        try {
-            Server server = Server.getInstance();
-            server.startServer();
-        } catch (IOException e) {
-            JOptionPane.showMessageDialog(fase, "Erro ao criar servidor", "Erro ao selecionar fase", JOptionPane.ERROR_MESSAGE);
-            throw new RuntimeException(e);
-        }
-    }
-
-    public static void entrarSala(int port, InetAddress ip) {
-        MultiplayerGame.setTipoUsuario(TipoUsuario.CLIENTE);
-    }
-
     public static void comecarFase(Game game) {
         configurarFantasmas(game);
         configurarPacman(game);
