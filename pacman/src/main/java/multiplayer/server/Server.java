@@ -41,6 +41,7 @@ public class Server {
         int temporaryPort = 5000;
         while (true) {
             try (ServerSocket temporaryServerSocket = new ServerSocket(temporaryPort)) {
+                System.out.println(temporaryPort);
                 return temporaryPort;
             } catch (IOException e) {
                 temporaryPort++;
@@ -60,7 +61,10 @@ public class Server {
             try {
                 while (!serverSocket.isClosed() && maximoJogadores >= clientes.size() && isLobby) {
                     Socket socket = serverSocket.accept();
+                    socket.setKeepAlive(true);
+                    socket.setSoTimeout(0);
                     ClienteHandler handler = new ClienteHandler(socket);
+                    handler.lerCliente();
                     clienteHandlers.add(handler);
                     handler.start();
                 }

@@ -7,6 +7,7 @@ package multiplayer.panels;
 import itens.Item;
 import main.Main;
 import mapa.Tile;
+import multiplayer.MultiplayerGame;
 import multiplayer.cliente.Cliente;
 import multiplayer.cliente.ClienteSocket;
 import multiplayer.network.Response;
@@ -29,15 +30,17 @@ import java.util.List;
  * @author klaus
  */
 public class FormMultiplayerPanel extends javax.swing.JPanel {
+    private GerenciadorMultiplayer gerenciador;
 
     /**
      * Creates new form FormMultiplayerPanel
      */
     public FormMultiplayerPanel() {
-        initComponents();
         try {
+            initComponents();
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch(Exception e) {
+            gerenciador = new GerenciadorMultiplayer();
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -114,15 +117,14 @@ public class FormMultiplayerPanel extends javax.swing.JPanel {
             String ipString = ipTF.getText().trim();
             InetAddress ip = InetAddress.getByName(ipString);
             int porta = Integer.parseInt(portaTF.getText().trim());
-            String nomeUsuario = nomeTF.getText().trim();
 
-            if (ipString.isEmpty() || portaTF.getText().isEmpty() || nomeUsuario.isEmpty()) {
-                throw new IOException("Porta, IP ou nome vazios.");
+            String nomeUsuario = verificarUsuario();
+
+            if (ipString.isEmpty() || portaTF.getText().isEmpty()) {
+                throw new IOException("Porta vazia ou IP vazio.");
             }
 
-            try (Socket socket = new Socket(ip, porta)) {
-
-            }
+            gerenciador.entrarSala(nomeUsuario, ip, porta);
         } catch (UnknownHostException e) {
             JOptionPane.showMessageDialog(this, "IP inválido, verifique se digitou corretamente com números e símbolos.", "Problemas de conectar no servidor", JOptionPane.ERROR_MESSAGE);
         } catch (NumberFormatException e) {
@@ -133,56 +135,22 @@ public class FormMultiplayerPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_entrarSalaBTActionPerformed
 
     private void criarSalaBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_criarSalaBTActionPerformed
-        new Thread(() -> {
-            try {
-                String nomeUsuario = nomeTF.getText().trim();
-                if (nomeUsuario.isEmpty()) {
-                    throw new IOException("Nome de usuário vazio.");
-                }
+        try {
+            String nomeUsuario = verificarUsuario();
 
-                Main.criarSala();
-                Server.getInstance().setLobby(true);
-                Lobby lobby = new Lobby();
-
-                InetAddress ip = Server.getInstance().getServerSocket().getInetAddress();
-                int porta = Server.getInstance().getPort();
-
-                lobby.setClienteSocket(new ClienteSocket(ip, porta));
-
-                Cliente cliente = new Cliente();
-                cliente.setNome(nomeUsuario);
-                cliente.setPersonagem(lobby.escolherPersonagem());
-                lobby.getClienteSocket().enviarCliente(cliente);
-                lobby.setMeuPersonagem(cliente.getPersonagem());
-
-                if (lobby.getMeuPersonagem() instanceof Pacman) {
-                    lobby.setPacman((Pacman) lobby.getMeuPersonagem());
-                } else if (lobby.getMeuPersonagem() instanceof Fantasma) {
-                    lobby.getFantasmas().add((Fantasma) lobby.getMeuPersonagem());
-                }
-                Response temporarioResponse = new Response();
-                temporarioResponse.setMapa(lobby.getMapa());
-                List<Personagem> personagems = new ArrayList<>();
-                if (lobby.getPacman() != null) {
-                    personagems.add(lobby.getPacman());
-                }
-                personagems.addAll(lobby.getFantasmas());
-                List<Item> itens = new ArrayList<>();
-                for (Tile[] tiles : lobby.getMapa().getMapa()) {
-                    for (Tile tile : tiles) {
-                        itens.add(tile.getItem());
-                    }
-                }
-                temporarioResponse.setItems(itens);
-                temporarioResponse.setPersonagems(personagems);
-                lobby.getClienteSocket().setUltimoResponse(temporarioResponse);
-
-                lobby.start();
-            } catch (IOException e) {
-                SwingUtilities.invokeLater(() -> JOptionPane.showMessageDialog(this, "Erro ao criar sala: " + e.getMessage()));
-            }
-        }).start();
+            gerenciador.criarSala(nomeUsuario);
+        } catch (IOException e) {
+            SwingUtilities.invokeLater(() -> JOptionPane.showMessageDialog(this, "Erro ao criar sala: " + e.getMessage()));
+        }
     }//GEN-LAST:event_criarSalaBTActionPerformed
+
+    private String verificarUsuario() throws IOException {
+        String nomeUsuario = nomeTF.getText().trim();
+        if (nomeUsuario.isEmpty()) {
+            throw new IOException("Nome de usuário vazio.");
+        }
+        return nomeUsuario;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton criarSalaBT;

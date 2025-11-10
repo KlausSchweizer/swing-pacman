@@ -4,11 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8c7b4757-7a2a-4bef-84fc-6a4f9b88602a" name="Changes" comment="Ajuste no movimento dos fantasmas, personagem sendo controlado pelo server">
+    <list default="true" id="8c7b4757-7a2a-4bef-84fc-6a4f9b88602a" name="Changes" comment="Arrumando o bug do fantasma andar de 2 em 2 casas, sincronização com o server">
+      <change afterPath="$PROJECT_DIR$/src/main/java/multiplayer/panels/GerenciadorMultiplayer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/singleplayer/Bla.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fase/FaseJF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fase/FaseJF.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/menu/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/menu/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/multiplayer/MultiplayerGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/multiplayer/MultiplayerGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/multiplayer/cliente/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/multiplayer/cliente/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/multiplayer/cliente/ClienteHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/multiplayer/cliente/ClienteHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/multiplayer/cliente/ClienteSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/multiplayer/cliente/ClienteSocket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/multiplayer/panels/FormMultiplayerPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/multiplayer/panels/FormMultiplayerPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/multiplayer/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/multiplayer/server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +141,8 @@
       <workItem from="1762606560698" duration="3256000" />
       <workItem from="1762621821970" duration="14516000" />
       <workItem from="1762648433219" duration="553000" />
-      <workItem from="1762710871944" duration="2315000" />
+      <workItem from="1762710871944" duration="8487000" />
+      <workItem from="1762730181600" duration="2459000" />
     </task>
     <task id="LOCAL-00001" summary="Fantasmas e pacman no parser">
       <option name="closed" value="true" />
@@ -376,14 +384,21 @@
       <option name="project" value="LOCAL" />
       <updated>1762718976065</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Arrumando o bug do fantasma andar de 2 em 2 casas, sincronização com o server">
+      <option name="closed" value="true" />
+      <created>1762719415024</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1762719415024</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Correção thread e parser" />
     <MESSAGE value="Mapa1" />
     <MESSAGE value="Movimento do pacman" />
     <MESSAGE value="Substituição de fantasma thread e pacman thread por Timer" />
@@ -408,6 +423,7 @@
     <MESSAGE value="Atualizações no código antes de mudar de Object i/o stream para Data i/o stream" />
     <MESSAGE value="Diagrama de atividades multiplayer" />
     <MESSAGE value="Ajuste no movimento dos fantasmas, personagem sendo controlado pelo server" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ajuste no movimento dos fantasmas, personagem sendo controlado pelo server" />
+    <MESSAGE value="Arrumando o bug do fantasma andar de 2 em 2 casas, sincronização com o server" />
+    <option name="LAST_COMMIT_MESSAGE" value="Arrumando o bug do fantasma andar de 2 em 2 casas, sincronização com o server" />
   </component>
 </project>

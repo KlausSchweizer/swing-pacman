@@ -1,12 +1,11 @@
 personagem\fantasma\FantasmaLaranja.class
-personagem\fantasma\Fantasma.class
 personagem\pacman\Pacman.class
 menu\Menu.class
 personagem\fantasma\bfs\ExplorarCaminho.class
 menu\Menu$1.class
 personagem\fantasma\FantasmaVermelho.class
+personagem\fantasma\Fantasma.class
 personagem\fantasma\bfs\CelulaBFS.class
 personagem\fantasma\bfs\ReconstruirCaminho.class
 personagem\fantasma\bfs\ConversorMapaFantasmas.class
 personagem\Personagem.class
-personagem\fantasma\FantasmaAzul.class

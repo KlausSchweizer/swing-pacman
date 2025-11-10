@@ -40,6 +40,7 @@ public class MultiplayerGame extends Game {
 
             if (tipoUsuario == TipoUsuario.SERVIDOR && System.currentTimeMillis() - Server.getInstance().getUltimoBroadCast() >= 100) {
                 enviarResponseServidor();
+                System.out.println(System.currentTimeMillis());
                 for (Fantasma fantasma : fantasmas) {
                     fantasma.mover(mapa);
                     checarColisoes(fantasma);
@@ -102,7 +103,7 @@ public class MultiplayerGame extends Game {
             request.setDirecao(meuPersonagem.getDirecao());
             clienteSocket.enviarRequest(request);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
     }
 
