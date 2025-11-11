@@ -4,32 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3c28dd55-1d88-4eae-aed7-e1fb965d6fb0" name="Changes" comment="Algumas mudanças no response/request, atualmente funciona, mas o socket fecha após um tempo, e o entrarSala não funciona perfeitamente">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_2_2025_8_55_PM_[Changes]1/FantasmAmareloBaixo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_2_2025_8_55_PM_[Changes]1/FantasmAmareloCima.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_2_2025_8_55_PM_[Changes]1/FantasmaAmareloDireita.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_2_2025_8_55_PM_[Changes]1/FantasmaAmareloEsquerdo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_2_2025_8_55_PM_[Changes]1/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_2_2025_8_55_PM__Changes_1.xml" beforeDir="false" />
+    <list default="true" id="3c28dd55-1d88-4eae-aed7-e1fb965d6fb0" name="Changes" comment="Remoção temporária de multiplayer">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fase/FaseJF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fase/FaseJF.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/multiplayer/MultiplayerGame.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/multiplayer/cliente/Cliente.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/multiplayer/cliente/ClienteHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/multiplayer/cliente/ClienteSocket.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/multiplayer/fantasmas/MultiplayerFantasmaCiano.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/multiplayer/fantasmas/MultiplayerFantasmaLaranja.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/multiplayer/fantasmas/MultiplayerFantasmaRosa.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/multiplayer/fantasmas/MultiplayerFantasmaVermelho.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/multiplayer/network/Request.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/multiplayer/network/Response.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/multiplayer/panels/FormMultiplayerPanel.form" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/multiplayer/panels/FormMultiplayerPanel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/multiplayer/panels/GerenciadorMultiplayer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/multiplayer/panels/lobby/Lobby.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/multiplayer/panels/lobby/LobbyPanel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/multiplayer/server/Server.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/personagem/fantasma/Fantasma.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/personagem/fantasma/Fantasma.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/personagem/fantasma/FantasmaCiano.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/personagem/fantasma/FantasmaCiano.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/personagem/fantasma/FantasmaRosa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/personagem/fantasma/FantasmaRosa.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/personagem/fantasma/bfs/ExplorarCaminho.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/personagem/fantasma/bfs/ExplorarCaminho.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -131,11 +112,25 @@
       <workItem from="1762733644420" duration="644000" />
       <workItem from="1762735628716" duration="183000" />
       <workItem from="1762800163410" duration="358000" />
-      <workItem from="1762800965586" duration="111000" />
+      <workItem from="1762800965586" duration="4989000" />
+      <workItem from="1762808170380" duration="2750000" />
     </task>
+    <task id="LOCAL-00001" summary="Remoção temporária de multiplayer">
+      <option name="closed" value="true" />
+      <created>1762801121610</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1762801121610</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Remoção temporária de multiplayer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remoção temporária de multiplayer" />
   </component>
 </project>

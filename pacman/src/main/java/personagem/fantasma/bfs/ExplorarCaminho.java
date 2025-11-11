@@ -83,14 +83,17 @@ public class ExplorarCaminho {
         }
         caminhoOrdenado = ordenarCaminho(destino, celulaInicio);
 
-        CelulaBFS proximaCelula = caminhoOrdenado.get(1);
+        if(caminhoOrdenado.size() > 1) {
+            CelulaBFS proximaCelula = caminhoOrdenado.get(1);
 
-        for (CelulaBFS celula : caminhoOrdenado) {
-            System.out.println(celula);
+            for (CelulaBFS celula : caminhoOrdenado) {
+                System.out.println(celula);
+            }
+
+            ReconstruirCaminho reconstrutor = new ReconstruirCaminho();
+            return reconstrutor.reconstruirDirecaoCaminho(celulaInicio, proximaCelula);
         }
-
-        ReconstruirCaminho reconstrutor = new ReconstruirCaminho();
-        return reconstrutor.reconstruirDirecaoCaminho(celulaInicio, proximaCelula);
+        return null;
     }
 
     private boolean isCelulaValida(CelulaBFS celula) {
