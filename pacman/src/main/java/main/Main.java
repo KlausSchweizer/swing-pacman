@@ -6,19 +6,17 @@ package main;
 
 import fase.FaseJF;
 import fase.FasePanel;
-
-import java.io.IOException;
-import java.net.InetAddress;
-import java.util.ArrayList;
-import java.util.List;
-import javax.swing.*;
-
 import fase.MenuPanel;
 import fase.SeletorFases;
 import mapa.Posicao;
 import personagem.fantasma.*;
 import personagem.pacman.Pacman;
 import singleplayer.Game;
+
+import javax.swing.*;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -46,6 +44,7 @@ public class Main {
             throw new RuntimeException(e);
         }
     }
+
     public static void comecarFase(Game game) {
         configurarFantasmas(game);
         configurarPacman(game);
@@ -70,7 +69,7 @@ public class Main {
 
     private static void configurarPacman(Game game) {
         Posicao spawnPacman = game.getMapa().getSpawnPacman();
-        if(spawnPacman != null) {
+        if (spawnPacman != null) {
             Pacman pacman = new Pacman(spawnPacman.getPosY(), spawnPacman.getPosX());
             pacman.setEventos(game);
             game.setPacman(pacman);
@@ -90,6 +89,14 @@ public class Main {
                 fantasmas.add(new FantasmaRosa(posicao.getPosY(), posicao.getPosX()));
             } else if (i == Fantasma.AZUL) {
                 fantasmas.add(new FantasmaCiano(posicao.getPosY(), posicao.getPosX()));
+                FantasmaCiano ciano = (FantasmaCiano) fantasmas.getLast();
+                FantasmaRosa rosa = null;
+                for (Fantasma fantasma : fantasmas) {
+                    if (fantasma instanceof FantasmaRosa) {
+                        rosa = (FantasmaRosa) fantasma;
+                    }
+                }
+                ciano.setFantasmaRosa(rosa);
             } else if (i == Fantasma.LARANJA) {
                 fantasmas.add(new FantasmaLaranja(posicao.getPosY(), posicao.getPosX()));
             }
