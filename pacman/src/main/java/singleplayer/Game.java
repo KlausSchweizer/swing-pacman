@@ -4,9 +4,14 @@
  */
 package singleplayer;
 
+import mapa.Posicao;
 import personagem.fantasma.StatusFantasma;
 import fase.FasePanel;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +20,8 @@ import mapa.Mapa;
 import mapa.TxtParser;
 import personagem.fantasma.Fantasma;
 import personagem.pacman.Pacman;
+
+import javax.swing.*;
 
 /**
  *
@@ -52,12 +59,30 @@ public class Game implements EventosGame {
     public void selecionarFase(String path) {
         mapa = new TxtParser().criarMapa(path);
         mapa.setNomeMapa(path);
+        setarCoordenadas(path);
         Main.comecarFase(this);
     }
 
+    private void setarCoordenadas(String path) {
+        List<Posicao> coordenadas = new ArrayList<>();
+        String resourcePath = getClass().getResource("/mapas/coordenadas-padrao/coordenada-" + path.substring(7)).getPath();
+        try (BufferedReader br = new BufferedReader(new FileReader(resourcePath))) {
+            List<String> posicoesString = br.lines().toList();
+
+            for(String str : posicoesString) {
+                int x = Integer.parseInt(str.split(",")[0]);
+                int y = Integer.parseInt(str.split(",")[1]);
+                coordenadas.add(new Posicao(x, y));
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Falha ao abrir coordenada " + e.getMessage(),
+                    "Falha em carregamento", JOptionPane.ERROR_MESSAGE);
+        }
+        mapa.setCoordenadas(coordenadas);
+    }
+
     public void checarColisoes(Fantasma fantasma) {
-        if (fantasma.getPosX() == pacman.getPosX()
-                && fantasma.getPosY() == pacman.getPosY()) {
+        if (fantasma.getPosX() == pacman.getPosX() && fantasma.getPosY() == pacman.getPosY()) {
             if (fantasma.getStatus() == StatusFantasma.ALVO) {
                 fantasma.morrer();
             } else if (fantasma.getStatus() == StatusFantasma.PERSEGUIDOR) {

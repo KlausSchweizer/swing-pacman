@@ -21,6 +21,7 @@ public class Mapa {
     private char[][] textoMapa;
     private Posicao spawnPacman;
     private String nomeMapa;
+    private List<Posicao> coordenadas;
 
     public Mapa() {
         spawnsFantasma = new ArrayList<>();
@@ -84,5 +85,13 @@ public class Mapa {
 
     public void adicionarSpawnFantasma(Posicao posicao) {
         this.spawnsFantasma.add(posicao);
+    }
+
+    public List<Posicao> getCoordenadas() {
+        return coordenadas;
+    }
+
+    public void setCoordenadas(List<Posicao> coordenadas) {
+        this.coordenadas = coordenadas;
     }
 }

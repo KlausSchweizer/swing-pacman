@@ -4,6 +4,8 @@
  */
 package fase;
 
+import java.awt.Image;
+import java.awt.image.BufferedImage;
 import main.Main;
 
 import javax.swing.*;
@@ -18,7 +20,7 @@ public class MenuPanel extends javax.swing.JPanel {
      */
     public MenuPanel() {
         initComponents();
-    }
+        }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -94,7 +96,7 @@ public class MenuPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(112, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

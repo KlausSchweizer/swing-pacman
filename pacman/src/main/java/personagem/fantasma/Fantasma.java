@@ -32,6 +32,7 @@ public abstract class Fantasma extends Personagem {
     protected int transformandoFPS;
     protected long ultimaMudanca;
     protected ExplorarCaminho explorador;
+    protected Posicao alvo;
     public static final int VERMELHO = 0;
     public static final int ROSA = 1;
     public static final int AZUL = 2;

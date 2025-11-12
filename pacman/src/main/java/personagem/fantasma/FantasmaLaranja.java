@@ -5,10 +5,13 @@
 package personagem.fantasma;
 
 import main.Direcao;
+
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
+import java.util.Random;
 
 import mapa.Mapa;
+import mapa.Posicao;
 import personagem.pacman.Pacman;
 
 import javax.imageio.ImageIO;
@@ -18,6 +21,7 @@ import javax.imageio.ImageIO;
  * @author Intel
  */
 public class FantasmaLaranja extends Fantasma {
+    private boolean podeMudarAlvo;
 
     public FantasmaLaranja(int posY, int posX) {
         super(posY, posX);
@@ -35,8 +39,48 @@ public class FantasmaLaranja extends Fantasma {
 
     @Override
     public Direcao decidirDirecao(Pacman pacman, Mapa mapa) {
-        return explorador.decidirDirecao(this.posY, this.posX, pacman.getPosY(),
-                pacman.getPosX(), mapa);
+        Random rand = new Random();
+        if (mapa.getCoordenadas().isEmpty()) {
+            return null;
+        }
+
+        alvo = mapa.getCoordenadas().get(rand.nextInt(4));
+
+        status = StatusFantasma.PERSEGUIDOR;
+//        if (System.currentTimeMillis() - ultimaMudanca < 30000) {
+//            if (status == StatusFantasma.ALVO) {
+//                status = StatusFantasma.PERSEGUIDOR;
+//            } else if (status == StatusFantasma.PERSEGUIDOR) {
+//                status = StatusFantasma.ALVO;
+//            }
+//        } else {
+//            ultimaMudanca = System.currentTimeMillis();
+//        }
+
+        podeMudarAlvo = false;
+
+        if (status == StatusFantasma.PERSEGUIDOR) {
+            if (posX == alvo.getPosX() && posY == alvo.getPosY()) {
+                podeMudarAlvo = true;
+            }
+            if (((Math.abs(posX - pacman.getPosX()) + Math.abs(posY - pacman.getPosY()) / 2) < 7 && podeMudarAlvo)) {
+                int posicao = rand.nextInt(mapa.getCoordenadas().size() - 1);
+                alvo = mapa.getCoordenadas().get(posicao);
+                podeMudarAlvo = false;
+            } else if(((Math.abs(posX - pacman.getPosX()) + Math.abs(posY - pacman.getPosY()) / 2) > 15)){
+                alvo = new Posicao(pacman.getPosX(), pacman.getPosY());
+            }
+        } else {
+            if (podeMudarAlvo) {
+                int posicao = rand.nextInt(mapa.getCoordenadas().size() - 1);
+                alvo = mapa.getCoordenadas().get(posicao);
+                podeMudarAlvo = false;
+            }
+        }
+
+
+        return explorador.decidirDirecao(this.posY, this.posX, alvo.getPosY(),
+                alvo.getPosX(), mapa);
     }
 
     @Override
