@@ -49,7 +49,11 @@ public abstract class Fantasma extends Personagem {
 
     public abstract Direcao decidirDirecao(Pacman pacman, Mapa mapa);
 
-    public abstract void draw(Graphics2D g, int tileSize, Mapa mapa);
+    @Override
+    public void draw(Graphics2D g2d, int tileSize, Mapa mapa, int inicioX, int inicioY) {
+        BufferedImage imagemAtual = spritesAtuais[0];
+        g2d.drawImage(imagemAtual, posX * tileSize + inicioX, posY * tileSize + inicioY, tileSize, tileSize, null);
+    }
 
     public void morrer() {
 

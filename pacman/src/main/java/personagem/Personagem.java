@@ -31,7 +31,7 @@ public abstract class Personagem {
         this.posX = posX;
     }
 
-    public abstract void draw(Graphics2D g, int tileSize, Mapa mapa);
+    public abstract void draw(Graphics2D g, int tileSize, Mapa mapa, int inicioX, int inicioY);
 
     public abstract void morrer();
 

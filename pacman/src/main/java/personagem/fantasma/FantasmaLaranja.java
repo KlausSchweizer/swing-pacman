@@ -83,9 +83,4 @@ public class FantasmaLaranja extends Fantasma {
                 alvo.getPosX(), mapa);
     }
 
-    @Override
-    public void draw(Graphics2D g2d, int tileSize, Mapa mapa) {
-        BufferedImage imagemAtual = spritesAtuais[0];
-        g2d.drawImage(imagemAtual, posX * tileSize, posY * tileSize, tileSize, tileSize, null);
-    }
 }

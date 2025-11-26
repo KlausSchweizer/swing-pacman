@@ -85,9 +85,9 @@ public class Pacman extends Personagem {
     }
 
     @Override
-    public void draw(Graphics2D g2d, int tileSize, Mapa mapa) {
+    public void draw(Graphics2D g2d, int tileSize, Mapa mapa, int inicioX, int inicioY) {
         BufferedImage imagemAtual = spritesAtuais[0];
-        g2d.drawImage(imagemAtual, posX * tileSize, posY * tileSize, tileSize, tileSize, null);
+        g2d.drawImage(imagemAtual, posX * tileSize + inicioX, posY * tileSize + inicioY, tileSize, tileSize, null);
     }
 
     public void setDirecao(Direcao direcao, Mapa mapa) {

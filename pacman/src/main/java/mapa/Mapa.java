@@ -27,16 +27,16 @@ public class Mapa {
         spawnsFantasma = new ArrayList<>();
     }
 
-    public void draw(Graphics2D g2d, int tileSize) {
+    public void draw(Graphics2D g2d, int tileSize, int inicioX, int inicioY) {
         for (int linha = 0; linha < mapa.length; ++linha) {
             for (int coluna = 0; coluna < mapa[linha].length; ++coluna) {
                 Tile tile = mapa[linha][coluna];
                 if (tile != null && tile.getImage() != null) {
-                    g2d.drawImage(tile.getImage(), coluna * tileSize, linha * tileSize, tileSize, tileSize, null);
+                    g2d.drawImage(tile.getImage(), coluna * tileSize + inicioX, linha * tileSize + inicioY, tileSize, tileSize, null);
 
                     Item item = mapa[linha][coluna].getItem();
                     if (item != null && item.getImages().getFirst() != null) {
-                        g2d.drawImage(item.getImages().getFirst(), coluna * tileSize, linha * tileSize, tileSize, tileSize, null);
+                        g2d.drawImage(item.getImages().getFirst(), coluna * tileSize + inicioX, linha * tileSize + inicioY, tileSize, tileSize, null);
                     }
                     continue;
                 }

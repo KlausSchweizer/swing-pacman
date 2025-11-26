@@ -11,6 +11,7 @@ import java.awt.event.KeyEvent;
 import java.util.List;
 
 import mapa.Mapa;
+import mapa.imagens.ImagensTile;
 import personagem.Personagem;
 import personagem.fantasma.Fantasma;
 import personagem.pacman.Pacman;
@@ -86,15 +87,19 @@ public class FasePanel extends javax.swing.JPanel {
         Graphics2D g2d = (Graphics2D) g;
         super.paintComponent(g2d);
 
-        int tileSize = Math.min(this.getWidth() / mapa.getMapa()[0].length, this.getHeight() / mapa.getMapa().length);
-        tileSize = tileSize > 40 ? 38 : tileSize;
-        mapa.draw(g2d, tileSize);
+        g2d.drawImage(ImagensTile.aberto, 0, 0, this.getWidth(), this.getHeight(), this);
+
+        int tileSize = Math.min(this.getWidth() / mapa.getMapa()[0].length, this.getHeight() / mapa.getMapa().length );
+        int inicioX = this.getWidth()/2 - mapa.getMapa()[0].length * tileSize / 2;
+        int inicioY = (this.getHeight()/2 - mapa.getMapa().length * tileSize / 2);
+
+        mapa.draw(g2d, tileSize, inicioX, inicioY);
 
         for (Fantasma fantasma : fantasmas) {
-            fantasma.draw(g2d, tileSize, mapa);
+            fantasma.draw(g2d, tileSize, mapa, inicioX, inicioY);
         }
-        if(pacman != null) {
-            pacman.draw(g2d, tileSize, mapa);
+        if (pacman != null) {
+            pacman.draw(g2d, tileSize, mapa, inicioX, inicioY);
         }
     }
 
