@@ -8,6 +8,7 @@ import mapa.Posicao;
 import personagem.fantasma.StatusFantasma;
 import fase.FasePanel;
 
+import java.awt.*;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;

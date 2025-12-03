@@ -5,16 +5,17 @@
 package fase;
 
 import main.Direcao;
-
-import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.util.List;
-
+import main.Main;
 import mapa.Mapa;
 import mapa.imagens.ImagensTile;
 import personagem.Personagem;
 import personagem.fantasma.Fantasma;
 import personagem.pacman.Pacman;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.util.List;
 
 /**
  *
@@ -78,8 +79,52 @@ public class FasePanel extends javax.swing.JPanel {
             personagem.setDirecao(Direcao.ESQUERDA);
         } else if (evt.getKeyCode() == KeyEvent.VK_RIGHT || evt.getKeyCode() == KeyEvent.VK_D) {
             personagem.setDirecao(Direcao.DIREITA);
+        } else if (evt.getKeyCode() == KeyEvent.VK_ESCAPE) {
+            setFullScreen(false);
+        } else if (evt.getKeyCode() == KeyEvent.VK_F) {
+            setFullScreen(true);
         }
     }//GEN-LAST:event_formKeyPressed
+
+    public void desativarFullScreen() {
+        GraphicsDevice gd = GraphicsEnvironment
+                .getLocalGraphicsEnvironment()
+                .getDefaultScreenDevice();
+
+        Main.getFase().dispose();
+        Main.getFase().setUndecorated(false);
+        try {
+            Main.getFase().setExtendedState(JFrame.MAXIMIZED_BOTH);
+            Main.getFase().setVisible(true);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Main.getFase().setVisible(true);
+        }
+    }
+
+    public void setFullScreen(boolean fullScreen) {
+        GraphicsDevice gd = GraphicsEnvironment
+                .getLocalGraphicsEnvironment()
+                .getDefaultScreenDevice();
+
+        Main.getFase().dispose();
+        Main.getFase().setUndecorated(fullScreen);
+        try {
+            if (fullScreen) {
+                if (gd.isFullScreenSupported()) {
+                    gd.setFullScreenWindow(Main.getFase());
+                } else {
+                    Main.getFase().setExtendedState(JFrame.MAXIMIZED_BOTH);
+                }
+            } else {
+                Main.getFase().setExtendedState(JFrame.MAXIMIZED_BOTH);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Main.getFase().setVisible(true);
+    }
 
     @Override
     protected void paintComponent(Graphics g) {
@@ -89,9 +134,9 @@ public class FasePanel extends javax.swing.JPanel {
 
         g2d.drawImage(ImagensTile.aberto, 0, 0, this.getWidth(), this.getHeight(), this);
 
-        int tileSize = Math.min(this.getWidth() / mapa.getMapa()[0].length, this.getHeight() / mapa.getMapa().length );
-        int inicioX = this.getWidth()/2 - mapa.getMapa()[0].length * tileSize / 2;
-        int inicioY = (this.getHeight()/2 - mapa.getMapa().length * tileSize / 2);
+        int tileSize = Math.min(this.getWidth() / mapa.getMapa()[0].length, this.getHeight() / mapa.getMapa().length);
+        int inicioX = this.getWidth() / 2 - mapa.getMapa()[0].length * tileSize / 2;
+        int inicioY = (this.getHeight() / 2 - mapa.getMapa().length * tileSize / 2);
 
         mapa.draw(g2d, tileSize, inicioX, inicioY);
 
