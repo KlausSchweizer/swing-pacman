@@ -96,7 +96,7 @@ public class ExplorarCaminho {
         return null;
     }
 
-    private boolean isCelulaValida(CelulaBFS celula) {
+    public boolean isCelulaValida(CelulaBFS celula) {
         int posX = celula.getPosX();
         int posY = celula.getPosY();
 
@@ -104,8 +104,10 @@ public class ExplorarCaminho {
             return false;
         }
 
-        if (posVisitadas[posY][posX]) {
-            return false;
+        if(posVisitadas != null) {
+            if (posVisitadas[posY][posX]) {
+                return false;
+            }
         }
 
         return !(textoMapa[posY][posX] == MatrizMapa.SAIDA_FANTASMA
@@ -156,5 +158,13 @@ public class ExplorarCaminho {
 
         Collections.reverse(caminho);
         return caminho;
+    }
+
+    public char[][] getTextoMapa() {
+        return textoMapa;
+    }
+
+    public void setTextoMapa(char[][] textoMapa) {
+        this.textoMapa = textoMapa;
     }
 }

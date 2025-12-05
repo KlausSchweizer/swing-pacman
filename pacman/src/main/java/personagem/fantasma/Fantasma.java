@@ -30,13 +30,13 @@ public abstract class Fantasma extends Personagem {
     protected BufferedImage[] spritesTransformando;
     protected int medoFPS;
     protected int transformandoFPS;
-    protected long ultimaMudanca;
     protected ExplorarCaminho explorador;
     protected Posicao alvo;
     public static final int VERMELHO = 0;
     public static final int ROSA = 1;
     public static final int AZUL = 2;
     public static final int LARANJA = 3;
+    protected long tempoInicializacao;
 
     public Fantasma(int posY, int posX) {
         super(posY, posX);
@@ -44,7 +44,7 @@ public abstract class Fantasma extends Personagem {
         this.direcao = Direcao.CIMA;
         this.status = StatusFantasma.PERSEGUIDOR;
         this.explorador = new ExplorarCaminho();
-        this.ultimaMudanca = System.currentTimeMillis();
+        tempoInicializacao = System.currentTimeMillis();
     }
 
     public abstract Direcao decidirDirecao(Pacman pacman, Mapa mapa);

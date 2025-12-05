@@ -91,13 +91,13 @@ public class Main {
             } else if (i == Fantasma.AZUL) {
                 fantasmas.add(new FantasmaCiano(posicao.getPosY(), posicao.getPosX()));
                 FantasmaCiano ciano = (FantasmaCiano) fantasmas.getLast();
-                FantasmaRosa rosa = null;
+                FantasmaVermelho vermelho = null;
                 for (Fantasma fantasma : fantasmas) {
-                    if (fantasma instanceof FantasmaRosa) {
-                        rosa = (FantasmaRosa) fantasma;
+                    if (fantasma instanceof FantasmaVermelho) {
+                        vermelho = (FantasmaVermelho) fantasma;
                     }
                 }
-                ciano.setFantasmaRosa(rosa);
+                ciano.setFantasmaVermelho(vermelho);
             } else if (i == Fantasma.LARANJA) {
                 fantasmas.add(new FantasmaLaranja(posicao.getPosY(), posicao.getPosX()));
             }

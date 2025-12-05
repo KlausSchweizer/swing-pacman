@@ -10,7 +10,6 @@ import mapa.Posicao;
 import personagem.pacman.Pacman;
 
 import javax.imageio.ImageIO;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 
 /**
@@ -34,30 +33,33 @@ public class FantasmaRosa extends Fantasma {
 
     @Override
     public Direcao decidirDirecao(Pacman pacman, Mapa mapa) {
-        Direcao direcaoPacman = pacman.getDirecao();
-        Posicao alvo;
-        if(direcaoPacman == Direcao.ESQUERDA) {
-            alvo = new Posicao(pacman.getPosX() - 4, pacman.getPosY());
-        } else if(direcaoPacman == Direcao.DIREITA) {
-            alvo = new Posicao(pacman.getPosX() + 4, pacman.getPosY());
-        } else if(direcaoPacman == Direcao.CIMA) {
-            alvo = new Posicao(pacman.getPosX(), pacman.getPosY() - 4);
-        } else {
-            alvo = new Posicao(pacman.getPosX(), pacman.getPosY() + 4);
-        }
-        if (alvo.getPosX() < 0) {
-            alvo.setPosX(0);
-        } else if (alvo.getPosX() >= mapa.getTextoMapa()[0].length) {
-            alvo.setPosX(mapa.getTextoMapa()[0].length - 1);
-        }
+        if (System.currentTimeMillis() - tempoInicializacao > 2000) {
+            Direcao direcaoPacman = pacman.getDirecao();
+            Posicao alvo;
+            if (direcaoPacman == Direcao.ESQUERDA) {
+                alvo = new Posicao(pacman.getPosX() - 4, pacman.getPosY());
+            } else if (direcaoPacman == Direcao.DIREITA) {
+                alvo = new Posicao(pacman.getPosX() + 4, pacman.getPosY());
+            } else if (direcaoPacman == Direcao.CIMA) {
+                alvo = new Posicao(pacman.getPosX(), pacman.getPosY() - 4);
+            } else {
+                alvo = new Posicao(pacman.getPosX(), pacman.getPosY() + 4);
+            }
+            if (alvo.getPosX() < 0) {
+                alvo.setPosX(0);
+            } else if (alvo.getPosX() >= mapa.getTextoMapa()[0].length) {
+                alvo.setPosX(mapa.getTextoMapa()[0].length - 1);
+            }
 
-        if (alvo.getPosY() < 0) {
-            alvo.setPosY(0);
-        } else if (alvo.getPosY() >= mapa.getTextoMapa().length) {
-            alvo.setPosY(mapa.getTextoMapa().length - 1);
+            if (alvo.getPosY() < 0) {
+                alvo.setPosY(0);
+            } else if (alvo.getPosY() >= mapa.getTextoMapa().length) {
+                alvo.setPosY(mapa.getTextoMapa().length - 1);
+            }
+            Posicao contorno = contornar(alvo, mapa);
+            return explorador.decidirDirecao(posY, posX, contorno.getPosY(), contorno.getPosX(), mapa);
         }
-        Posicao contorno = contornar(alvo, mapa);
-        return explorador.decidirDirecao(posY, posX, contorno.getPosY(), contorno.getPosX(), mapa);
+        return null;
     }
 
 }

@@ -4,19 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3c28dd55-1d88-4eae-aed7-e1fb965d6fb0" name="Changes" comment="FullScreen">
-      <change afterPath="$PROJECT_DIR$/src/main/java/fase/ControlesPanel.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fase/ControlesPanel.java" afterDir="false" />
+    <list default="true" id="3c28dd55-1d88-4eae-aed7-e1fb965d6fb0" name="Changes" comment="controles panel">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fase/FaseJF.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fase/FaseJF.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fase/FaseJF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fase/FaseJF.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fase/FasePanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fase/FasePanel.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fase/FasePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fase/FasePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fase/MenuPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fase/MenuPanel.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fase/MenuPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fase/MenuPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/personagem/fantasma/Fantasma.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/personagem/fantasma/Fantasma.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/personagem/fantasma/FantasmaCiano.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/personagem/fantasma/FantasmaCiano.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/personagem/fantasma/FantasmaLaranja.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/personagem/fantasma/FantasmaLaranja.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/personagem/fantasma/FantasmaRosa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/personagem/fantasma/FantasmaRosa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/personagem/fantasma/bfs/ExplorarCaminho.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/personagem/fantasma/bfs/ExplorarCaminho.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,7 +124,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764785910096</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="controles panel">
+      <option name="closed" value="true" />
+      <created>1764935674283</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1764935674283</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -138,6 +141,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Remoção temporária de multiplayer" />
     <MESSAGE value="FullScreen" />
-    <option name="LAST_COMMIT_MESSAGE" value="FullScreen" />
+    <MESSAGE value="controles panel" />
+    <option name="LAST_COMMIT_MESSAGE" value="controles panel" />
   </component>
 </project>
