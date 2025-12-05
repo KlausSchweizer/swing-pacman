@@ -79,52 +79,8 @@ public class FasePanel extends javax.swing.JPanel {
             personagem.setDirecao(Direcao.ESQUERDA);
         } else if (evt.getKeyCode() == KeyEvent.VK_RIGHT || evt.getKeyCode() == KeyEvent.VK_D) {
             personagem.setDirecao(Direcao.DIREITA);
-        } else if (evt.getKeyCode() == KeyEvent.VK_ESCAPE) {
-            setFullScreen(false);
-        } else if (evt.getKeyCode() == KeyEvent.VK_F) {
-            setFullScreen(true);
         }
     }//GEN-LAST:event_formKeyPressed
-
-    public void desativarFullScreen() {
-        GraphicsDevice gd = GraphicsEnvironment
-                .getLocalGraphicsEnvironment()
-                .getDefaultScreenDevice();
-
-        Main.getFase().dispose();
-        Main.getFase().setUndecorated(false);
-        try {
-            Main.getFase().setExtendedState(JFrame.MAXIMIZED_BOTH);
-            Main.getFase().setVisible(true);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            Main.getFase().setVisible(true);
-        }
-    }
-
-    public void setFullScreen(boolean fullScreen) {
-        GraphicsDevice gd = GraphicsEnvironment
-                .getLocalGraphicsEnvironment()
-                .getDefaultScreenDevice();
-
-        Main.getFase().dispose();
-        Main.getFase().setUndecorated(fullScreen);
-        try {
-            if (fullScreen) {
-                if (gd.isFullScreenSupported()) {
-                    gd.setFullScreenWindow(Main.getFase());
-                } else {
-                    Main.getFase().setExtendedState(JFrame.MAXIMIZED_BOTH);
-                }
-            } else {
-                Main.getFase().setExtendedState(JFrame.MAXIMIZED_BOTH);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        Main.getFase().setVisible(true);
-    }
 
     @Override
     protected void paintComponent(Graphics g) {

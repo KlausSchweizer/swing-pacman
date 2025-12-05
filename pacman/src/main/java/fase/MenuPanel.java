@@ -33,8 +33,9 @@ public class MenuPanel extends javax.swing.JPanel {
 
         painelPrincipal = new javax.swing.JPanel();
         sairBT = new javax.swing.JButton();
-        singleplayerBT = new javax.swing.JButton();
         multiplayerBT = new javax.swing.JButton();
+        controlesBT = new javax.swing.JButton();
+        singleplayerBT = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(22, 29, 36));
@@ -48,17 +49,24 @@ public class MenuPanel extends javax.swing.JPanel {
             }
         });
 
-        singleplayerBT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/botoes/botao_single_player.png"))); // NOI18N
-        singleplayerBT.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                singleplayerBTActionPerformed(evt);
-            }
-        });
-
         multiplayerBT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/botoes/botao_multi_player.png"))); // NOI18N
         multiplayerBT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 multiplayerBTActionPerformed(evt);
+            }
+        });
+
+        controlesBT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/botoes/botao_controles.png"))); // NOI18N
+        controlesBT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                controlesBTActionPerformed(evt);
+            }
+        });
+
+        singleplayerBT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/botoes/botao_single_player.png"))); // NOI18N
+        singleplayerBT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                singleplayerBTActionPerformed(evt);
             }
         });
 
@@ -68,17 +76,25 @@ public class MenuPanel extends javax.swing.JPanel {
             painelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painelPrincipalLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(painelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(sairBT, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(multiplayerBT, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(singleplayerBT, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap(456, Short.MAX_VALUE))
+                .addGroup(painelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(painelPrincipalLayout.createSequentialGroup()
+                        .addGroup(painelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(sairBT, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(multiplayerBT, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(painelPrincipalLayout.createSequentialGroup()
+                        .addGroup(painelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(singleplayerBT, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(controlesBT, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addGap(0, 476, Short.MAX_VALUE))))
         );
         painelPrincipalLayout.setVerticalGroup(
             painelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painelPrincipalLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(singleplayerBT, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(controlesBT, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(multiplayerBT, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -103,7 +119,7 @@ public class MenuPanel extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addComponent(painelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -119,8 +135,13 @@ public class MenuPanel extends javax.swing.JPanel {
     private void multiplayerBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_multiplayerBTActionPerformed
     }//GEN-LAST:event_multiplayerBTActionPerformed
 
+    private void controlesBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_controlesBTActionPerformed
+        Main.configurarPanel(new ControlesPanel());
+    }//GEN-LAST:event_controlesBTActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton controlesBT;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton multiplayerBT;
     private javax.swing.JPanel painelPrincipal;

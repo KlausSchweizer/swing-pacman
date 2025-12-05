@@ -4,15 +4,21 @@
  */
 package fase;
 
+import main.Main;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.io.IOException;
 
 /**
  *
  * @author Intel
  */
 public class FaseJF extends javax.swing.JFrame {
+
+    private boolean isFullScreen = false;
 
     /**
      * Creates new form Fase
@@ -22,9 +28,11 @@ public class FaseJF extends javax.swing.JFrame {
         this.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent event) {
-                    System.exit(0);
+                System.exit(0);
             }
         });
+        bindKey("ESCAPE", () -> setFullScreen(false));
+        bindKey("F", () -> setFullScreen(true));
     }
 
     /**
@@ -46,20 +54,73 @@ public class FaseJF extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 903, Short.MAX_VALUE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 903, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 531, Short.MAX_VALUE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 531, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
-        
+        if (evt.getKeyCode() == KeyEvent.VK_ESCAPE && isFullScreen) {
+            setFullScreen(false);
+        } else if (evt.getKeyCode() == KeyEvent.VK_F && isFullScreen) {
+            setFullScreen(true);
+        }
     }//GEN-LAST:event_formKeyPressed
+
+    public void setFullScreen(boolean fullScreen) {
+
+        if (this.isFullScreen == fullScreen) {
+            return; // já está no estado desejado → não faça nada
+        }
+
+        this.isFullScreen = fullScreen;
+
+        GraphicsDevice gd = GraphicsEnvironment
+                .getLocalGraphicsEnvironment()
+                .getDefaultScreenDevice();
+
+        this.setVisible(false);
+        this.dispose();
+        this.setUndecorated(fullScreen);
+
+        try {
+            if (fullScreen) {
+                if (gd.isFullScreenSupported()) {
+                    gd.setFullScreenWindow(this);
+                } else {
+                    gd.setFullScreenWindow(null);
+                    this.setExtendedState(JFrame.NORMAL);
+                    this.setLocationRelativeTo(null);
+                }
+            } else {
+                gd.setFullScreenWindow(null);
+                this.setExtendedState(JFrame.NORMAL);
+                this.setLocationRelativeTo(null);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        this.setVisible(true);
+    }
+
+    private void bindKey(String key, Runnable action) {
+        getRootPane().getInputMap(javax.swing.JComponent.WHEN_IN_FOCUSED_WINDOW)
+                .put(javax.swing.KeyStroke.getKeyStroke(key), key);
+
+        getRootPane().getActionMap().put(key, new javax.swing.AbstractAction() {
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+                action.run();
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables

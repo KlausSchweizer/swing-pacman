@@ -1,5 +1,8 @@
+main\Main.class
 personagem\fantasma\FantasmaLaranja.class
+fase\ControlesPanel.class
 personagem\pacman\Pacman.class
+fase\ControlesPanel$1.class
 menu\Menu.class
 personagem\fantasma\bfs\ExplorarCaminho.class
 menu\Menu$1.class

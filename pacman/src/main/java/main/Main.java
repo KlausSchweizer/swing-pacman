@@ -50,7 +50,7 @@ public class Main {
         configurarPacman(game);
         configurarPainelFase(game);
         configurarPanel(game.getPanel());
-        game.getPanel().setFullScreen(true);
+        fase.setFullScreen(true);
 
         int intervalo = 200;
         Timer timer = new Timer(intervalo, e -> {
