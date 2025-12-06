@@ -6,6 +6,7 @@ package personagem;
 
 import main.Direcao;
 import mapa.Mapa;
+import mapa.matrizmapa.MatrizMapa;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -18,12 +19,13 @@ public abstract class Personagem {
 
     protected int posX;
     protected int posY;
+    protected Float pixelX;
+    protected Float pixelY;
     protected int velocidade;
     protected Direcao direcao;
     protected BufferedImage[] spritesAtuais;
     protected BufferedImage[] spritesAndando;
     protected BufferedImage[] spritesMorte;
-    protected int andandoFPS;
     protected int morteFPS;
 
     public Personagem(int posY, int posX) {
@@ -31,19 +33,58 @@ public abstract class Personagem {
         this.posX = posX;
     }
 
-    public abstract void draw(Graphics2D g, int tileSize, Mapa mapa, int inicioX, int inicioY);
+    public void initPixels(int tileSize) {
+        this.pixelX = (float) (posX * tileSize);
+        this.pixelY = (float) (posY * tileSize);
+    }
+
+    public void draw(Graphics2D g2d, int tileSize, Mapa mapa, int inicioX, int inicioY) {
+        if (pixelX == null || pixelY == null) {
+            return;
+        }
+
+        int drawX = inicioX + Math.round(pixelX);
+        int drawY = inicioY + Math.round(pixelY);
+
+        g2d.drawImage(spritesAtuais[0], drawX, drawY, tileSize, tileSize, null);
+    }
+
+    ;
 
     public abstract void morrer();
 
-    public void mover(Mapa mapa) {
+    public void mover(Mapa mapa, int tileSize) {
+        if (pixelX == null || pixelY == null) {
+            initPixels(tileSize);
+        }
+
+        float antigoPixelX = pixelX;
+        float antigoPixelY = pixelY;
+
         if (direcao == Direcao.BAIXO) {
-            this.posY++;
+            pixelY += velocidade;
         } else if (direcao == Direcao.CIMA) {
-            this.posY--;
+            pixelY -= velocidade;
         } else if (direcao == Direcao.DIREITA) {
-            this.posX++;
+            pixelX += velocidade;
         } else if (direcao == Direcao.ESQUERDA) {
-            this.posX--;
+            pixelX -= velocidade;
+        }
+
+        int novoTileX = (int) ((pixelX + tileSize / 2f) / tileSize);
+        int novoTileY = (int) ((pixelY + tileSize / 2f) / tileSize);
+        if (novoTileX != posX || novoTileY != posY) {
+            if (!(mapa.getTextoMapa()[novoTileY][novoTileX] == MatrizMapa.LIVRE ||
+                    mapa.getTextoMapa()[novoTileY][novoTileX] == MatrizMapa.VAZIO ||
+                    mapa.getTextoMapa()[novoTileY][novoTileX] == MatrizMapa.PACMAN ||
+                    mapa.getTextoMapa()[novoTileY][novoTileX] == MatrizMapa.SAIDA_FANTASMA)) {
+                pixelX = antigoPixelX;
+                pixelY = antigoPixelY;
+                return;
+            }
+
+            posX = novoTileX;
+            posY = novoTileY;
         }
     }
 
@@ -103,14 +144,6 @@ public abstract class Personagem {
         this.spritesMorte = spritesMorte;
     }
 
-    public int getAndandoFPS() {
-        return andandoFPS;
-    }
-
-    public void setAndandoFPS(int andandoFPS) {
-        this.andandoFPS = andandoFPS;
-    }
-
     public int getMorteFPS() {
         return morteFPS;
     }
@@ -119,4 +152,19 @@ public abstract class Personagem {
         this.morteFPS = morteFPS;
     }
 
+    public Float getPixelX() {
+        return pixelX;
+    }
+
+    public void setPixelX(Float pixelX) {
+        this.pixelX = pixelX;
+    }
+
+    public Float getPixelY() {
+        return pixelY;
+    }
+
+    public void setPixelY(Float pixelY) {
+        this.pixelY = pixelY;
+    }
 }

@@ -52,6 +52,15 @@ public class Main {
         configurarPanel(game.getPanel());
         fase.setFullScreen(true);
 
+        game.getPanel().calcularTileSize();
+
+        if (game.getPacman() != null) {
+            game.getPacman().initPixels(game.getPanel().getTileSize());
+        }
+        for (Fantasma fantasma : game.getFantasmas()) {
+            fantasma.initPixels(game.getPanel().getTileSize());
+        }
+
         int intervalo = 200;
         Timer timer = new Timer(intervalo, e -> {
             if (game.isRunning()) {

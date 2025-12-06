@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3c28dd55-1d88-4eae-aed7-e1fb965d6fb0" name="Changes" comment="controles panel">
+    <list default="true" id="3c28dd55-1d88-4eae-aed7-e1fb965d6fb0" name="Changes" comment="Atualização dos fantasmas">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fase/FasePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fase/FasePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/personagem/Personagem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/personagem/Personagem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/personagem/fantasma/Fantasma.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/personagem/fantasma/Fantasma.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/personagem/fantasma/FantasmaCiano.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/personagem/fantasma/FantasmaCiano.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/personagem/fantasma/FantasmaLaranja.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/personagem/fantasma/FantasmaLaranja.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/personagem/fantasma/FantasmaRosa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/personagem/fantasma/FantasmaRosa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/personagem/fantasma/bfs/ExplorarCaminho.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/personagem/fantasma/bfs/ExplorarCaminho.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/personagem/pacman/Pacman.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/personagem/pacman/Pacman.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/singleplayer/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/singleplayer/Game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,8 +29,8 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/KlausSchweizer/swing-pacman.git&quot;,
-    &quot;accountId&quot;: &quot;2f5288fa-a4e4-415a-a26e-3eaa0ce19ba2&quot;
+    &quot;url&quot;: &quot;https://github.com/KlausSchweizer/swing-pacman&quot;,
+    &quot;accountId&quot;: &quot;2ed135c7-36f0-4412-9c04-625d17c02733&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -89,8 +89,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.27397.103" />
-        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-IU-252.27397.103" />
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.26199.169" />
+        <option value="bundled-js-predefined-d6986cc7102b-9c94529fcfe0-JavaScript-IU-252.26199.169" />
       </set>
     </attachedChunks>
   </component>
@@ -107,6 +107,8 @@
       <workItem from="1762800965586" duration="4989000" />
       <workItem from="1762808170380" duration="2750000" />
       <workItem from="1762947831047" duration="6798000" />
+      <workItem from="1765018527518" duration="3796000" />
+      <workItem from="1765030287523" duration="1243000" />
     </task>
     <task id="LOCAL-00001" summary="Remoção temporária de multiplayer">
       <option name="closed" value="true" />

@@ -42,7 +42,7 @@ public class Pacman extends Personagem {
     }
 
     @Override
-    public void mover(Mapa mapa) {
+    public void mover(Mapa mapa, int tileSize) {
         int maximoY = mapa.getMapa().length - 1;
         int maximoX = mapa.getMapa()[0].length - 1;
 
@@ -82,12 +82,6 @@ public class Pacman extends Personagem {
             eventos.usarPowerUp();
         }
         mapa.getMapa()[posY][posX].setItem(null);
-    }
-
-    @Override
-    public void draw(Graphics2D g2d, int tileSize, Mapa mapa, int inicioX, int inicioY) {
-        BufferedImage imagemAtual = spritesAtuais[0];
-        g2d.drawImage(imagemAtual, posX * tileSize + inicioX, posY * tileSize + inicioY, tileSize, tileSize, null);
     }
 
     public void setDirecao(Direcao direcao, Mapa mapa) {

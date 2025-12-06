@@ -27,6 +27,8 @@ public class FasePanel extends javax.swing.JPanel {
     protected List<Fantasma> fantasmas;
     protected Pacman pacman;
     protected Personagem personagem;
+    protected int tileSize;
+    protected int ultimoTileSize;
 
     public FasePanel(Mapa mapa, List<Fantasma> fantasmas, Pacman pacman) {
         initComponents();
@@ -36,6 +38,7 @@ public class FasePanel extends javax.swing.JPanel {
         this.personagem = pacman;
         setFocusable(true);
         requestFocusInWindow();
+        ultimoTileSize = -1;
     }
 
     public FasePanel(Mapa mapa, List<Fantasma> fantasmas, Pacman pacman, Personagem personagem) {
@@ -90,7 +93,16 @@ public class FasePanel extends javax.swing.JPanel {
 
         g2d.drawImage(ImagensTile.aberto, 0, 0, this.getWidth(), this.getHeight(), this);
 
-        int tileSize = Math.min(this.getWidth() / mapa.getMapa()[0].length, this.getHeight() / mapa.getMapa().length);
+        int novoTileSize = Math.min(this.getWidth() / mapa.getMapa()[0].length, this.getHeight() / mapa.getMapa().length);
+        if(novoTileSize != tileSize) {
+            ultimoTileSize = tileSize;
+            tileSize = novoTileSize;
+
+            if (ultimoTileSize > 0) {
+                sincronizarPixels();
+            }
+        }
+
         int inicioX = this.getWidth() / 2 - mapa.getMapa()[0].length * tileSize / 2;
         int inicioY = (this.getHeight() / 2 - mapa.getMapa().length * tileSize / 2);
 
@@ -102,6 +114,40 @@ public class FasePanel extends javax.swing.JPanel {
         if (pacman != null) {
             pacman.draw(g2d, tileSize, mapa, inicioX, inicioY);
         }
+    }
+
+    public void calcularTileSize() {
+        if (mapa == null) return;
+        tileSize = Math.min(getWidth() / mapa.getMapa()[0].length,
+                getHeight() / mapa.getMapa().length);
+        if (tileSize == 0) {
+            tileSize = 32;
+        }
+    }
+    private void sincronizarPixels() {
+
+        if (pacman != null) {
+            float xPor = pacman.getPixelX() / ultimoTileSize;
+            float yPor = pacman.getPixelY() / ultimoTileSize;
+
+            pacman.setPixelX(xPor * tileSize);
+            pacman.setPixelY(yPor * tileSize);
+        }
+
+        for (Fantasma f : fantasmas) {
+            if (f != null) {
+                float xPor = f.getPixelX() / ultimoTileSize;
+                float yPor = f.getPixelY() / ultimoTileSize;
+
+                f.setPixelX(xPor * tileSize);
+                f.setPixelY(yPor * tileSize);
+            }
+        }
+    }
+
+
+    public int getTileSize() {
+        return tileSize;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

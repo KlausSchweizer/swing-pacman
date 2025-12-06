@@ -46,10 +46,10 @@ public class Game implements EventosGame {
     public void update() {
         for (Fantasma fantasma : fantasmas) {
             fantasma.setDirecao(fantasma.decidirDirecao(pacman, mapa));
-            fantasma.mover(mapa);
+            fantasma.mover(mapa, panel.getTileSize());
             checarColisoes(fantasma);
         }
-        pacman.mover(mapa);
+        pacman.mover(mapa, panel.getTileSize());
         panel.repaint();
     }
 
