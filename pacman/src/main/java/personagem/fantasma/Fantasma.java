@@ -119,7 +119,7 @@ public abstract class Fantasma extends Personagem {
             spritesAtuais = spritesAlvo;
             status = StatusFantasma.ALVO;
         } else {
-            spritesAtuais = spritesAndando;
+            spritesAtuais = spritesAndandoCima;
             status = StatusFantasma.PERSEGUIDOR;
         }
     }

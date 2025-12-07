@@ -23,11 +23,23 @@ public class FantasmaCiano extends Fantasma {
         super(posY, posX);
 
         try {
-            BufferedImage sprite1 = ImageIO.read(getClass().getResource("/imagens"
+            BufferedImage spriteCima = ImageIO.read(getClass().getResource("/imagens"
                     + "/fantasmas/FantasmaCiano/FantasmaCianoCima.png"));
 
-            spritesAndando = new BufferedImage[]{sprite1};
-            spritesAtuais = new BufferedImage[]{sprite1};
+            BufferedImage spriteBaixo = ImageIO.read(getClass().getResource("/imagens"
+                    + "/fantasmas/FantasmaCiano/FantasmaCianoBaixo.png"));
+
+            BufferedImage spriteDireita = ImageIO.read(getClass().getResource("/imagens"
+                    + "/fantasmas/FantasmaCiano/FantasmaCianoDireita.png"));
+
+            BufferedImage spriteEsquerda = ImageIO.read(getClass().getResource("/imagens"
+                    + "/fantasmas/FantasmaCiano/FantasmaCianoEsquerdo.png"));
+
+            spritesAndandoCima = new BufferedImage[]{spriteCima};
+            spritesAndandoBaixo = new BufferedImage[]{spriteBaixo};
+            spritesAndandoDireita = new BufferedImage[]{spriteDireita};
+            spritesAndandoEsquerda = new BufferedImage[]{spriteEsquerda};
+            spritesAtuais = spritesAndandoCima;
         } catch (Exception e) {
             e.printStackTrace();
         }

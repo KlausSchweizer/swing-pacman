@@ -26,11 +26,23 @@ public class FantasmaLaranja extends Fantasma {
         super(posY, posX);
 
         try {
-            BufferedImage sprite1 = ImageIO.read(getClass().getResource("/imagens"
-                    + "/fantasmas/FantasmaLaranja/FantasmLaranjaBaixo.png"));
+            BufferedImage spriteCima = ImageIO.read(getClass().getResource("/imagens"
+                    + "/fantasmas/FantasmaLaranja/FantasmaLaranjaCima.png"));
 
-            spritesAndando = new BufferedImage[]{sprite1};
-            spritesAtuais = new BufferedImage[]{sprite1};
+            BufferedImage spriteBaixo = ImageIO.read(getClass().getResource("/imagens"
+                    + "/fantasmas/FantasmaLaranja/FantasmaLaranjaBaixo.png"));
+
+            BufferedImage spriteDireita = ImageIO.read(getClass().getResource("/imagens"
+                    + "/fantasmas/FantasmaLaranja/FantasmaLaranjaDireita.png"));
+
+            BufferedImage spriteEsquerda = ImageIO.read(getClass().getResource("/imagens"
+                    + "/fantasmas/FantasmaLaranja/FantasmaLaranjaEsquerda.png"));
+
+            spritesAndandoCima = new BufferedImage[]{spriteCima};
+            spritesAndandoBaixo = new BufferedImage[]{spriteBaixo};
+            spritesAndandoDireita = new BufferedImage[]{spriteDireita};
+            spritesAndandoEsquerda = new BufferedImage[]{spriteEsquerda};
+            spritesAtuais = spritesAndandoCima;
         } catch (Exception e) {
             e.printStackTrace();
         }

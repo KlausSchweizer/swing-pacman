@@ -21,7 +21,10 @@ public abstract class Personagem {
     protected int velocidade;
     protected Direcao direcao;
     protected BufferedImage[] spritesAtuais;
-    protected BufferedImage[] spritesAndando;
+    protected BufferedImage[] spritesAndandoCima;
+    protected BufferedImage[] spritesAndandoBaixo;
+    protected BufferedImage[] spritesAndandoEsquerda;
+    protected BufferedImage[] spritesAndandoDireita;
     protected BufferedImage[] spritesMorte;
     protected int andandoFPS;
     protected int morteFPS;
@@ -38,12 +41,16 @@ public abstract class Personagem {
     public void mover(Mapa mapa) {
         if (direcao == Direcao.BAIXO) {
             this.posY++;
+            spritesAtuais = spritesAndandoBaixo;
         } else if (direcao == Direcao.CIMA) {
             this.posY--;
+            spritesAtuais = spritesAndandoCima;
         } else if (direcao == Direcao.DIREITA) {
             this.posX++;
+            spritesAtuais = spritesAndandoDireita;
         } else if (direcao == Direcao.ESQUERDA) {
             this.posX--;
+            spritesAtuais = spritesAndandoEsquerda;
         }
     }
 
@@ -87,12 +94,12 @@ public abstract class Personagem {
         this.spritesAtuais = spritesAtuais;
     }
 
-    public BufferedImage[] getSpritesAndando() {
-        return spritesAndando;
+    public BufferedImage[] getSpritesAndandoCima() {
+        return spritesAndandoCima;
     }
 
-    public void setSpritesAndando(BufferedImage[] spritesAndando) {
-        this.spritesAndando = spritesAndando;
+    public void setSpritesAndandoCima(BufferedImage[] spritesAndandoCima) {
+        this.spritesAndandoCima = spritesAndandoCima;
     }
 
     public BufferedImage[] getSpritesMorte() {

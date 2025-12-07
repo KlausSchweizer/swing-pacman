@@ -26,11 +26,23 @@ public class Pacman extends Personagem {
     public Pacman(int posY, int posX) {
         super(posY, posX);
         try {
-            BufferedImage sprite1 = ImageIO.read(getClass().getResource("/imagens"
+            BufferedImage spriteCima = ImageIO.read(getClass().getResource("/imagens"
                     + "/pacman/PACMAN-1.png"));
 
-            spritesAndando = new BufferedImage[]{sprite1};
-            spritesAtuais = new BufferedImage[]{sprite1};
+            BufferedImage spriteBaixo = ImageIO.read(getClass().getResource("/imagens"
+                    + "/pacman/PACMAN-1.png"));
+
+            BufferedImage spriteDireita = ImageIO.read(getClass().getResource("/imagens"
+                    + "/pacman/PACMAN-1.png"));
+
+            BufferedImage spriteEsquerda = ImageIO.read(getClass().getResource("/imagens"
+                    + "/pacman/PACMAN-1.png"));
+
+            spritesAndandoCima = new BufferedImage[]{spriteCima};
+            spritesAndandoBaixo = new BufferedImage[]{spriteBaixo};
+            spritesAndandoDireita = new BufferedImage[]{spriteDireita};
+            spritesAndandoEsquerda = new BufferedImage[]{spriteEsquerda};
+            spritesAtuais = spritesAndandoCima;
         } catch (IOException e) {
             e.printStackTrace();
         }

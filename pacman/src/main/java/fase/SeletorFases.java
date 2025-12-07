@@ -28,7 +28,6 @@ public class SeletorFases extends javax.swing.JPanel {
 
     public void carregarMapas() throws IOException {
         HashMap<ImageIcon, String> mapas = new HashMap<>();
-        mapas.put(new ImageIcon(getClass().getResource("/mapas/imagens/mapa.png")), "/mapas/mapa.txt");
         mapas.put(new ImageIcon(getClass().getResource("/mapas/imagens/mapa1.png")), "/mapas/mapa1.txt");
         mapas.put(new ImageIcon(getClass().getResource("/mapas/imagens/mapa2.png")), "/mapas/mapa2.txt");
         mapas.put(new ImageIcon(getClass().getResource("/mapas/imagens/mapa.png")), "/mapas/mapa3.txt");

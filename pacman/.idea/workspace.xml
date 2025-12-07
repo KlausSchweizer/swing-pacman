@@ -6,12 +6,20 @@
   <component name="ChangeListManager">
     <list default="true" id="3c28dd55-1d88-4eae-aed7-e1fb965d6fb0" name="Changes" comment="controles panel">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fase/SeletorFases.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fase/SeletorFases.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/personagem/Personagem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/personagem/Personagem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/personagem/fantasma/Fantasma.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/personagem/fantasma/Fantasma.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/personagem/fantasma/FantasmaCiano.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/personagem/fantasma/FantasmaCiano.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/personagem/fantasma/FantasmaLaranja.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/personagem/fantasma/FantasmaLaranja.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/personagem/fantasma/FantasmaRosa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/personagem/fantasma/FantasmaRosa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/personagem/fantasma/bfs/ExplorarCaminho.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/personagem/fantasma/bfs/ExplorarCaminho.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/personagem/fantasma/FantasmaVermelho.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/personagem/fantasma/FantasmaVermelho.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/personagem/pacman/Pacman.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/personagem/pacman/Pacman.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/imagens/fantasmas/FantasmaLaranja/FantasmLaranjaBaixo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/imagens/fantasmas/FantasmaLaranja/FantasmaLaranjaBaixo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/imagens/fantasmas/fantasmaVermelho/FantasmaVermelho-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/imagens/fantasmas/fantasmaVermelho/FantasmaVermelhoEsquerda.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/imagens/fantasmas/fantasmaVermelho/FantasmaVermelhoEsquerda.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/imagens/fantasmas/FantasmaLaranja/FantasmLaranjaBaixo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/imagens/fantasmas/fantasmaVermelho/FantasmaVermelho-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/imagens/fantasmas/fantasmaVermelho/FantasmaVermelhoEsquerda.png" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/imagens/fantasmas/fantasmaVermelho/FantasmaVermelhoEsquerda.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +27,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="Multiplayer" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -27,12 +40,12 @@
     &quot;assignee&quot;: &quot;KlausSchweizer&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/KlausSchweizer/swing-pacman.git&quot;,
-    &quot;accountId&quot;: &quot;2f5288fa-a4e4-415a-a26e-3eaa0ce19ba2&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/KlausSchweizer/swing-pacman",
+    "accountId": "2ed135c7-36f0-4412-9c04-625d17c02733"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -72,7 +85,7 @@
       <module name="pacman" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="main.*" />
+          <option name="PATTERN" value="singleplayer.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -83,14 +96,15 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.27397.103" />
-        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-IU-252.27397.103" />
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.26199.169" />
+        <option value="bundled-js-predefined-d6986cc7102b-9c94529fcfe0-JavaScript-IU-252.26199.169" />
       </set>
     </attachedChunks>
   </component>
@@ -107,6 +121,7 @@
       <workItem from="1762800965586" duration="4989000" />
       <workItem from="1762808170380" duration="2750000" />
       <workItem from="1762947831047" duration="6798000" />
+      <workItem from="1765033667005" duration="3584000" />
     </task>
     <task id="LOCAL-00001" summary="Remoção temporária de multiplayer">
       <option name="closed" value="true" />

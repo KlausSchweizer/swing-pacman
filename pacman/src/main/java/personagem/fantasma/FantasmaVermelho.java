@@ -5,7 +5,7 @@
 package personagem.fantasma;
 
 import main.Direcao;
-import java.awt.Graphics2D;
+
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
 import mapa.Mapa;
@@ -21,11 +21,23 @@ public class FantasmaVermelho extends Fantasma {
         super(posY, posX);
 
         try {
-            BufferedImage sprite1 = ImageIO.read(getClass().getResource("/imagens"
+            BufferedImage spriteCima = ImageIO.read(getClass().getResource("/imagens"
+                    + "/fantasmas/FantasmaVermelho/FantasmaVermelhoCima.png"));
+
+            BufferedImage spriteBaixo = ImageIO.read(getClass().getResource("/imagens"
                     + "/fantasmas/FantasmaVermelho/FantasmaVermelhoBaixo.png"));
 
-            spritesAndando = new BufferedImage[]{sprite1};
-            spritesAtuais = new BufferedImage[]{sprite1};
+            BufferedImage spriteDireita = ImageIO.read(getClass().getResource("/imagens"
+                    + "/fantasmas/FantasmaVermelho/FantasmaVermelhoDireita.png"));
+
+            BufferedImage spriteEsquerda = ImageIO.read(getClass().getResource("/imagens"
+                    + "/fantasmas/FantasmaVermelho/FantasmaVermelhoEsquerda.png"));
+
+            spritesAndandoCima = new BufferedImage[]{spriteCima};
+            spritesAndandoBaixo = new BufferedImage[]{spriteBaixo};
+            spritesAndandoDireita = new BufferedImage[]{spriteDireita};
+            spritesAndandoEsquerda = new BufferedImage[]{spriteEsquerda};
+            spritesAtuais = spritesAndandoCima;
         } catch (Exception e) {
             e.printStackTrace();
         }
