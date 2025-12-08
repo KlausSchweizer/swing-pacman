@@ -25,29 +25,63 @@ public class Pacman extends Personagem {
 
     public Pacman(int posY, int posX) {
         super(posY, posX);
+        indiceSprite = 0;
         try {
-            BufferedImage spriteCima = ImageIO.read(getClass().getResource("/imagens"
-                    + "/pacman/PACMAN-1.png"));
-
-            BufferedImage spriteBaixo = ImageIO.read(getClass().getResource("/imagens"
-                    + "/pacman/PACMAN-1.png"));
-
-            BufferedImage spriteDireita = ImageIO.read(getClass().getResource("/imagens"
-                    + "/pacman/PACMAN-1.png"));
-
-            BufferedImage spriteEsquerda = ImageIO.read(getClass().getResource("/imagens"
-                    + "/pacman/PACMAN-1.png"));
-
-            spritesAndandoCima = new BufferedImage[]{spriteCima};
-            spritesAndandoBaixo = new BufferedImage[]{spriteBaixo};
-            spritesAndandoDireita = new BufferedImage[]{spriteDireita};
-            spritesAndandoEsquerda = new BufferedImage[]{spriteEsquerda};
-            spritesAtuais = spritesAndandoCima;
+            criarSpritesCima();
+            criarSpritesBaixo();
+            criarSpritesDireita();
+            criarSpritesEsquerda();
+            
+            spritesAtuais = spritesAndandoEsquerda;
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
+    private void criarSpritesEsquerda() throws IOException {
+        BufferedImage spriteEsquerda1 = ImageIO.read(getClass().getResource("/imagens"
+                + "/pacman/esquerda/PACMAN-ESQUERDA1.png"));
+        BufferedImage spriteEsquerda2 = ImageIO.read(getClass().getResource("/imagens"
+                + "/pacman/esquerda/PACMAN-ESQUERDA2.png"));
+        BufferedImage spriteEsquerda3 = ImageIO.read(getClass().getResource("/imagens"
+                + "/pacman/esquerda/PACMAN-ESQUERDA3.png"));
+        BufferedImage spriteEsquerda4 = ImageIO.read(getClass().getResource("/imagens"
+                + "/pacman/esquerda/PACMAN-ESQUERDA4.png"));
+        spritesAndandoEsquerda = new BufferedImage[]{spriteEsquerda1, spriteEsquerda2, spriteEsquerda3, spriteEsquerda4};
+    }
+
+    private void criarSpritesDireita() throws IOException {
+        BufferedImage spriteDireita1 = ImageIO.read(getClass().getResource("/imagens/pacman/direita/PACMAN-DIREITA1.png"));
+        BufferedImage spriteDireita2 = ImageIO.read(getClass().getResource("/imagens/pacman/direita/PACMAN-DIREITA2.png"));
+        BufferedImage spriteDireita3 = ImageIO.read(getClass().getResource("/imagens/pacman/direita/PACMAN-DIREITA3.png"));
+        BufferedImage spriteDireita4 = ImageIO.read(getClass().getResource("/imagens/pacman/direita/PACMAN-DIREITA4.png"));
+        spritesAndandoDireita = new BufferedImage[]{spriteDireita1, spriteDireita2, spriteDireita3, spriteDireita4};
+    }
+
+    private void criarSpritesBaixo() throws IOException {
+        BufferedImage spriteBaixo1 = ImageIO.read(getClass().getResource("/imagens"
+                + "/pacman/baixo/PACMAN-BAIXO1.png"));
+        BufferedImage spriteBaixo2 = ImageIO.read(getClass().getResource("/imagens"
+                + "/pacman/baixo/PACMAN-BAIXO2.png"));
+        BufferedImage spriteBaixo3 = ImageIO.read(getClass().getResource("/imagens"
+                + "/pacman/baixo/PACMAN-BAIXO3.png"));
+        BufferedImage spriteBaixo4 = ImageIO.read(getClass().getResource("/imagens"
+                + "/pacman/baixo/PACMAN-BAIXO4.png"));
+        spritesAndandoBaixo = new BufferedImage[]{spriteBaixo1, spriteBaixo2, spriteBaixo3, spriteBaixo4};
+    }
+
+    private void criarSpritesCima() throws IOException {
+        BufferedImage spriteCima1 = ImageIO.read(getClass().getResource("/imagens"
+                + "/pacman/cima/PACMAN-CIMA1.png"));
+        BufferedImage spriteCima2 = ImageIO.read(getClass().getResource("/imagens"
+                + "/pacman/cima/PACMAN-CIMA2.png"));
+        BufferedImage spriteCima3 = ImageIO.read(getClass().getResource("/imagens"
+                + "/pacman/cima/PACMAN-CIMA3.png"));
+        BufferedImage spriteCima4 = ImageIO.read(getClass().getResource("/imagens"
+                + "/pacman/cima/PACMAN-CIMA4.png"));
+        spritesAndandoCima = new BufferedImage[]{spriteCima1, spriteCima2, spriteCima3, spriteCima4};
+    }
+    
     @Override
     public void morrer() {
 
@@ -65,6 +99,7 @@ public class Pacman extends Personagem {
                     this.posY = 0;
                 }
             }
+            spritesAtuais = spritesAndandoBaixo;
         } else if (direcao == Direcao.CIMA) {
             if (!mapa.getMapa()[posY][posX].getDirecoesBloqueadas().contains(Direcao.CIMA)) {
                 this.posY--;
@@ -72,6 +107,7 @@ public class Pacman extends Personagem {
                     this.posY = maximoY;
                 }
             }
+            spritesAtuais = spritesAndandoCima;
         } else if (direcao == Direcao.DIREITA) {
             if (!mapa.getMapa()[posY][posX].getDirecoesBloqueadas().contains(Direcao.DIREITA)) {
                 this.posX++;
@@ -79,6 +115,7 @@ public class Pacman extends Personagem {
                     this.posX = 0;
                 }
             }
+            spritesAtuais = spritesAndandoDireita;
         } else if (direcao == Direcao.ESQUERDA) {
             if (!mapa.getMapa()[posY][posX].getDirecoesBloqueadas().contains(Direcao.ESQUERDA)) {
                 this.posX--;
@@ -86,6 +123,7 @@ public class Pacman extends Personagem {
                     this.posX = maximoX;
                 }
             }
+            spritesAtuais = spritesAndandoEsquerda;
         }
 
         if (mapa.getMapa()[posY][posX].getItem() instanceof Ponto && eventos != null) {
@@ -94,11 +132,16 @@ public class Pacman extends Personagem {
             eventos.usarPowerUp();
         }
         mapa.getMapa()[posY][posX].setItem(null);
+
+        indiceSprite++;
+        if (indiceSprite >= spritesAtuais.length) {
+            indiceSprite = 0;
+        }
     }
 
     @Override
     public void draw(Graphics2D g2d, int tileSize, Mapa mapa, int inicioX, int inicioY) {
-        BufferedImage imagemAtual = spritesAtuais[0];
+        BufferedImage imagemAtual = spritesAtuais[indiceSprite];
         g2d.drawImage(imagemAtual, posX * tileSize + inicioX, posY * tileSize + inicioY, tileSize, tileSize, null);
     }
 

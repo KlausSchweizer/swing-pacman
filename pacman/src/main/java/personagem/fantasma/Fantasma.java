@@ -40,6 +40,7 @@ public abstract class Fantasma extends Personagem {
 
     public Fantasma(int posY, int posX) {
         super(posY, posX);
+        indiceSprite = 0;
 
         this.direcao = Direcao.CIMA;
         this.status = StatusFantasma.PERSEGUIDOR;
@@ -51,7 +52,7 @@ public abstract class Fantasma extends Personagem {
 
     @Override
     public void draw(Graphics2D g2d, int tileSize, Mapa mapa, int inicioX, int inicioY) {
-        BufferedImage imagemAtual = spritesAtuais[0];
+        BufferedImage imagemAtual = spritesAtuais[indiceSprite];
         g2d.drawImage(imagemAtual, posX * tileSize + inicioX, posY * tileSize + inicioY, tileSize, tileSize, null);
     }
 

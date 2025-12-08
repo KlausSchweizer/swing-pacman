@@ -26,6 +26,7 @@ public abstract class Personagem {
     protected BufferedImage[] spritesAndandoEsquerda;
     protected BufferedImage[] spritesAndandoDireita;
     protected BufferedImage[] spritesMorte;
+    protected int indiceSprite;
     protected int andandoFPS;
     protected int morteFPS;
 
@@ -51,6 +52,11 @@ public abstract class Personagem {
         } else if (direcao == Direcao.ESQUERDA) {
             this.posX--;
             spritesAtuais = spritesAndandoEsquerda;
+        }
+
+        indiceSprite++;
+        if (indiceSprite >= spritesAtuais.length) {
+            indiceSprite = 0;
         }
     }
 
@@ -126,4 +132,11 @@ public abstract class Personagem {
         this.morteFPS = morteFPS;
     }
 
+    public int getIndiceSprite() {
+        return indiceSprite;
+    }
+
+    public void setIndiceSprite(int indiceSprite) {
+        this.indiceSprite = indiceSprite;
+    }
 }
