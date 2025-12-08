@@ -4,6 +4,7 @@
  */
 package singleplayer;
 
+import fase.GameEndPanel;
 import mapa.Posicao;
 import personagem.fantasma.StatusFantasma;
 import fase.FasePanel;
@@ -55,6 +56,11 @@ public class Game implements EventosGame {
 
     public void finish() {
         isRunning = false;
+
+        GameEndPanel painel = new GameEndPanel();
+
+        Main.getFase().setGlassPane(painel);
+        painel.setVisible(true);
     }
 
     public void selecionarFase(String path) {
