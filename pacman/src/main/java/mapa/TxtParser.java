@@ -24,8 +24,6 @@ public class TxtParser {
     public Mapa criarMapa(String filePath) {
         try {
             
-            System.out.println("Tentando carregar: " + filePath);
-            System.out.println("Resource URL: " + getClass().getResource(filePath));
             InputStream is = getClass().getResourceAsStream(filePath);
             if (is == null) {
                 throw new IOException("nao encontrado: " + filePath);
@@ -41,10 +39,6 @@ public class TxtParser {
             return mapa;
         } catch (IOException e) {
             File file = new File(filePath);
-            System.out.println("Caminho absoluto: " + file.getAbsolutePath());
-            System.out.println("Existe? " + file.exists());
-            System.out.println("Pode ler? " + file.canRead());
-
             System.err
                     .println("Arquivo: " + new File(filePath).getAbsolutePath() + " não encontrado!" + e.getMessage());
             e.printStackTrace();

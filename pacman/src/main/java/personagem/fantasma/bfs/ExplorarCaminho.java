@@ -86,10 +86,6 @@ public class ExplorarCaminho {
         if(caminhoOrdenado.size() > 1) {
             CelulaBFS proximaCelula = caminhoOrdenado.get(1);
 
-            for (CelulaBFS celula : caminhoOrdenado) {
-                System.out.println(celula);
-            }
-
             ReconstruirCaminho reconstrutor = new ReconstruirCaminho();
             return reconstrutor.reconstruirDirecaoCaminho(celulaInicio, proximaCelula);
         }

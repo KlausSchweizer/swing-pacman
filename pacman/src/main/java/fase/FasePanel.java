@@ -84,7 +84,6 @@ public class FasePanel extends javax.swing.JPanel {
 
     @Override
     protected void paintComponent(Graphics g) {
-        System.out.println("Paint component");
         Graphics2D g2d = (Graphics2D) g;
         super.paintComponent(g2d);
 

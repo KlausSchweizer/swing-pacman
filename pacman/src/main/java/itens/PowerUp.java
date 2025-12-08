@@ -20,7 +20,6 @@ public class PowerUp extends Item {
             adicionarSprites();
         } catch (IOException ex) {
             ex.printStackTrace();
-            System.out.println("itens.PowerUp.<init>()");
         }
         
         numeroFrames = images.size();

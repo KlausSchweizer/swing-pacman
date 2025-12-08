@@ -110,7 +110,6 @@ public class Main {
             fase.getContentPane().removeAll();
             fase.setContentPane(painelFase);
             fase.revalidate();
-            fase.repaint();
             painelFase.setFocusable(true);
             painelFase.requestFocusInWindow();
         });

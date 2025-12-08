@@ -4,12 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3c28dd55-1d88-4eae-aed7-e1fb965d6fb0" name="Changes" comment="controles panel">
+    <list default="true" id="3c28dd55-1d88-4eae-aed7-e1fb965d6fb0" name="Changes" comment="animações e direção">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/personagem/Personagem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/personagem/Personagem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/personagem/fantasma/Fantasma.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/personagem/fantasma/Fantasma.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/personagem/fantasma/FantasmaVermelho.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/personagem/fantasma/FantasmaVermelho.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/personagem/pacman/Pacman.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/personagem/pacman/Pacman.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fase/ControlesPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fase/ControlesPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fase/FasePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fase/FasePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/itens/PowerUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itens/PowerUp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mapa/TxtParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mapa/TxtParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/personagem/fantasma/bfs/ExplorarCaminho.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/personagem/fantasma/bfs/ExplorarCaminho.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/singleplayer/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/singleplayer/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/imagens/fantasmas/fantasmaVermelho/FantasmaVermelhoBaixo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/imagens/fantasmas/fantasmaVermelho/FantasmaVermelhoCima.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/imagens/fantasmas/fantasmaVermelho/FantasmaVermelhoDireita.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/imagens/fantasmas/fantasmaVermelho/FantasmaVermelhoEsquerda.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/imagens/pacman/PACMAN-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/imagens/pacman/PACMAN-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/imagens/pacman/PACMAN-3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,7 +149,23 @@
       <option name="project" value="LOCAL" />
       <updated>1764935674283</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="novos sprites pacman e fantasma vermelho">
+      <option name="closed" value="true" />
+      <created>1765235475836</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1765235475836</updated>
+    </task>
+    <task id="LOCAL-00005" summary="animações e direção">
+      <option name="closed" value="true" />
+      <created>1765235493410</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1765235493410</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -147,6 +175,8 @@
     <MESSAGE value="Remoção temporária de multiplayer" />
     <MESSAGE value="FullScreen" />
     <MESSAGE value="controles panel" />
-    <option name="LAST_COMMIT_MESSAGE" value="controles panel" />
+    <MESSAGE value="novos sprites pacman e fantasma vermelho" />
+    <MESSAGE value="animações e direção" />
+    <option name="LAST_COMMIT_MESSAGE" value="animações e direção" />
   </component>
 </project>
