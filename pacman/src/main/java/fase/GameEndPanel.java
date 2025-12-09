@@ -4,9 +4,11 @@
  */
 package fase;
 
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
+import main.Main;
+import singleplayer.Game;
+
+import javax.swing.*;
+import java.awt.*;
 
 /**
  *
@@ -14,16 +16,19 @@ import java.awt.Graphics2D;
  */
 public class GameEndPanel extends javax.swing.JPanel {
 
+    private Game game;
+
     /**
      * Creates new form GameEndPanel
      */
-    public GameEndPanel() {
+    public GameEndPanel(Game game) {
         initComponents();
         setOpaque(false);
         botoesPN.setBackground(new Color(0, 0, 0, 0));
         botoesPN.setForeground(new Color(0, 0, 0, 0));
 
         removerBordaBotoes();
+        this.game = game;
     }
 
     private void removerBordaBotoes() {
@@ -58,33 +63,59 @@ public class GameEndPanel extends javax.swing.JPanel {
         botoesPN.setBackground(new java.awt.Color(0, 0, 0));
 
         reiniciarBT1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/botoes/botao_reinicar.png"))); // NOI18N
+        reiniciarBT1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reiniciarBT1ActionPerformed(evt);
+            }
+        });
         botoesPN.add(reiniciarBT1);
 
         menuBT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/botoes/botao_menu_grande.png"))); // NOI18N
+        menuBT.addActionListener(evt -> menuBTActionPerformed(evt));
         botoesPN.add(menuBT);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(gameOverLB, javax.swing.GroupLayout.DEFAULT_SIZE, 573, Short.MAX_VALUE)
-                    .addComponent(botoesPN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(gameOverLB, javax.swing.GroupLayout.DEFAULT_SIZE, 573, Short.MAX_VALUE)
+                                        .addComponent(botoesPN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addContainerGap())
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(gameOverLB, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
-                .addComponent(botoesPN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(50, 50, 50)
+                                .addComponent(gameOverLB, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
+                                .addComponent(botoesPN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(47, 47, 47))
         );
     }// </editor-fold>//GEN-END:initComponents
-@Override
+
+    private void reiniciarBT1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reiniciarBT1ActionPerformed
+        game.getPacman().setVidas(3);
+        game.getMapa().reset();
+        game.recomecar();
+        if (Main.getTimer() != null) {
+            Main.getTimer().stop();
+            Main.setTimer(null);
+        }
+        Main.getFase().getGlassPane().setVisible(false);
+        Main.getFase().setGlassPane(new JPanel());
+
+    }//GEN-LAST:event_reiniciarBT1ActionPerformed
+
+    private void menuBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuBTActionPerformed
+        Main.getFase().getGlassPane().setVisible(false);
+        Main.getFase().setGlassPane(new JPanel());
+        Main.configurarPanel(new MenuPanel());
+    }//GEN-LAST:event_menuBTActionPerformed
+
+    @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g.create();

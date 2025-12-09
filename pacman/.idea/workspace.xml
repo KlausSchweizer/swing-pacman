@@ -4,19 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3c28dd55-1d88-4eae-aed7-e1fb965d6fb0" name="Changes" comment="possiveis melhorias de performance">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mapas/coordenadas-padrao/coordenada-mapa4.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mapas/coordenadas-padrao/coordenada-mapa5.txt" afterDir="false" />
+    <list default="true" id="3c28dd55-1d88-4eae-aed7-e1fb965d6fb0" name="Changes" comment="Novos mapas">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fase/GameEndPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fase/GameEndPanel.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fase/GameEndPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fase/GameEndPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fase/SeletorFases.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fase/SeletorFases.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mapa/Mapa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mapa/Mapa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/personagem/Personagem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/personagem/Personagem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/personagem/fantasma/Fantasma.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/personagem/fantasma/Fantasma.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/personagem/fantasma/FantasmaVermelho.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/personagem/fantasma/FantasmaVermelho.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/personagem/pacman/Pacman.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/personagem/pacman/Pacman.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/singleplayer/EventosGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/singleplayer/EventosGame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/singleplayer/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/singleplayer/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapas/mapa2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapas/mapa2.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapas/mapa2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapas/mapa2.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/imagens/pacman/direita/PACMAN-DIREITA1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/imagens/pacman/direita/PACMAN-DIREITA1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/imagens/pacman/direita/PACMAN-DIREITA2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/imagens/pacman/direita/PACMAN-DIREITA2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/imagens/pacman/direita/PACMAN-DIREITA3.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/imagens/pacman/direita/PACMAN-DIREITA3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/imagens/pacman/direita/PACMAN-DIREITA4.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/imagens/pacman/direita/PACMAN-DIREITA4.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +122,7 @@
       <workItem from="1762808170380" duration="2750000" />
       <workItem from="1762947831047" duration="6798000" />
       <workItem from="1765033667005" duration="3584000" />
-      <workItem from="1765293201166" duration="5535000" />
+      <workItem from="1765293201166" duration="12557000" />
     </task>
     <task id="LOCAL-00001" summary="Remoção temporária de multiplayer">
       <option name="closed" value="true" />
@@ -177,7 +180,23 @@
       <option name="project" value="LOCAL" />
       <updated>1765238273205</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Novos mapas">
+      <option name="closed" value="true" />
+      <created>1765307340520</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1765307340520</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Novos mapas">
+      <option name="closed" value="true" />
+      <created>1765307426409</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1765307426409</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -191,6 +210,7 @@
     <MESSAGE value="animações e direção" />
     <MESSAGE value="Game End Panel" />
     <MESSAGE value="possiveis melhorias de performance" />
-    <option name="LAST_COMMIT_MESSAGE" value="possiveis melhorias de performance" />
+    <MESSAGE value="Novos mapas" />
+    <option name="LAST_COMMIT_MESSAGE" value="Novos mapas" />
   </component>
 </project>

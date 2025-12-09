@@ -4,26 +4,22 @@
  */
 package singleplayer;
 
-import fase.GameEndPanel;
-import mapa.Posicao;
-import personagem.fantasma.StatusFantasma;
 import fase.FasePanel;
-
-import java.awt.*;
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
+import fase.GameEndPanel;
+import main.Direcao;
 import main.Main;
 import mapa.Mapa;
+import mapa.Posicao;
 import mapa.TxtParser;
 import personagem.fantasma.Fantasma;
+import personagem.fantasma.StatusFantasma;
 import personagem.pacman.Pacman;
 
 import javax.swing.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -37,30 +33,57 @@ public class Game implements EventosGame {
     protected FasePanel panel;
     protected int pontos;
     protected boolean isRunning;
+    protected boolean podeMover;
+    protected long temporizadorPodeMover;
 
     public Game() {
         fantasmas = new ArrayList<>();
         isRunning = true;
         pontos = 0;
+        temporizadorPodeMover = System.currentTimeMillis();
     }
 
     public void update() {
-        for (Fantasma fantasma : fantasmas) {
-            fantasma.setDirecao(fantasma.decidirDirecao(pacman, mapa));
-            fantasma.mover(mapa);
-            checarColisoes(fantasma);
+        if(podeMover) {
+            for (Fantasma fantasma : fantasmas) {
+                fantasma.setDirecao(fantasma.decidirDirecao(pacman, mapa));
+                fantasma.mover(mapa);
+                checarColisoes(fantasma);
+            }
+            pacman.mover(mapa);
+            panel.repaint();
         }
-        pacman.mover(mapa);
-        panel.repaint();
+        podeMover = System.currentTimeMillis() - temporizadorPodeMover > 1000;
     }
 
     public void finish() {
         isRunning = false;
 
-        GameEndPanel painel = new GameEndPanel();
+        Main.getTimer().stop();
+        Main.setTimer(null);
 
+        GameEndPanel painel = new GameEndPanel(this);
         Main.getFase().setGlassPane(painel);
         painel.setVisible(true);
+    }
+
+    public void recomecar() {
+        pacman.setPosX(mapa.getSpawnPacman().getPosX());
+        pacman.setPosY(mapa.getSpawnPacman().getPosY());
+        pacman.setDirecao(null);
+        pacman.setSpritesAtuais(pacman.getSpritesAndandoDireita());
+
+        for (int i = 0; i < fantasmas.size(); i++) {
+            Fantasma f = fantasmas.get(i);
+            Posicao spawn = mapa.getSpawnsFantasma().get(i);
+            f.setPosX(spawn.getPosX());
+            f.setPosY(spawn.getPosY());
+            f.setStatus(StatusFantasma.PERSEGUIDOR);
+            f.setDirecao(Direcao.CIMA);
+            f.setTempoInicializacao(System.currentTimeMillis());
+        }
+        isRunning = true;
+        temporizadorPodeMover = System.currentTimeMillis();
     }
 
     public void selecionarFase(String path) {
@@ -76,7 +99,7 @@ public class Game implements EventosGame {
         try (BufferedReader br = new BufferedReader(new FileReader(resourcePath))) {
             List<String> posicoesString = br.lines().toList();
 
-            for(String str : posicoesString) {
+            for (String str : posicoesString) {
                 int x = Integer.parseInt(str.split(",")[0]);
                 int y = Integer.parseInt(str.split(",")[1]);
                 coordenadas.add(new Posicao(x, y));
@@ -94,7 +117,11 @@ public class Game implements EventosGame {
                 fantasma.morrer();
             } else if (fantasma.getStatus() == StatusFantasma.PERSEGUIDOR) {
                 pacman.morrer();
-                finish();
+                if(pacman.getVidas() <= 0) {
+                    isRunning = false;
+                    finish();
+                }
+                recomecar();
             }
         }
     }

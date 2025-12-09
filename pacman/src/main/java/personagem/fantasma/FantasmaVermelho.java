@@ -45,29 +45,19 @@ public class FantasmaVermelho extends Fantasma {
 
     private void criarSpritesDireita() throws IOException {
         BufferedImage spriteDireita1 = ImageIO.read(getClass().getResource("/imagens/fantasmas/fantasmaVermelho/direita/VERMELHO-DIRETA1.png"));
-        BufferedImage spriteDireita2 = ImageIO.read(getClass().getResource("/imagens/fantasmas/fantasmaVermelho/direita/VERMELHO-DIREITA2.png"));
-        BufferedImage spriteDireita3 = ImageIO.read(getClass().getResource("/imagens/fantasmas/fantasmaVermelho/direita/VERMELHO-DIREITA3.png"));
-        spritesAndandoDireita = new BufferedImage[]{spriteDireita1, spriteDireita2, spriteDireita3};
+        spritesAndandoDireita = new BufferedImage[]{spriteDireita1};
     }
 
     private void criarSpritesBaixo() throws IOException {
         BufferedImage spriteBaixo1 = ImageIO.read(getClass().getResource("/imagens"
                 + "/fantasmas/fantasmaVermelho/baixo/VERMELHO-BAIXO1.png"));
-        BufferedImage spriteBaixo2 = ImageIO.read(getClass().getResource("/imagens"
-                + "/fantasmas/fantasmaVermelho/baixo/VERMELHO-BAIXO2.png"));
-        BufferedImage spriteBaixo3 = ImageIO.read(getClass().getResource("/imagens"
-                + "/fantasmas/fantasmaVermelho/baixo/VERMELHO-BAIXO3.png"));
-        spritesAndandoBaixo = new BufferedImage[]{spriteBaixo1, spriteBaixo2, spriteBaixo3};
+        spritesAndandoBaixo = new BufferedImage[]{spriteBaixo1};
     }
 
     private void criarSpritesCima() throws IOException {
         BufferedImage spriteCima1 = ImageIO.read(getClass().getResource("/imagens"
                 + "/fantasmas/fantasmaVermelho/cima/VERMELHO-CIMA1.png"));
-        BufferedImage spriteCima2 = ImageIO.read(getClass().getResource("/imagens"
-                + "/fantasmas/fantasmaVermelho/cima/VERMELHO-CIMA2.png"));
-        BufferedImage spriteCima3 = ImageIO.read(getClass().getResource("/imagens"
-                + "/fantasmas/fantasmaVermelho/cima/VERMELHO-CIMA3.png"));
-        spritesAndandoCima = new BufferedImage[]{spriteCima1, spriteCima2, spriteCima3};
+        spritesAndandoCima = new BufferedImage[]{spriteCima1};
     }
 
     @Override

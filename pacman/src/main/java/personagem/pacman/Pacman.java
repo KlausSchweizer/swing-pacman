@@ -4,17 +4,17 @@
  */
 package personagem.pacman;
 
-import java.awt.Graphics2D;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import javax.imageio.ImageIO;
-
-import main.Direcao;
 import itens.Ponto;
 import itens.PowerUp;
-import singleplayer.EventosGame;
+import main.Direcao;
 import mapa.Mapa;
 import personagem.Personagem;
+import singleplayer.EventosGame;
+
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 /**
  *
@@ -22,16 +22,18 @@ import personagem.Personagem;
  */
 public class Pacman extends Personagem {
     private EventosGame eventos;
+    private int vidas;
 
     public Pacman(int posY, int posX) {
         super(posY, posX);
         indiceSprite = 0;
+        vidas = 3;
         try {
             criarSpritesCima();
             criarSpritesBaixo();
             criarSpritesDireita();
             criarSpritesEsquerda();
-            
+
             spritesAtuais = spritesAndandoEsquerda;
         } catch (IOException e) {
             e.printStackTrace();
@@ -81,10 +83,10 @@ public class Pacman extends Personagem {
                 + "/pacman/cima/PACMAN-CIMA4.png"));
         spritesAndandoCima = new BufferedImage[]{spriteCima1, spriteCima2, spriteCima3, spriteCima4};
     }
-    
+
     @Override
     public void morrer() {
-
+        vidas--;
     }
 
     @Override
@@ -137,6 +139,7 @@ public class Pacman extends Personagem {
         if (indiceSprite >= spritesAtuais.length) {
             indiceSprite = 0;
         }
+        System.out.println(vidas);
     }
 
     @Override
@@ -162,4 +165,14 @@ public class Pacman extends Personagem {
     public void setEventos(EventosGame eventos) {
         this.eventos = eventos;
     }
+
+    public int getVidas() {
+        return vidas;
+    }
+
+    public void setVidas(int vidas) {
+        this.vidas = vidas;
+    }
+
+
 }

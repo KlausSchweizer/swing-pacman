@@ -67,6 +67,9 @@
               <Image iconType="3" name="/imagens/botoes/botao_reinicar.png"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="reiniciarBT1ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="menuBT">
           <Properties>
@@ -74,6 +77,9 @@
               <Image iconType="3" name="/imagens/botoes/botao_menu_grande.png"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuBTActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

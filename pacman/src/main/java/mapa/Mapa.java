@@ -5,6 +5,9 @@
 package mapa;
 
 import itens.Item;
+import itens.Ponto;
+import itens.PowerUp;
+import mapa.matrizmapa.MatrizMapa;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -43,6 +46,22 @@ public class Mapa {
 
                 g2d.setColor(Color.BLACK);
                 g2d.fillRect(coluna * tileSize, linha * tileSize, tileSize, tileSize);
+            }
+        }
+    }
+
+    public void reset() {
+        for (int i = 0; i < mapa.length; ++i) {
+            for (int j = 0; j < mapa[0].length; ++j) {
+                if (textoMapa[i][j] == MatrizMapa.LIVRE ||
+                        textoMapa[i][j] == MatrizMapa.SAIDA_BAIXO ||
+                        textoMapa[i][j] == MatrizMapa.SAIDA_CIMA ||
+                        textoMapa[i][j] == MatrizMapa.SAIDA_DIREITA ||
+                        textoMapa[i][j] == MatrizMapa.SAIDA_ESQUERDA) {
+                    mapa[i][j].setItem(new Ponto());
+                } else if (textoMapa[i][j] == MatrizMapa.POWERUP) {
+                    mapa[i][j].setItem(new PowerUp());
+                }
             }
         }
     }

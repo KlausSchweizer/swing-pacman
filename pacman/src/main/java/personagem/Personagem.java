@@ -139,4 +139,16 @@ public abstract class Personagem {
     public void setIndiceSprite(int indiceSprite) {
         this.indiceSprite = indiceSprite;
     }
+
+    public BufferedImage[] getSpritesAndandoBaixo() {
+        return spritesAndandoBaixo;
+    }
+
+    public BufferedImage[] getSpritesAndandoEsquerda() {
+        return spritesAndandoEsquerda;
+    }
+
+    public BufferedImage[] getSpritesAndandoDireita() {
+        return spritesAndandoDireita;
+    }
 }

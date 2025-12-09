@@ -176,4 +176,8 @@ public abstract class Fantasma extends Personagem {
     public void setDirecao(Direcao direcao) {
         this.direcao = direcao;
     }
+
+    public void setTempoInicializacao(long tempoInicializacao) {
+        this.tempoInicializacao = tempoInicializacao;
+    }
 }

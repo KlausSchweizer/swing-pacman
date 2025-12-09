@@ -24,6 +24,7 @@ import java.util.List;
  */
 public class Main {
     private static FaseJF fase;
+    private static Timer timer;
 
     public static void main(String[] args) {
         fase = new FaseJF();
@@ -52,12 +53,13 @@ public class Main {
         configurarPanel(game.getPanel());
         fase.setFullScreen(true);
 
+        if (timer != null) {
+            timer.stop();
+        }
         int intervalo = 200;
-        Timer timer = new Timer(intervalo, e -> {
+        timer = new Timer(intervalo, e -> {
             if (game.isRunning()) {
                 game.update();
-            } else {
-                ((Timer) e.getSource()).stop();
             }
         });
         timer.start();
@@ -117,5 +119,13 @@ public class Main {
 
     public static FaseJF getFase() {
         return fase;
+    }
+
+    public static Timer getTimer() {
+        return timer;
+    }
+
+    public static void setTimer(Timer timer) {
+        Main.timer = timer;
     }
 }
