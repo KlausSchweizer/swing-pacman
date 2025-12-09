@@ -1,8 +1,8 @@
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$
-$ooooooooooooCooooooooooooo$
+$oooooooOooooCooooooooooooo$
 $o$$o$$o$$o$$$$$$o$$o$$o$$o$
 $o$$o$$o$$o$$$$$$o$$o$$o$$o$
-$ooooooo$$oooooooo$$ooooooo$
+$ooooooo$$oooooooo$$oooooOo$
 $$$$$$$$$$o$$$$$$o$$$$$$$$$$
 $$$$$$$$$$o$$$$$$o$$$$$$$$$$
 $$$$oooooooooooooooooooo$$$$
@@ -24,8 +24,8 @@ $o$$$$$o$$$$$$$$$$$$o$$$$$o$
 $oooooooooo$$$$$$oooooooooo$
 $o$$$$$$$$o$$$$$$o$$$$$$$$o$
 $o$$$$$$$$o$$$$$$o$$$$$$$$o$
-$oooo$$$$$oooooooo$$$$$oooo$
+$oooo$$$$$oooooooo$$$$$Oooo$
 $o$$o$$$$$o$$$$$$o$$$$$o$$o$
 $o$$o$$$$$o$$$$$$o$$$$$o$$o$
-$oooo$$$$$oooooooo$$$$$oooo$
+$oOoo$$$$$oooooooo$$$$$oooo$
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$

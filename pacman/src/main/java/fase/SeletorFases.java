@@ -32,6 +32,8 @@ public class SeletorFases extends javax.swing.JPanel {
         mapas.put(new ImageIcon(getClass().getResource("/mapas/imagens/mapa2.png")), "/mapas/mapa2.txt");
         mapas.put(new ImageIcon(getClass().getResource("/mapas/imagens/mapa.png")), "/mapas/mapa3.txt");
         mapas.put(new ImageIcon(getClass().getResource("/mapas/imagens/google.png")), "/mapas/google.txt");
+        mapas.put(new ImageIcon(getClass().getResource("/imagens/labels/label_pacman.png")), "/mapas/mapa4.txt");
+        mapas.put(new ImageIcon(getClass().getResource("/imagens/labels/label_game_over.png")), "/mapas/mapa5.txt");
 
         for (ImageIcon image : mapas.keySet()) {
             JButton mapaBT = new JButton(redimensionarImagem(image, image.getIconWidth() / 4, image.getIconHeight() / 4));
