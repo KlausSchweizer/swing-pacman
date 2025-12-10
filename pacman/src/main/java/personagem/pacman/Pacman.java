@@ -139,7 +139,6 @@ public class Pacman extends Personagem {
         if (indiceSprite >= spritesAtuais.length) {
             indiceSprite = 0;
         }
-        System.out.println(vidas);
     }
 
     @Override

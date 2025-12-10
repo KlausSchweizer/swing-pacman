@@ -5,7 +5,8 @@
 package singleplayer;
 
 import fase.FasePanel;
-import fase.GameEndPanel;
+import fase.glasspanes.ContagemRegressivaPanel;
+import fase.glasspanes.GameEndPanel;
 import main.Direcao;
 import main.Main;
 import mapa.Mapa;
@@ -36,17 +37,17 @@ public class Game implements EventosGame {
     protected int pontos;
     protected boolean isRunning;
     protected boolean podeMover;
-    protected long temporizadorPodeMover;
+    protected int delayTimer;
 
     public Game() {
         fantasmas = new ArrayList<>();
         isRunning = true;
         pontos = 0;
-        temporizadorPodeMover = System.currentTimeMillis();
+        delayTimer = 700;
     }
 
     public void update() {
-        if(podeMover) {
+        if (podeMover) {
             for (Fantasma fantasma : fantasmas) {
                 fantasma.setDirecao(fantasma.decidirDirecao(pacman, mapa));
                 fantasma.mover(mapa);
@@ -55,7 +56,6 @@ public class Game implements EventosGame {
             pacman.mover(mapa);
             panel.repaint();
         }
-        podeMover = System.currentTimeMillis() - temporizadorPodeMover > 1000;
     }
 
     public void finish() {
@@ -84,9 +84,11 @@ public class Game implements EventosGame {
             f.setPosY(spawn.getPosY());
             f.setStatus(StatusFantasma.PERSEGUIDOR);
             f.setDirecao(Direcao.CIMA);
-            f.setTempoInicializacao(System.currentTimeMillis());
 
-            if(f instanceof FantasmaCiano) {
+            long agora = System.currentTimeMillis();
+            f.setTempoInicializacao(agora + 3000);
+
+            if (f instanceof FantasmaCiano) {
                 for (Fantasma g : fantasmas) {
                     if (g instanceof FantasmaVermelho vermelho) {
                         ((FantasmaCiano) f).setFantasmaVermelho(vermelho);
@@ -95,7 +97,7 @@ public class Game implements EventosGame {
             }
         }
         isRunning = true;
-        temporizadorPodeMover = System.currentTimeMillis();
+        iniciarContador();
     }
 
     public void selecionarFase(String path) {
@@ -103,6 +105,13 @@ public class Game implements EventosGame {
         mapa.setNomeMapa(path);
         setarCoordenadas(path);
         Main.comecarFase(this);
+        this.iniciarContador();
+
+        long agora = System.currentTimeMillis();
+        for (Fantasma f : fantasmas) {
+            f.setTempoInicializacao(agora + 3000);
+        }
+        iniciarContador();
     }
 
     private void setarCoordenadas(String path) {
@@ -129,12 +138,52 @@ public class Game implements EventosGame {
                 fantasma.morrer();
             } else if (fantasma.getStatus() == StatusFantasma.PERSEGUIDOR) {
                 pacman.morrer();
-                if(pacman.getVidas() <= 0) {
+                if (pacman.getVidas() <= 0) {
                     finish();
                 } else {
                     recomecar();
                 }
             }
+        }
+    }
+
+    public void iniciarContador() {
+        Main.getTimer().stop();
+
+        podeMover = false;
+        final int[] contador = {3};
+
+        ContagemRegressivaPanel contadorPanel = new ContagemRegressivaPanel();
+        Main.getFase().setGlassPane(contadorPanel);
+        contadorPanel.setVisible(true);
+
+        contadorPanel.getContadorLB().setText(contador[0] + "");
+
+        Timer contadorTimer = new Timer(delayTimer, null);
+        contadorTimer.addActionListener(e -> {
+            contador[0]--;
+            String texto = (contador[0] > 0) ? contador[0] + "" : "GO!";
+            contadorPanel.getContadorLB().setText(texto);
+
+            if (contador[0] < 0) {
+                contadorTimer.stop();
+                contadorPanel.setVisible(false);
+                podeMover = true;
+                Main.getTimer().start();
+                iniciarFantasmas();
+            }
+        });
+
+        contadorTimer.start();
+    }
+
+    private void iniciarFantasmas() {
+        long agora = System.currentTimeMillis();
+        int delayEntreFantasmas = 2000;
+
+        for (int i = 0; i < fantasmas.size(); i++) {
+            Fantasma f = fantasmas.get(i);
+            f.setTempoInicializacao(agora + i * delayEntreFantasmas);
         }
     }
 
