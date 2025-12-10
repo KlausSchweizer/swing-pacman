@@ -12,8 +12,10 @@ import personagem.Personagem;
 import personagem.fantasma.bfs.ExplorarCaminho;
 import personagem.pacman.Pacman;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -26,10 +28,11 @@ import java.util.Queue;
 public abstract class Fantasma extends Personagem {
 
     protected StatusFantasma status;
-    protected BufferedImage[] spritesAlvo;
-    protected BufferedImage[] spritesTransformando;
+    protected BufferedImage[] spritesAlvoCima;
+    protected BufferedImage[] spritesAlvoBaixo;
+    protected BufferedImage[] spritesAlvoDireita;
+    protected BufferedImage[] spritesAlvoEsquerda;
     protected int medoFPS;
-    protected int transformandoFPS;
     protected ExplorarCaminho explorador;
     protected Posicao alvo;
     public static final int VERMELHO = 0;
@@ -54,6 +57,70 @@ public abstract class Fantasma extends Personagem {
     public void draw(Graphics2D g2d, int tileSize, Mapa mapa, int inicioX, int inicioY) {
         BufferedImage imagemAtual = spritesAtuais[indiceSprite];
         g2d.drawImage(imagemAtual, posX * tileSize + inicioX, posY * tileSize + inicioY, tileSize, tileSize, null);
+    }
+
+    @Override
+    public void mover(Mapa mapa) {
+        if (status == StatusFantasma.PERSEGUIDOR) {
+            if (direcao == Direcao.BAIXO) {
+                this.posY++;
+                spritesAtuais = spritesAndandoBaixo;
+            } else if (direcao == Direcao.CIMA) {
+                this.posY--;
+                spritesAtuais = spritesAndandoCima;
+            } else if (direcao == Direcao.DIREITA) {
+                this.posX++;
+                spritesAtuais = spritesAndandoDireita;
+            } else if (direcao == Direcao.ESQUERDA) {
+                this.posX--;
+                spritesAtuais = spritesAndandoEsquerda;
+            }
+        } else if (status == StatusFantasma.ALVO) {
+            if (direcao == Direcao.CIMA) {
+                this.posY--;
+                spritesAtuais = spritesAlvoCima;
+            } else if (direcao == Direcao.BAIXO) {
+                this.posY++;
+                spritesAtuais = spritesAlvoBaixo;
+            } else if (direcao == Direcao.ESQUERDA) {
+                this.posX++;
+                spritesAtuais = spritesAlvoEsquerda;
+            } else {
+                this.posX--;
+                spritesAtuais = spritesAlvoDireita;
+            }
+            indiceSprite++;
+            if (indiceSprite >= spritesAtuais.length) {
+                indiceSprite = 0;
+            }
+        }
+    }
+
+    public void carregarSprites() {
+        try {
+            BufferedImage spriteCima1 = ImageIO.read(getClass().getResourceAsStream("/imagens/fantasmas/FantasmaMedo/cima/FANTASMAMEDO-CIMA1.png"));
+            BufferedImage spriteCima2 = ImageIO.read(getClass().getResourceAsStream("/imagens/fantasmas/FantasmaMedo/cima/FANTASMAMEDO-CIMA2.png"));
+            BufferedImage spriteCima3 = ImageIO.read(getClass().getResourceAsStream("/imagens/fantasmas/FantasmaMedo/cima/FANTASMAMEDO-CIMA3.png"));
+            spritesAlvoCima = new BufferedImage[] {spriteCima1, spriteCima2, spriteCima3};
+
+            BufferedImage spriteBaixo1 = ImageIO.read(getClass().getResourceAsStream("/imagens/fantasmas/FantasmaMedo/baixo/FANTASMAMEDO-BAIXO1.png"));
+            BufferedImage spriteBaixo2 = ImageIO.read(getClass().getResourceAsStream("/imagens/fantasmas/FantasmaMedo/baixo/FANTASMAMEDO-BAIXO2.png"));
+            BufferedImage spriteBaixo3 = ImageIO.read(getClass().getResourceAsStream("/imagens/fantasmas/FantasmaMedo/baixo/FANTASMAMEDO-BAIXO3.png"));
+            spritesAlvoBaixo = new BufferedImage[] {spriteBaixo1, spriteBaixo2, spriteBaixo3};
+
+            BufferedImage spriteDireita1 = ImageIO.read(getClass().getResourceAsStream("/imagens/fantasmas/FantasmaMedo/direita/FANTASMAMEDO-DIREITA1.png"));
+            BufferedImage spriteDireita2 = ImageIO.read(getClass().getResourceAsStream("/imagens/fantasmas/FantasmaMedo/direita/FANTASMAMEDO-DIREITA2.png"));
+            BufferedImage spriteDireita3 = ImageIO.read(getClass().getResourceAsStream("/imagens/fantasmas/FantasmaMedo/direita/FANTASMAMEDO-DIREITA3.png"));
+            spritesAlvoDireita = new BufferedImage[] {spriteDireita1, spriteDireita2, spriteDireita3};
+
+            BufferedImage spriteEsquerda1 = ImageIO.read(getClass().getResourceAsStream("/imagens/fantasmas/FantasmaMedo/esquerda/FANTASMAMEDO-ESQUERDA1.png"));
+            BufferedImage spriteEsquerda2 = ImageIO.read(getClass().getResourceAsStream("/imagens/fantasmas/FantasmaMedo/esquerda/FANTASMAMEDO-ESQUERDA2.png"));
+            BufferedImage spriteEsquerda3 = ImageIO.read(getClass().getResourceAsStream("/imagens/fantasmas/FantasmaMedo/esquerda/FANTASMAMEDO-ESQUERDA3.png"));
+            spritesAlvoEsquerda = new BufferedImage[] {spriteEsquerda1, spriteEsquerda2, spriteEsquerda3};
+
+        } catch(IOException e) {
+            throw new RuntimeException();
+        }
     }
 
     public void morrer() {
@@ -117,7 +184,15 @@ public abstract class Fantasma extends Personagem {
 
     public void transformar() {
         if (status == StatusFantasma.PERSEGUIDOR) {
-            spritesAtuais = spritesAlvo;
+            if(direcao == Direcao.CIMA) {
+                spritesAtuais = spritesAlvoCima;
+            } else if (direcao == Direcao.BAIXO) {
+                spritesAtuais = spritesAlvoBaixo;
+            } else if(direcao == Direcao.ESQUERDA) {
+                spritesAtuais = spritesAlvoEsquerda;
+            } else {
+                spritesAtuais = spritesAlvoDireita;
+            }
             status = StatusFantasma.ALVO;
         } else {
             spritesAtuais = spritesAndandoCima;
@@ -131,22 +206,6 @@ public abstract class Fantasma extends Personagem {
 
     public void setStatus(StatusFantasma status) {
         this.status = status;
-    }
-
-    public BufferedImage[] getSpritesAlvo() {
-        return spritesAlvo;
-    }
-
-    public void setSpritesAlvo(BufferedImage[] spritesAlvo) {
-        this.spritesAlvo = spritesAlvo;
-    }
-
-    public BufferedImage[] getSpritesTransformando() {
-        return spritesTransformando;
-    }
-
-    public void setSpritesTransformando(BufferedImage[] spritesTransformando) {
-        this.spritesTransformando = spritesTransformando;
     }
 
     public ExplorarCaminho getExplorador() {
@@ -163,18 +222,6 @@ public abstract class Fantasma extends Personagem {
 
     public void setMedoFPS(int medoFPS) {
         this.medoFPS = medoFPS;
-    }
-
-    public int getTransformandoFPS() {
-        return transformandoFPS;
-    }
-
-    public void setTransformandoFPS(int transformandoFPS) {
-        this.transformandoFPS = transformandoFPS;
-    }
-
-    public void setDirecao(Direcao direcao) {
-        this.direcao = direcao;
     }
 
     public void setTempoInicializacao(long tempoInicializacao) {

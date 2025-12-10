@@ -6,6 +6,7 @@ package personagem;
 
 import main.Direcao;
 import mapa.Mapa;
+import personagem.fantasma.StatusFantasma;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -39,26 +40,7 @@ public abstract class Personagem {
 
     public abstract void morrer();
 
-    public void mover(Mapa mapa) {
-        if (direcao == Direcao.BAIXO) {
-            this.posY++;
-            spritesAtuais = spritesAndandoBaixo;
-        } else if (direcao == Direcao.CIMA) {
-            this.posY--;
-            spritesAtuais = spritesAndandoCima;
-        } else if (direcao == Direcao.DIREITA) {
-            this.posX++;
-            spritesAtuais = spritesAndandoDireita;
-        } else if (direcao == Direcao.ESQUERDA) {
-            this.posX--;
-            spritesAtuais = spritesAndandoEsquerda;
-        }
-
-        indiceSprite++;
-        if (indiceSprite >= spritesAtuais.length) {
-            indiceSprite = 0;
-        }
-    }
+    public abstract void mover(Mapa mapa);
 
     public int getPosX() {
         return posX;

@@ -5,12 +5,12 @@
 package personagem.fantasma;
 
 import main.Direcao;
-
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import javax.imageio.ImageIO;
 import mapa.Mapa;
 import personagem.pacman.Pacman;
+
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 /**
  *
@@ -21,43 +21,32 @@ public class FantasmaVermelho extends Fantasma {
     public FantasmaVermelho(int posY, int posX) {
         super(posY, posX);
 
+        carregarSprites();
+    }
+
+    @Override
+    public void carregarSprites() {
+        super.carregarSprites();
         try {
-            criarSpritesCima();
-            criarSpritesBaixo();
-            criarSpritesDireita();
-            criarSpritesEsquerda();
+            BufferedImage spriteEsquerda1 = ImageIO.read(getClass().getResource("/imagens"
+                    + "/fantasmas/FantasmaVermelho/esquerda/VERMELHO-ESQUERDA1.png"));
+            spritesAndandoEsquerda = new BufferedImage[]{spriteEsquerda1};
+
+            BufferedImage spriteDireita1 = ImageIO.read(getClass().getResource("/imagens/fantasmas/fantasmaVermelho/direita/VERMELHO-DIRETA1.png"));
+            spritesAndandoDireita = new BufferedImage[]{spriteDireita1};
+
+            BufferedImage spriteBaixo1 = ImageIO.read(getClass().getResource("/imagens"
+                    + "/fantasmas/fantasmaVermelho/baixo/VERMELHO-BAIXO1.png"));
+            spritesAndandoBaixo = new BufferedImage[]{spriteBaixo1};
+
+            BufferedImage spriteCima1 = ImageIO.read(getClass().getResource("/imagens"
+                    + "/fantasmas/fantasmaVermelho/cima/VERMELHO-CIMA1.png"));
+            spritesAndandoCima = new BufferedImage[]{spriteCima1};
 
             spritesAtuais = spritesAndandoCima;
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    private void criarSpritesEsquerda() throws IOException {
-        BufferedImage spriteEsquerda1 = ImageIO.read(getClass().getResource("/imagens"
-                + "/fantasmas/FantasmaVermelho/esquerda/VERMELHO-ESQUERDA1.png"));
-        BufferedImage spriteEsquerda2 = ImageIO.read(getClass().getResource("/imagens"
-                + "/fantasmas/FantasmaVermelho/esquerda/VERMELHO-ESQUERDA2.png"));
-        BufferedImage spriteEsquerda3 = ImageIO.read(getClass().getResource("/imagens"
-                + "/fantasmas/FantasmaVermelho/esquerda/VERMELHO-ESQUERDA3.png"));
-        spritesAndandoEsquerda = new BufferedImage[]{spriteEsquerda1};
-    }
-
-    private void criarSpritesDireita() throws IOException {
-        BufferedImage spriteDireita1 = ImageIO.read(getClass().getResource("/imagens/fantasmas/fantasmaVermelho/direita/VERMELHO-DIRETA1.png"));
-        spritesAndandoDireita = new BufferedImage[]{spriteDireita1};
-    }
-
-    private void criarSpritesBaixo() throws IOException {
-        BufferedImage spriteBaixo1 = ImageIO.read(getClass().getResource("/imagens"
-                + "/fantasmas/fantasmaVermelho/baixo/VERMELHO-BAIXO1.png"));
-        spritesAndandoBaixo = new BufferedImage[]{spriteBaixo1};
-    }
-
-    private void criarSpritesCima() throws IOException {
-        BufferedImage spriteCima1 = ImageIO.read(getClass().getResource("/imagens"
-                + "/fantasmas/fantasmaVermelho/cima/VERMELHO-CIMA1.png"));
-        spritesAndandoCima = new BufferedImage[]{spriteCima1};
     }
 
     @Override

@@ -20,6 +20,12 @@ public class FantasmaRosa extends Fantasma {
 
     public FantasmaRosa(int posY, int posX) {
         super(posY, posX);
+        carregarSprites();
+    }
+
+    @Override
+    public void carregarSprites() {
+        super.carregarSprites();
         try {
             BufferedImage spriteCima = ImageIO.read(getClass().getResource("/imagens"
                     + "/fantasmas/FantasmaRosa/FantasmaRosaCima.png"));

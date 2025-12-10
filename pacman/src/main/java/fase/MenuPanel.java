@@ -24,7 +24,7 @@ public class MenuPanel extends javax.swing.JPanel {
     public MenuPanel() {
         initComponents();
         try {
-            imagemArcade = ImageIO.read(getClass().getResourceAsStream("/imagens/labels/pacmano.png"));
+            imagemArcade = ImageIO.read(getClass().getResourceAsStream("/imagens/labels/pacmano2.png"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

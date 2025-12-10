@@ -22,6 +22,12 @@ public class FantasmaCiano extends Fantasma {
     public FantasmaCiano(int posY, int posX) {
         super(posY, posX);
 
+        carregarSprites();
+    }
+
+    @Override
+    public void carregarSprites() {
+        super.carregarSprites();
         try {
             BufferedImage spriteCima = ImageIO.read(getClass().getResource("/imagens"
                     + "/fantasmas/FantasmaCiano/FantasmaCianoCima.png"));
