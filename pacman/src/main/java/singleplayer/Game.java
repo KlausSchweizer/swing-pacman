@@ -12,6 +12,8 @@ import mapa.Mapa;
 import mapa.Posicao;
 import mapa.TxtParser;
 import personagem.fantasma.Fantasma;
+import personagem.fantasma.FantasmaCiano;
+import personagem.fantasma.FantasmaVermelho;
 import personagem.fantasma.StatusFantasma;
 import personagem.pacman.Pacman;
 
@@ -83,6 +85,14 @@ public class Game implements EventosGame {
             f.setStatus(StatusFantasma.PERSEGUIDOR);
             f.setDirecao(Direcao.CIMA);
             f.setTempoInicializacao(System.currentTimeMillis());
+
+            if(f instanceof FantasmaCiano) {
+                for (Fantasma g : fantasmas) {
+                    if (g instanceof FantasmaVermelho vermelho) {
+                        ((FantasmaCiano) f).setFantasmaVermelho(vermelho);
+                    }
+                }
+            }
         }
         isRunning = true;
         temporizadorPodeMover = System.currentTimeMillis();
