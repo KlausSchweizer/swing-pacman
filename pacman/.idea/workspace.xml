@@ -4,13 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3c28dd55-1d88-4eae-aed7-e1fb965d6fb0" name="Changes" comment="ajustes, fantasma ciano">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+    <list default="true" id="3c28dd55-1d88-4eae-aed7-e1fb965d6fb0" name="Changes" comment="Timer contagem regressiva">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fase/GameEndPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fase/glasspanes/GameEndPanel.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fase/GameEndPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fase/glasspanes/GameEndPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/personagem/pacman/Pacman.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/personagem/pacman/Pacman.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/singleplayer/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/singleplayer/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fase/FasePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fase/FasePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fase/MenuPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fase/MenuPanel.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fase/MenuPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fase/MenuPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fase/SeletorFases.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fase/SeletorFases.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fase/SeletorFases.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fase/SeletorFases.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/imagens/labels/label_pacman.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/imagens/labels/label_pacman.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/imagens/labels/label_pacman.png" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/imagens/labels/label_pacman.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +116,7 @@
       <workItem from="1762947831047" duration="6798000" />
       <workItem from="1765033667005" duration="3584000" />
       <workItem from="1765293201166" duration="12653000" />
-      <workItem from="1765331588199" duration="6385000" />
+      <workItem from="1765331588199" duration="12608000" />
     </task>
     <task id="LOCAL-00001" summary="Remoção temporária de multiplayer">
       <option name="closed" value="true" />
@@ -220,7 +222,15 @@
       <option name="project" value="LOCAL" />
       <updated>1765377393748</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Timer contagem regressiva">
+      <option name="closed" value="true" />
+      <created>1765381340773</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1765381340773</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -239,6 +249,7 @@
     <MESSAGE value="pacman sprites" />
     <MESSAGE value="Fim do game over(espero)" />
     <MESSAGE value="ajustes, fantasma ciano" />
-    <option name="LAST_COMMIT_MESSAGE" value="ajustes, fantasma ciano" />
+    <MESSAGE value="Timer contagem regressiva" />
+    <option name="LAST_COMMIT_MESSAGE" value="Timer contagem regressiva" />
   </component>
 </project>

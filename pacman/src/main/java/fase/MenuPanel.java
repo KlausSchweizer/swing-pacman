@@ -4,23 +4,32 @@
  */
 package fase;
 
-import java.awt.Image;
-import java.awt.image.BufferedImage;
 import main.Main;
 
-import javax.swing.*;
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 /**
  *
  * @author klaus
  */
 public class MenuPanel extends javax.swing.JPanel {
+    private BufferedImage imagemArcade;
+
     /**
      * Creates new form MenuPanel
      */
     public MenuPanel() {
         initComponents();
+        try {
+            imagemArcade = ImageIO.read(getClass().getResourceAsStream("/imagens/labels/pacmano.png"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
+
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -31,7 +40,6 @@ public class MenuPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        painelPrincipal = new javax.swing.JPanel();
         sairBT = new javax.swing.JButton();
         multiplayerBT = new javax.swing.JButton();
         controlesBT = new javax.swing.JButton();
@@ -39,8 +47,6 @@ public class MenuPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(22, 29, 36));
-
-        painelPrincipal.setBackground(new java.awt.Color(22, 29, 36));
 
         sairBT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/botoes/botao_sair.png"))); // NOI18N
         sairBT.addActionListener(new java.awt.event.ActionListener() {
@@ -70,28 +76,28 @@ public class MenuPanel extends javax.swing.JPanel {
             }
         });
 
-        javax.swing.GroupLayout painelPrincipalLayout = new javax.swing.GroupLayout(painelPrincipal);
-        painelPrincipal.setLayout(painelPrincipalLayout);
-        painelPrincipalLayout.setHorizontalGroup(
-            painelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(painelPrincipalLayout.createSequentialGroup()
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/labels/label_pacman.png"))); // NOI18N
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(painelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(painelPrincipalLayout.createSequentialGroup()
-                        .addGroup(painelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(sairBT, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(multiplayerBT, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(painelPrincipalLayout.createSequentialGroup()
-                        .addGroup(painelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(singleplayerBT, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(controlesBT, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                        .addGap(0, 476, Short.MAX_VALUE))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(sairBT, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(multiplayerBT, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(controlesBT, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(singleplayerBT, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(317, Short.MAX_VALUE))
         );
-        painelPrincipalLayout.setVerticalGroup(
-            painelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(painelPrincipalLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
                 .addComponent(singleplayerBT, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(controlesBT, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -100,27 +106,6 @@ public class MenuPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(sairBT, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
-        );
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/botoes/label_pacman.png"))); // NOI18N
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(painelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
-                .addComponent(painelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -139,12 +124,24 @@ public class MenuPanel extends javax.swing.JPanel {
         Main.configurarPanel(new ControlesPanel());
     }//GEN-LAST:event_controlesBTActionPerformed
 
+    @Override
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        Graphics2D g2d = (Graphics2D) g.create();
+
+        double proporcao = (double) getHeight() / imagemArcade.getHeight();
+        int tamanhoWidth = (int) (imagemArcade.getWidth() * proporcao);
+
+        g2d.drawImage(imagemArcade, getWidth() - tamanhoWidth, 0, tamanhoWidth, getHeight(), this);
+
+
+        g2d.dispose();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton controlesBT;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton multiplayerBT;
-    private javax.swing.JPanel painelPrincipal;
     private javax.swing.JButton sairBT;
     private javax.swing.JButton singleplayerBT;
     // End of variables declaration//GEN-END:variables

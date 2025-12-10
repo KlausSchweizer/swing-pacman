@@ -25,7 +25,7 @@ public class FasePanel extends javax.swing.JPanel {
     protected Mapa mapa;
     protected List<Fantasma> fantasmas;
     protected Pacman pacman;
-    protected Personagem personagem;
+    protected Personagem    personagem;
 
     public FasePanel(Mapa mapa, List<Fantasma> fantasmas, Pacman pacman) {
         initComponents();
