@@ -25,6 +25,7 @@ import java.util.List;
 public class Main {
     private static FaseJF fase;
     private static Timer timer;
+    private static Timer timerReserva;
 
     public static void main(String[] args) {
         fase = new FaseJF();
@@ -63,6 +64,7 @@ public class Main {
             }
         });
         timer.start();
+        timerReserva = timer;
     }
 
     private static void configurarPainelFase(Game game) {
@@ -127,5 +129,9 @@ public class Main {
 
     public static void setTimer(Timer timer) {
         Main.timer = timer;
+    }
+
+    public static Timer getTimerReserva() {
+        return timerReserva;
     }
 }

@@ -68,6 +68,8 @@ public class Game implements EventosGame {
     }
 
     public void recomecar() {
+        Main.setTimer(Main.getTimerReserva());
+        Main.getTimer().start();
         pacman.setPosX(mapa.getSpawnPacman().getPosX());
         pacman.setPosY(mapa.getSpawnPacman().getPosY());
         pacman.setDirecao(null);
@@ -118,10 +120,10 @@ public class Game implements EventosGame {
             } else if (fantasma.getStatus() == StatusFantasma.PERSEGUIDOR) {
                 pacman.morrer();
                 if(pacman.getVidas() <= 0) {
-                    isRunning = false;
                     finish();
+                } else {
+                    recomecar();
                 }
-                recomecar();
             }
         }
     }

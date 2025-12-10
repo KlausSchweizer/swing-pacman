@@ -5,7 +5,6 @@
 package fase;
 
 import main.Direcao;
-import main.Main;
 import mapa.Mapa;
 import mapa.imagens.ImagensTile;
 import personagem.Personagem;

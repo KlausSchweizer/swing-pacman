@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3c28dd55-1d88-4eae-aed7-e1fb965d6fb0" name="Changes" comment="Algumas coisas aí, correções e novos bugs de game over" />
+    <list default="true" id="3c28dd55-1d88-4eae-aed7-e1fb965d6fb0" name="Changes" comment="pacman sprites">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fase/FasePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fase/FasePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/singleplayer/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/singleplayer/Game.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -107,6 +112,7 @@
       <workItem from="1762947831047" duration="6798000" />
       <workItem from="1765033667005" duration="3584000" />
       <workItem from="1765293201166" duration="12653000" />
+      <workItem from="1765331588199" duration="652000" />
     </task>
     <task id="LOCAL-00001" summary="Remoção temporária de multiplayer">
       <option name="closed" value="true" />
@@ -188,7 +194,15 @@
       <option name="project" value="LOCAL" />
       <updated>1765324707243</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="pacman sprites">
+      <option name="closed" value="true" />
+      <created>1765331864441</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1765331864441</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -204,6 +218,7 @@
     <MESSAGE value="possiveis melhorias de performance" />
     <MESSAGE value="Novos mapas" />
     <MESSAGE value="Algumas coisas aí, correções e novos bugs de game over" />
-    <option name="LAST_COMMIT_MESSAGE" value="Algumas coisas aí, correções e novos bugs de game over" />
+    <MESSAGE value="pacman sprites" />
+    <option name="LAST_COMMIT_MESSAGE" value="pacman sprites" />
   </component>
 </project>
