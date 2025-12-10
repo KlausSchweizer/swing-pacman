@@ -97,9 +97,8 @@ public class GameEndPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void reiniciarBT1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reiniciarBT1ActionPerformed
-        game.getPacman().setVidas(3);
         game.getMapa().reset();
-        game.recomecar();
+        game.getPacman().setVidas(3);
         if (Main.getTimer() != null) {
             Main.getTimer().stop();
             Main.setTimer(null);
@@ -107,6 +106,7 @@ public class GameEndPanel extends javax.swing.JPanel {
         Main.getFase().getGlassPane().setVisible(false);
         Main.getFase().setGlassPane(new JPanel());
 
+        game.recomecar();
     }//GEN-LAST:event_reiniciarBT1ActionPerformed
 
     private void menuBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuBTActionPerformed
