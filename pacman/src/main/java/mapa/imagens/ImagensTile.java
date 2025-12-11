@@ -34,55 +34,38 @@ public class ImagensTile {
     }
 
     public void lerImagens() throws IOException {
-        File image = new File("imagens/tiles/aberto.png");
-        aberto = ImageIO.read(image);
+        aberto = ImageIO.read(getClass().getResourceAsStream("/imagens/tiles/aberto.png"));
 
-        image = new File("imagens/tiles/fechado.png");
-        fechado = ImageIO.read(image);
+        fechado = ImageIO.read(getClass().getResourceAsStream("/imagens/tiles/fechado.png"));
 
-        image = new File("imagens/tiles/alturas-abertas.png");
-        alturasAbertas = ImageIO.read(image);
+        alturasAbertas = ImageIO.read(getClass().getResourceAsStream("/imagens/tiles/alturas-abertas.png"));
 
-        image = new File("imagens/tiles/baixo-fechada.png");
-        baixoFechada = ImageIO.read(image);
+        baixoFechada = ImageIO.read(getClass().getResourceAsStream("/imagens/tiles/baixo-fechada.png"));
 
-        image = new File("imagens/tiles/cima-fechada.png");
-        cimaFechada = ImageIO.read(image);
+        cimaFechada = ImageIO.read(getClass().getResourceAsStream("/imagens/tiles/cima-fechada.png"));
 
-        image = new File("imagens/tiles/direita-aberta.png");
-        direitaAberta = ImageIO.read(image);
+        direitaAberta = ImageIO.read(getClass().getResourceAsStream("/imagens/tiles/direita-aberta.png"));
 
-        image = new File("imagens/tiles/direita-baixo-abertas.png");
-        direitaBaixoAbertas = ImageIO.read(image);
+        direitaBaixoAbertas = ImageIO.read(getClass().getResourceAsStream("/imagens/tiles/direita-baixo-abertas.png"));
 
-        image = new File("imagens/tiles/direita-cima-abertas.png");
-        direitaCimaAbertas = ImageIO.read(image);
+        direitaCimaAbertas = ImageIO.read(getClass().getResourceAsStream("/imagens/tiles/direita-cima-abertas.png"));
 
-        image = new File("imagens/tiles/direita-fechada.png");
-        direitaFechada = ImageIO.read(image);
+        direitaFechada = ImageIO.read(getClass().getResourceAsStream("/imagens/tiles/direita-fechada.png"));
 
-        image = new File("imagens/tiles/esquerda-aberta.png");
-        esquerdaAberta = ImageIO.read(image);
+        esquerdaAberta = ImageIO.read(getClass().getResourceAsStream("/imagens/tiles/esquerda-aberta.png"));
 
-        image = new File("imagens/tiles/esquerda-baixo-abertas.png");
-        esquerdaBaixoAbertas = ImageIO.read(image);
+        esquerdaBaixoAbertas = ImageIO.read(getClass().getResourceAsStream("/imagens/tiles/esquerda-baixo-abertas.png"));
 
-        image = new File("imagens/tiles/esquerda-cima-abertas.png");
-        esquerdaCimaAbertas = ImageIO.read(image);
+        esquerdaCimaAbertas = ImageIO.read(getClass().getResourceAsStream("/imagens/tiles/esquerda-cima-abertas.png"));
 
-        image = new File("imagens/tiles/esquerda-fechada.png");
-        esquerdaFechada = ImageIO.read(image);
+        esquerdaFechada = ImageIO.read(getClass().getResourceAsStream("/imagens/tiles/esquerda-fechada.png"));
 
-        image = new File("imagens/tiles/lados-abertos.png");
-        ladosAbertos = ImageIO.read(image);
+        ladosAbertos = ImageIO.read(getClass().getResourceAsStream("/imagens/tiles/lados-abertos.png"));
 
-        image = new File("imagens/tiles/saida-fantasma.png");
-        saidaFantasmas = ImageIO.read(image);
+        saidaFantasmas = ImageIO.read(getClass().getResourceAsStream("/imagens/tiles/saida-fantasma.png"));
 
-        image = new File("imagens/tiles/cima-aberta.png");
-        cimaAberta = ImageIO.read(image);
+        cimaAberta = ImageIO.read(getClass().getResourceAsStream("/imagens/tiles/cima-aberta.png"));
 
-        image = new File("imagens/tiles/baixo-aberta.png");
-        baixoAberta = ImageIO.read(image);
+        baixoAberta = ImageIO.read(getClass().getResourceAsStream("/imagens/tiles/baixo-aberta.png"));
     }
 }

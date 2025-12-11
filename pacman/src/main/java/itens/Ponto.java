@@ -29,9 +29,9 @@ public class Ponto extends Item {
     }
 
     private void adicionarSprites() throws IOException {
-        images.add(ImageIO.read(new File("imagens/ponto/ponto0.png")));
-        images.add(ImageIO.read(new File("imagens/ponto/ponto1.png")));
-        images.add(ImageIO.read(new File("imagens/ponto/ponto2.png")));
-        images.add(ImageIO.read(new File("imagens/ponto/ponto3.png")));
+        images.add(ImageIO.read(getClass().getResourceAsStream("/imagens/ponto/ponto0.png")));
+        images.add(ImageIO.read(getClass().getResourceAsStream("/imagens/ponto/ponto1.png")));
+        images.add(ImageIO.read(getClass().getResourceAsStream("/imagens/ponto/ponto2.png")));
+        images.add(ImageIO.read(getClass().getResourceAsStream("/imagens/ponto/ponto3.png")));
     }
 }
