@@ -7,6 +7,8 @@ package personagem.fantasma;
 import main.Direcao;
 import mapa.Mapa;
 import mapa.Posicao;
+import personagem.fantasma.bfs.CelulaBFS;
+import personagem.fantasma.bfs.ExplorarCaminho;
 import personagem.pacman.Pacman;
 
 import javax.imageio.ImageIO;
@@ -54,6 +56,22 @@ public class FantasmaCiano extends Fantasma {
     @Override
     public Direcao decidirDirecao(Pacman pacman, Mapa mapa) {
         if (System.currentTimeMillis() - tempoInicializacao > 4000) {
+            if(status == StatusFantasma.ALVO) {
+                if (alvo == null || (posX == alvo.getPosX() && posY == alvo.getPosY())) {
+
+                    Posicao novoAlvo;
+                    explorador = new ExplorarCaminho();
+                    explorador.setTextoMapa(mapa.getTextoMapa());
+
+                    do {
+                        novoAlvo = fugir(mapa);
+                    } while (!explorador.isCelulaValida(new CelulaBFS(novoAlvo.getPosY(), novoAlvo.getPosX(), null)));
+
+                    alvo = novoAlvo;
+                }
+                return explorador.decidirDirecao(this.posY, this.posX, alvo.getPosY(), alvo.getPosX(), mapa);
+
+            }
             int posX = pacman.getPosX();
             posX = pacman.getDirecao() == Direcao.ESQUERDA ? posX - 2 : posX;
             posX = pacman.getDirecao() == Direcao.DIREITA ? posX + 2 : posX;

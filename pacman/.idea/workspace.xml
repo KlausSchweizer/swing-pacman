@@ -4,8 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3c28dd55-1d88-4eae-aed7-e1fb965d6fb0" name="Changes" comment="Fantasma medo sprites">
-      <change beforePath="$PROJECT_DIR$/src/main/java/itens/PowerUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itens/PowerUp.java" afterDir="false" />
+    <list default="true" id="3c28dd55-1d88-4eae-aed7-e1fb965d6fb0" name="Changes" comment="Menu">
+      <change beforePath="$PROJECT_DIR$/.classpath" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/personagem/fantasma/Fantasma.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/personagem/fantasma/Fantasma.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/personagem/fantasma/FantasmaCiano.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/personagem/fantasma/FantasmaCiano.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/personagem/fantasma/FantasmaLaranja.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/personagem/fantasma/FantasmaLaranja.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/personagem/fantasma/FantasmaRosa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/personagem/fantasma/FantasmaRosa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/personagem/fantasma/FantasmaVermelho.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/personagem/fantasma/FantasmaVermelho.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,7 +22,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="Multiplayer" />
+        <entry key="$PROJECT_DIR$/.." value="ContadoresFeitos" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -83,6 +90,7 @@
       <list>
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -109,8 +117,7 @@
       <workItem from="1762947831047" duration="6798000" />
       <workItem from="1765033667005" duration="3584000" />
       <workItem from="1765293201166" duration="12653000" />
-      <workItem from="1765331588199" duration="14799000" />
-      <workItem from="1765412288513" duration="3579000" />
+      <workItem from="1765331588199" duration="14611000" />
     </task>
     <task id="LOCAL-00001" summary="Remoção temporária de multiplayer">
       <option name="closed" value="true" />
@@ -232,15 +239,7 @@
       <option name="project" value="LOCAL" />
       <updated>1765394836085</updated>
     </task>
-    <task id="LOCAL-00016" summary="Fantasma medo sprites">
-      <option name="closed" value="true" />
-      <created>1765397037433</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1765397037433</updated>
-    </task>
-    <option name="localTasksCounter" value="17" />
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -261,7 +260,6 @@
     <MESSAGE value="ajustes, fantasma ciano" />
     <MESSAGE value="Timer contagem regressiva" />
     <MESSAGE value="Menu" />
-    <MESSAGE value="Fantasma medo sprites" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fantasma medo sprites" />
+    <option name="LAST_COMMIT_MESSAGE" value="Menu" />
   </component>
 </project>

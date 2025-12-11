@@ -73,7 +73,7 @@ public class FantasmaLaranja extends Fantasma {
                     ExplorarCaminho explorador = new ExplorarCaminho();
                     explorador.setTextoMapa(mapa.getTextoMapa());
                     do {
-                        novoAlvo = mapa.getCoordenadas().get(rand.nextInt(mapa.getCoordenadas().size()));
+                        novoAlvo = fugir(mapa);
                     } while (!explorador.isCelulaValida(new CelulaBFS(novoAlvo.getPosY(), novoAlvo.getPosX(), null)));
                     alvo = novoAlvo;
                 } else {

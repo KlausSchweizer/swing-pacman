@@ -16,10 +16,8 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.*;
 import java.util.List;
-import java.util.Queue;
 
 /**
  *
@@ -195,6 +193,10 @@ public abstract class Fantasma extends Personagem {
         return alvo;
     }
 
+    public Posicao fugir(Mapa mapa) {
+        Random rand = new Random();
+        return mapa.getCoordenadas().get(rand.nextInt(mapa.getCoordenadas().size()));
+    }
 
     public void transformar() {
         if (status == StatusFantasma.PERSEGUIDOR) {

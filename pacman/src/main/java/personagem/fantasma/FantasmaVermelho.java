@@ -6,11 +6,13 @@ package personagem.fantasma;
 
 import main.Direcao;
 import mapa.Mapa;
+import mapa.Posicao;
+import personagem.fantasma.bfs.CelulaBFS;
+import personagem.fantasma.bfs.ExplorarCaminho;
 import personagem.pacman.Pacman;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
 
 /**
  *
@@ -51,6 +53,22 @@ public class FantasmaVermelho extends Fantasma {
 
     @Override
     public Direcao decidirDirecao(Pacman pacman, Mapa mapa) {
+        if(status == StatusFantasma.ALVO) {
+            if (alvo == null || (posX == alvo.getPosX() && posY == alvo.getPosY())) {
+
+                Posicao novoAlvo;
+                explorador = new ExplorarCaminho();
+                explorador.setTextoMapa(mapa.getTextoMapa());
+
+                do {
+                    novoAlvo = fugir(mapa);
+                } while (!explorador.isCelulaValida(new CelulaBFS(novoAlvo.getPosY(), novoAlvo.getPosX(), null)));
+
+                alvo = novoAlvo;
+            }
+            return explorador.decidirDirecao(this.posY, this.posX, alvo.getPosY(), alvo.getPosX(), mapa);
+        }
+
         return explorador.decidirDirecao(this.posY, this.posX, pacman.getPosY(),
                 pacman.getPosX(), mapa);
     }
