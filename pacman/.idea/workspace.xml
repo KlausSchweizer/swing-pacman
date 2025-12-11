@@ -5,43 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3c28dd55-1d88-4eae-aed7-e1fb965d6fb0" name="Changes" comment="Fantasma medo sprites">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imagens/ponto/ponto0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imagens/ponto/ponto1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imagens/ponto/ponto2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imagens/ponto/ponto3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imagens/powerup/powerup00.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imagens/powerup/powerup01.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imagens/powerup/powerup02.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imagens/powerup/powerup03.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imagens/powerup/powerup04.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imagens/powerup/powerup05.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imagens/powerup/powerup06.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imagens/powerup/powerup07.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imagens/powerup/powerup08.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imagens/powerup/powerup09.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imagens/powerup/powerup10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imagens/powerup/powerup11.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imagens/tiles/aberto.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imagens/tiles/alturas-abertas.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imagens/tiles/baixo-aberta.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imagens/tiles/baixo-fechada.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imagens/tiles/cima-aberta.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imagens/tiles/cima-fechada.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imagens/tiles/direita-aberta.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imagens/tiles/direita-baixo-abertas.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imagens/tiles/direita-cima-abertas.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imagens/tiles/direita-fechada.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imagens/tiles/esquerda-aberta.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imagens/tiles/esquerda-baixo-abertas.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imagens/tiles/esquerda-cima-abertas.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imagens/tiles/esquerda-fechada.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imagens/tiles/fechado.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imagens/tiles/lados-abertos.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imagens/tiles/saida-fantasma.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_3_2025_2_04_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_3_2025_2_04_PM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mapa/imagens/ImagensTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mapa/imagens/ImagensTile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/itens/PowerUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itens/PowerUp.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,7 +110,7 @@
       <workItem from="1765033667005" duration="3584000" />
       <workItem from="1765293201166" duration="12653000" />
       <workItem from="1765331588199" duration="14799000" />
-      <workItem from="1765412288513" duration="3333000" />
+      <workItem from="1765412288513" duration="3579000" />
     </task>
     <task id="LOCAL-00001" summary="Remoção temporária de multiplayer">
       <option name="closed" value="true" />

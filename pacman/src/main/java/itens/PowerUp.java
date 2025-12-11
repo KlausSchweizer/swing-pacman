@@ -27,16 +27,5 @@ public class PowerUp extends Item {
     
     private void adicionarSprites() throws IOException {
         images.add(ImageIO.read(getClass().getResourceAsStream("/imagens/powerup/powerup00.png")));
-        images.add(ImageIO.read(getClass().getResourceAsStream("/imagens/powerup/powerup01.png")));
-        images.add(ImageIO.read(getClass().getResourceAsStream("/imagens/powerup/powerup02.png")));
-        images.add(ImageIO.read(getClass().getResourceAsStream("/imagens/powerup/powerup03.png")));
-        images.add(ImageIO.read(getClass().getResourceAsStream("/imagens/powerup/powerup04.png")));
-        images.add(ImageIO.read(getClass().getResourceAsStream("/imagens/powerup/powerup05.png")));
-        images.add(ImageIO.read(getClass().getResourceAsStream("/imagens/powerup/powerup06.png")));
-        images.add(ImageIO.read(getClass().getResourceAsStream("/imagens/powerup/powerup07.png")));
-        images.add(ImageIO.read(getClass().getResourceAsStream("/imagens/powerup/powerup08.png")));
-        images.add(ImageIO.read(getClass().getResourceAsStream("/imagens/powerup/powerup09.png")));
-        images.add(ImageIO.read(getClass().getResourceAsStream("/imagens/powerup/powerup10.png")));
-        images.add(ImageIO.read(getClass().getResourceAsStream("/imagens/powerup/powerup11.png")));        
     }
 }
