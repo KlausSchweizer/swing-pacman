@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3c28dd55-1d88-4eae-aed7-e1fb965d6fb0" name="Changes" comment="Menu">
-      <change beforePath="$PROJECT_DIR$/.classpath" beforeDir="false" />
+    <list default="true" id="3c28dd55-1d88-4eae-aed7-e1fb965d6fb0" name="Changes" comment="Fugir dos fantasmas mais ajustado">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.project" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/personagem/fantasma/Fantasma.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/personagem/fantasma/Fantasma.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/personagem/fantasma/FantasmaCiano.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/personagem/fantasma/FantasmaCiano.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/personagem/fantasma/FantasmaLaranja.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/personagem/fantasma/FantasmaLaranja.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/personagem/fantasma/FantasmaRosa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/personagem/fantasma/FantasmaRosa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/personagem/fantasma/FantasmaVermelho.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/personagem/fantasma/FantasmaVermelho.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fase/glasspanes/GameEndPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fase/glasspanes/GameEndPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/singleplayer/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/singleplayer/Game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -239,7 +235,15 @@
       <option name="project" value="LOCAL" />
       <updated>1765394836085</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Fugir dos fantasmas mais ajustado">
+      <option name="closed" value="true" />
+      <created>1765485553765</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1765485553765</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -260,6 +264,7 @@
     <MESSAGE value="ajustes, fantasma ciano" />
     <MESSAGE value="Timer contagem regressiva" />
     <MESSAGE value="Menu" />
-    <option name="LAST_COMMIT_MESSAGE" value="Menu" />
+    <MESSAGE value="Fugir dos fantasmas mais ajustado" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fugir dos fantasmas mais ajustado" />
   </component>
 </project>

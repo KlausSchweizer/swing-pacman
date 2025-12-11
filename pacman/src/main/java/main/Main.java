@@ -71,10 +71,12 @@ public class Main {
 		timerReserva = timer;
 
 		if (vidasLabel == null) {
-			vidasLabel = new JLabel("Vidas: " + game.getPacman().getVidas());
-			vidasLabel.setForeground(Color.CYAN);
-			vidasLabel.setFont(new Font("Arial", Font.BOLD, 36));
+			vidasLabel = new JLabel(game.getPacman().getVidas() + "");
+            vidasLabel.setIcon(new ImageIcon(Main.class.getResource("/imagens/icons/pacmanIcon.png")));
+			vidasLabel.setForeground(new Color(17, 104, 208));
+			vidasLabel.setFont(new Font("Bookman Old Style", Font.BOLD, 36));
 			vidasLabel.setBounds(20, 20, 200, 50);
+            vidasLabel.setName("vidas");
 			game.getPanel().setLayout(null);
 			game.getPanel().add(vidasLabel);
 			game.getPanel().repaint();
@@ -83,8 +85,10 @@ public class Main {
 		game.getPanel().add(vidasLabel);
 		game.getPanel().repaint();
 		JLabel pontosLabel = new JLabel("Pontos: 0");
-		pontosLabel.setForeground(Color.CYAN);
-		pontosLabel.setFont(new Font("Arial", Font.BOLD, 36));
+        pontosLabel.setName("pontos");
+        pontosLabel.setIcon(new ImageIcon(Main.class.getResource("/imagens/icons/pontoIcon.png")));
+		pontosLabel.setForeground(new Color(17, 104, 208));
+		pontosLabel.setFont(new Font("Bookman Old Style", Font.BOLD, 36));
 		pontosLabel.setBounds(20, 80, 500, 50);
 		game.setPontosLabel(pontosLabel);
 		game.getPanel().add(pontosLabel);

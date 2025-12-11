@@ -18,6 +18,7 @@ import personagem.fantasma.FantasmaVermelho;
 import personagem.fantasma.StatusFantasma;
 import personagem.pacman.Pacman;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
  
 import java.io.BufferedReader;
@@ -43,14 +44,14 @@ public class Game implements EventosGame {
 
 	public void setPontosLabel(JLabel label) {
 	    this.pontosLabel = label;
-	    this.pontosLabel.setText("Pontos: " + pontos);
+	    this.pontosLabel.setText(pontos + "");
 	}
 
 	@Override
 	public void adicionarPonto() {
 	    this.pontos += 10;
 	    if (pontosLabel != null) {
-	        pontosLabel.setText("Pontos: " + pontos);
+	        pontosLabel.setText(pontos + "");
 	    }
 	}
 	public Game() {
@@ -153,8 +154,13 @@ public class Game implements EventosGame {
 				fantasma.morrer();
 			} else if (fantasma.getStatus() == StatusFantasma.PERSEGUIDOR) {
 				pacman.morrer();
-				vidasLabel.setText("Vidas: " + pacman.getVidas());
-				if (pacman.getVidas() <= 0) {
+				vidasLabel.setText(pacman.getVidas() + "");
+                try {
+                    vidasLabel.setIcon(new ImageIcon(ImageIO.read(getClass().getResourceAsStream("/imagens/icons/pacmanIcon.png"))));
+                } catch(Exception e) {
+                    throw new RuntimeException();
+                }
+                if (pacman.getVidas() <= 0) {
 					finish();
 				} else {
 					recomecar();
