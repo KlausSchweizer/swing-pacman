@@ -61,6 +61,8 @@ public abstract class Fantasma extends Personagem {
 
     @Override
     public void mover(Mapa mapa) {
+        int maximoY = mapa.getMapa().length - 1;
+        int maximoX = mapa.getMapa()[0].length - 1;
         if (status == StatusFantasma.PERSEGUIDOR) {
             if (direcao == Direcao.BAIXO) {
                 this.posY++;
@@ -76,19 +78,31 @@ public abstract class Fantasma extends Personagem {
                 spritesAtuais = spritesAndandoEsquerda;
             }
         } else if (status == StatusFantasma.ALVO) {
-            if (direcao == Direcao.CIMA) {
-                this.posY--;
-                spritesAtuais = spritesAlvoCima;
-            } else if (direcao == Direcao.BAIXO) {
-                this.posY++;
-                spritesAtuais = spritesAlvoBaixo;
-            } else if (direcao == Direcao.ESQUERDA) {
-                this.posX++;
-                spritesAtuais = spritesAlvoEsquerda;
-            } else {
-                this.posX--;
-                spritesAtuais = spritesAlvoDireita;
-            }
+        	 if (direcao == Direcao.BAIXO) {
+                 if (!mapa.getMapa()[posY][posX].getDirecoesBloqueadas().contains(Direcao.BAIXO)) {
+                     posY++;
+                     if (posY > maximoY) posY = 0;
+                 }
+                 spritesAtuais = spritesAlvoBaixo;
+             } else if (direcao == Direcao.CIMA) {
+                 if (!mapa.getMapa()[posY][posX].getDirecoesBloqueadas().contains(Direcao.CIMA)) {
+                     posY--;
+                     if (posY < 0) posY = maximoY;
+                 }
+                 spritesAtuais = spritesAlvoCima;
+             } else if (direcao == Direcao.DIREITA) {
+                 if (!mapa.getMapa()[posY][posX].getDirecoesBloqueadas().contains(Direcao.DIREITA)) {
+                     posX++;
+                     if (posX > maximoX) posX = 0;
+                 }
+                 spritesAtuais = spritesAlvoDireita;
+             } else if (direcao == Direcao.ESQUERDA) {
+                 if (!mapa.getMapa()[posY][posX].getDirecoesBloqueadas().contains(Direcao.ESQUERDA)) {
+                     posX--;
+                     if (posX < 0) posX = maximoX;
+                 }
+                 spritesAtuais = spritesAlvoEsquerda;
+             }
             indiceSprite++;
             if (indiceSprite >= spritesAtuais.length) {
                 indiceSprite = 0;
