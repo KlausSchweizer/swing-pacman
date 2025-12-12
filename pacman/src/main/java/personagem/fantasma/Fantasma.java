@@ -62,6 +62,7 @@ public abstract class Fantasma extends Personagem {
         int maximoY = mapa.getMapa().length - 1;
         int maximoX = mapa.getMapa()[0].length - 1;
         if (status == StatusFantasma.PERSEGUIDOR) {
+            indiceSprite = 0;
             if (direcao == Direcao.BAIXO) {
                 this.posY++;
                 spritesAtuais = spritesAndandoBaixo;
@@ -135,8 +136,12 @@ public abstract class Fantasma extends Personagem {
         }
     }
 
-    public void morrer() {
+    public void morrer(Mapa mapa) {
+        posX = mapa.getSpawnsFantasma().getLast().getPosX();
+        posY = mapa.getSpawnsFantasma().getLast().getPosY();
 
+        status = StatusFantasma.PERSEGUIDOR;
+        tempoInicializacao = System.currentTimeMillis();
     }
 
     public Posicao contornar(Posicao alvo, Mapa mapa) {

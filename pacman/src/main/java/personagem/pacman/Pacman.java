@@ -85,7 +85,7 @@ public class Pacman extends Personagem {
     }
 
     @Override
-    public void morrer() {
+    public void morrer(Mapa mapa) {
         vidas--;
     }
 

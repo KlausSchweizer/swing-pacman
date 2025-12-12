@@ -38,7 +38,7 @@ public abstract class Personagem {
 
     public abstract void draw(Graphics2D g, int tileSize, Mapa mapa, int inicioX, int inicioY);
 
-    public abstract void morrer();
+    public abstract void morrer(Mapa mapa);
 
     public abstract void mover(Mapa mapa);
 
