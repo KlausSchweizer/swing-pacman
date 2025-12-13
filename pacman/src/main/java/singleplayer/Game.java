@@ -65,9 +65,9 @@ public class Game implements EventosGame {
     public void update(JLabel vidasLabel) {
         if (podeMover) {
             for (Fantasma fantasma : fantasmas) {
+                checarColisoes(fantasma, vidasLabel);
                 fantasma.setDirecao(fantasma.decidirDirecao(pacman, mapa));
                 fantasma.mover(mapa);
-                checarColisoes(fantasma, vidasLabel);
             }
             pacman.mover(mapa);
             panel.repaint();
