@@ -57,6 +57,9 @@ public class FantasmaLaranja extends Fantasma {
     @Override
     public Direcao decidirDirecao(Pacman pacman, Mapa mapa) {
         if (System.currentTimeMillis() - tempoInicializacao > 6000) {
+            if (status == StatusFantasma.ALVO) {
+                return alvoFugindo(mapa);
+            }
             Random rand = new Random();
 
             if (mapa.getCoordenadas().isEmpty()) {

@@ -55,20 +55,7 @@ public class FantasmaRosa extends Fantasma {
     public Direcao decidirDirecao(Pacman pacman, Mapa mapa) {
         if (System.currentTimeMillis() - tempoInicializacao > 2000) {
             if(status == StatusFantasma.ALVO) {
-                if (alvo == null || (posX == alvo.getPosX() && posY == alvo.getPosY())) {
-
-                    Posicao novoAlvo;
-                    explorador = new ExplorarCaminho();
-                    explorador.setTextoMapa(mapa.getTextoMapa());
-
-                    do {
-                        novoAlvo = fugir(mapa);
-                    } while (!explorador.isCelulaValida(new CelulaBFS(novoAlvo.getPosY(), novoAlvo.getPosX(), null)));
-
-                    alvo = novoAlvo;
-                }
-                return explorador.decidirDirecao(this.posY, this.posX, alvo.getPosY(), alvo.getPosX(), mapa);
-
+                return alvoFugindo(mapa);
             }
 
             Direcao direcaoPacman = pacman.getDirecao();

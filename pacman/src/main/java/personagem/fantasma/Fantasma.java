@@ -9,6 +9,7 @@ import mapa.Mapa;
 import mapa.Posicao;
 import mapa.matrizmapa.MatrizMapa;
 import personagem.Personagem;
+import personagem.fantasma.bfs.CelulaBFS;
 import personagem.fantasma.bfs.ExplorarCaminho;
 import personagem.pacman.Pacman;
 
@@ -144,6 +145,22 @@ public abstract class Fantasma extends Personagem {
         tempoInicializacao = System.currentTimeMillis();
     }
 
+    protected Direcao alvoFugindo(Mapa mapa) {
+        if (alvo == null || (posX == alvo.getPosX() && posY == alvo.getPosY())) {
+
+            Posicao novoAlvo;
+            explorador = new ExplorarCaminho();
+            explorador.setTextoMapa(mapa.getTextoMapa());
+
+            do {
+                novoAlvo = fugir(mapa);
+            } while (!explorador.isCelulaValida(new CelulaBFS(novoAlvo.getPosY(), novoAlvo.getPosX(), null)));
+
+            alvo = novoAlvo;
+        }
+        return explorador.decidirDirecao(this.posY, this.posX, alvo.getPosY(), alvo.getPosX(), mapa);
+    }
+
     public Posicao contornar(Posicao alvo, Mapa mapa) {
         char[][] mapaTexto = mapa.getTextoMapa();
         int linhas = mapa.getTextoMapa().length;
@@ -203,29 +220,14 @@ public abstract class Fantasma extends Personagem {
         return mapa.getCoordenadas().get(rand.nextInt(mapa.getCoordenadas().size()));
     }
 
-    public void transformar() {
-        if (status == StatusFantasma.PERSEGUIDOR) {
-            if(direcao == Direcao.CIMA) {
-                spritesAtuais = spritesAlvoCima;
-            } else if (direcao == Direcao.BAIXO) {
-                spritesAtuais = spritesAlvoBaixo;
-            } else if(direcao == Direcao.ESQUERDA) {
-                spritesAtuais = spritesAlvoEsquerda;
-            } else {
-                spritesAtuais = spritesAlvoDireita;
-            }
-            status = StatusFantasma.ALVO;
-        } else {
-            spritesAtuais = spritesAndandoCima;
-            status = StatusFantasma.PERSEGUIDOR;
-        }
-    }
-
     public StatusFantasma getStatus() {
         return status;
     }
 
     public void setStatus(StatusFantasma status) {
+        if (this.status != status && status == StatusFantasma.ALVO) {
+            alvo = null;
+        }
         this.status = status;
     }
 

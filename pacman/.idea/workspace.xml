@@ -4,11 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3c28dd55-1d88-4eae-aed7-e1fb965d6fb0" name="Changes" comment="Ícones vidas e pontos melhorados">
+    <list default="true" id="3c28dd55-1d88-4eae-aed7-e1fb965d6fb0" name="Changes" comment="Fluidez do pacman, não permitir que se move em direções que não existem">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_12_6_2025_11_47_AM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_12_6_2025_11_47_AM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/personagem/Personagem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/personagem/Personagem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/personagem/fantasma/Fantasma.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/personagem/fantasma/Fantasma.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/personagem/pacman/Pacman.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/personagem/pacman/Pacman.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/personagem/fantasma/FantasmaCiano.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/personagem/fantasma/FantasmaCiano.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/personagem/fantasma/FantasmaLaranja.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/personagem/fantasma/FantasmaLaranja.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/personagem/fantasma/FantasmaRosa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/personagem/fantasma/FantasmaRosa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/personagem/fantasma/FantasmaVermelho.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/personagem/fantasma/FantasmaVermelho.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/singleplayer/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/singleplayer/Game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -115,6 +119,8 @@
       <workItem from="1765033667005" duration="3584000" />
       <workItem from="1765293201166" duration="12653000" />
       <workItem from="1765331588199" duration="14611000" />
+      <workItem from="1765594111681" duration="3260000" />
+      <workItem from="1765728928374" duration="744000" />
     </task>
     <task id="LOCAL-00001" summary="Remoção temporária de multiplayer">
       <option name="closed" value="true" />
@@ -252,7 +258,39 @@
       <option name="project" value="LOCAL" />
       <updated>1765487436644</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Pontuação de powerup e comer fantasma">
+      <option name="closed" value="true" />
+      <created>1765583948707</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1765583948707</updated>
+    </task>
+    <task id="LOCAL-00019" summary="colisões melhoradas">
+      <option name="closed" value="true" />
+      <created>1765594523811</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1765594523811</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Fluidez do pacman, não permitir que se move em direções que não existem">
+      <option name="closed" value="true" />
+      <created>1765729311604</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1765729311604</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Fluidez do pacman, não permitir que se move em direções que não existem">
+      <option name="closed" value="true" />
+      <created>1765729336452</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1765729336452</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -275,6 +313,9 @@
     <MESSAGE value="Menu" />
     <MESSAGE value="Fugir dos fantasmas mais ajustado" />
     <MESSAGE value="Ícones vidas e pontos melhorados" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ícones vidas e pontos melhorados" />
+    <MESSAGE value="Pontuação de powerup e comer fantasma" />
+    <MESSAGE value="colisões melhoradas" />
+    <MESSAGE value="Fluidez do pacman, não permitir que se move em direções que não existem" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fluidez do pacman, não permitir que se move em direções que não existem" />
   </component>
 </project>

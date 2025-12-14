@@ -68,6 +68,7 @@ public class Game implements EventosGame {
                 checarColisoes(fantasma, vidasLabel);
                 fantasma.setDirecao(fantasma.decidirDirecao(pacman, mapa));
                 fantasma.mover(mapa);
+                checarColisoes(fantasma, vidasLabel);
             }
             pacman.mover(mapa);
             panel.repaint();
@@ -76,6 +77,7 @@ public class Game implements EventosGame {
 
     public void finish() {
         isRunning = false;
+         pacman.setVidas(0);
 
         Main.getTimer().stop();
         Main.setTimer(null);
