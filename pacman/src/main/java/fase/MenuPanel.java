@@ -41,7 +41,6 @@ public class MenuPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         sairBT = new javax.swing.JButton();
-        multiplayerBT = new javax.swing.JButton();
         controlesBT = new javax.swing.JButton();
         singleplayerBT = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -52,13 +51,6 @@ public class MenuPanel extends javax.swing.JPanel {
         sairBT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sairBTActionPerformed(evt);
-            }
-        });
-
-        multiplayerBT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/botoes/botao_multi_player.png"))); // NOI18N
-        multiplayerBT.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                multiplayerBTActionPerformed(evt);
             }
         });
 
@@ -87,7 +79,6 @@ public class MenuPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addComponent(sairBT, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(multiplayerBT, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(controlesBT, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(singleplayerBT, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(317, Short.MAX_VALUE))
@@ -97,12 +88,10 @@ public class MenuPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 188, Short.MAX_VALUE)
                 .addComponent(singleplayerBT, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(controlesBT, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(multiplayerBT, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(sairBT, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -116,9 +105,6 @@ public class MenuPanel extends javax.swing.JPanel {
     private void singleplayerBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_singleplayerBTActionPerformed
         Main.singlePlayer();
     }//GEN-LAST:event_singleplayerBTActionPerformed
-
-    private void multiplayerBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_multiplayerBTActionPerformed
-    }//GEN-LAST:event_multiplayerBTActionPerformed
 
     private void controlesBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_controlesBTActionPerformed
         Main.configurarPanel(new ControlesPanel());
@@ -141,7 +127,6 @@ public class MenuPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton controlesBT;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JButton multiplayerBT;
     private javax.swing.JButton sairBT;
     private javax.swing.JButton singleplayerBT;
     // End of variables declaration//GEN-END:variables

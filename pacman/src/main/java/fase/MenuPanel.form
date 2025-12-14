@@ -26,7 +26,6 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="sairBT" alignment="0" min="-2" pref="293" max="-2" attributes="0"/>
-                  <Component id="multiplayerBT" alignment="0" min="-2" pref="293" max="-2" attributes="0"/>
                   <Component id="controlesBT" alignment="0" min="-2" pref="293" max="-2" attributes="0"/>
                   <Component id="singleplayerBT" alignment="0" min="-2" pref="293" max="-2" attributes="0"/>
               </Group>
@@ -39,12 +38,10 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="91" max="32767" attributes="0"/>
+              <EmptySpace pref="188" max="32767" attributes="0"/>
               <Component id="singleplayerBT" min="-2" pref="91" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="controlesBT" min="-2" pref="91" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="multiplayerBT" min="-2" pref="91" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="sairBT" min="-2" pref="90" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -61,16 +58,6 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sairBTActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="multiplayerBT">
-      <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagens/botoes/botao_multi_player.png"/>
-        </Property>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="multiplayerBTActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="controlesBT">
