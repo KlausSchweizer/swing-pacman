@@ -85,9 +85,11 @@ public class Game implements EventosGame {
         GameEndPanel painel = new GameEndPanel(this);
         Main.getFase().setGlassPane(painel);
         painel.setVisible(true);
+        Main.getFase().setDefaultCursor();
     }
 
     public void recomecar() {
+        Main.getFase().esconderCursor();
         Main.setTimer(Main.getTimerReserva());
         Main.getTimer().start();
         pacman.setPosX(mapa.getSpawnPacman().getPosX());

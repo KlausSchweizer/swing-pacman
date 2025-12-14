@@ -4,8 +4,6 @@
  */
 package fase;
 
-import main.Main;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -33,6 +31,8 @@ public class FaseJF extends javax.swing.JFrame {
         });
         bindKey("ESCAPE", () -> setFullScreen(false));
         bindKey("F", () -> setFullScreen(true));
+
+        setDefaultCursor();
     }
 
     /**
@@ -72,6 +72,22 @@ public class FaseJF extends javax.swing.JFrame {
             setFullScreen(true);
         }
     }//GEN-LAST:event_formKeyPressed
+
+    public void setDefaultCursor() {
+        Toolkit toolkit = Toolkit.getDefaultToolkit();
+        Point hotspot = new Point(0, 0);
+        Image imagemCursor = new ImageIcon(getClass().getResource("/imagens/mouse/mouse0.png")).getImage();
+        Cursor cursorCustomizado = toolkit.createCustomCursor(imagemCursor, hotspot, "cursorPadrão");
+        this.setCursor(cursorCustomizado);
+    }
+
+    public void esconderCursor() {
+        Toolkit toolkit = Toolkit.getDefaultToolkit();
+        Point hotspot = new Point(0, 0);
+        Image imagemCursor = new ImageIcon(getClass().getResource("/imagens/mouse/mouseVazio.png")).getImage();
+        Cursor cursorCustomizado = toolkit.createCustomCursor(imagemCursor, hotspot, "cursorVazio");
+        this.setCursor(cursorCustomizado);
+    }
 
     public void setFullScreen(boolean fullScreen) {
 

@@ -27,7 +27,6 @@ public class GameEndPanel extends javax.swing.JPanel {
         setOpaque(false);
         botoesPN.setBackground(new Color(0, 0, 0, 0));
         botoesPN.setForeground(new Color(0, 0, 0, 0));
-
         removerBordaBotoes();
         this.game = game;
     }

@@ -92,6 +92,7 @@ public class Main {
 		pontosLabel.setBounds(20, 80, 500, 50);
 		game.setPontosLabel(pontosLabel);
 		game.getPanel().add(pontosLabel);
+        getFase().esconderCursor();
 	}
 
 	private static void configurarPainelFase(Game game) {
