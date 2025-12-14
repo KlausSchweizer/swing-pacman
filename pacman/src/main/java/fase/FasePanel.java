@@ -71,13 +71,13 @@ public class FasePanel extends javax.swing.JPanel {
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_UP || evt.getKeyCode() == KeyEvent.VK_W) {
-            personagem.setDirecao(Direcao.CIMA);
+            ((Pacman)personagem).setDirecao(Direcao.CIMA, mapa);
         } else if (evt.getKeyCode() == KeyEvent.VK_DOWN || evt.getKeyCode() == KeyEvent.VK_S) {
-            personagem.setDirecao(Direcao.BAIXO);
+            ((Pacman)personagem).setDirecao(Direcao.BAIXO, mapa);
         } else if (evt.getKeyCode() == KeyEvent.VK_LEFT || evt.getKeyCode() == KeyEvent.VK_A) {
-            personagem.setDirecao(Direcao.ESQUERDA);
+            ((Pacman)personagem).setDirecao(Direcao.ESQUERDA, mapa);
         } else if (evt.getKeyCode() == KeyEvent.VK_RIGHT || evt.getKeyCode() == KeyEvent.VK_D) {
-            personagem.setDirecao(Direcao.DIREITA);
+            ((Pacman)personagem).setDirecao(Direcao.DIREITA, mapa);
         }
     }//GEN-LAST:event_formKeyPressed
 

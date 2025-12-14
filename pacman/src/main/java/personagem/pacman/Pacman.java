@@ -148,12 +148,11 @@ public class Pacman extends Personagem {
     }
 
     public void setDirecao(Direcao direcao, Mapa mapa) {
-        if (direcao != null) {
-            if (this.direcao == null) {
-                this.direcao = direcao;
-            } else if (!mapa.getMapa()[posY][posX].getDirecoesBloqueadas().contains(direcao)) {
-                this.direcao = direcao;
-            }
+        if (direcao == null) return;
+
+        if (!mapa.getMapa()[posY][posX].getDirecoesBloqueadas().contains(direcao)) {
+
+            this.direcao = direcao;
         }
     }
 
