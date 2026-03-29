@@ -71,7 +71,7 @@ public class SeletorFases extends javax.swing.JPanel {
         setLayout(new java.awt.CardLayout());
 
         painelFases.setBackground(new java.awt.Color(22, 29, 36));
-        painelFases.setLayout(new javax.swing.BoxLayout(painelFases, javax.swing.BoxLayout.LINE_AXIS));
+        painelFases.setLayout(new java.awt.BorderLayout());
         add(painelFases, "card2");
     }// </editor-fold>//GEN-END:initComponents
 

@@ -189,7 +189,11 @@ public class Game implements EventosGame {
         contadorPanel.setVisible(true);
 
         contadorPanel.getContadorLB().setText(contador[0] + "");
+        Timer contadorTimer = getTimer(contador, contadorPanel);
+        contadorTimer.start();
+    }
 
+    private Timer getTimer(int[] contador, ContagemRegressivaPanel contadorPanel) {
         Timer contadorTimer = new Timer(delayTimer, null);
         contadorTimer.addActionListener(e -> {
             contador[0]--;
@@ -204,8 +208,7 @@ public class Game implements EventosGame {
                 iniciarFantasmas();
             }
         });
-
-        contadorTimer.start();
+        return contadorTimer;
     }
 
     private void iniciarFantasmas() {

@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3c28dd55-1d88-4eae-aed7-e1fb965d6fb0" name="Changes" comment="Remoção do botão multiplayer">
+    <list default="true" id="3c28dd55-1d88-4eae-aed7-e1fb965d6fb0" name="Changes" comment="Coordenadas dos mapas">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapas/coordenadas-padrao/coordenada-google.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapas/coordenadas-padrao/coordenada-google.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapas/coordenadas-padrao/coordenada-mapa1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapas/coordenadas-padrao/coordenada-mapa1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapas/coordenadas-padrao/coordenada-mapa2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapas/coordenadas-padrao/coordenada-mapa2.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapas/coordenadas-padrao/coordenada-mapa3.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapas/coordenadas-padrao/coordenada-mapa3.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapas/coordenadas-padrao/coordenada-mapa4.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapas/coordenadas-padrao/coordenada-mapa4.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fase/SeletorFases.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fase/SeletorFases.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fase/SeletorFases.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fase/SeletorFases.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/singleplayer/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/singleplayer/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mapas/mapa5.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapas/mapa5.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,6 +51,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
     "git-widget-placeholder": "master",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
@@ -97,8 +96,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.26199.169" />
-        <option value="bundled-js-predefined-d6986cc7102b-9c94529fcfe0-JavaScript-IU-252.26199.169" />
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.28539.33" />
+        <option value="bundled-js-predefined-d6986cc7102b-a71380e98a7c-JavaScript-IU-252.28539.33" />
       </set>
     </attachedChunks>
   </component>
@@ -120,6 +119,7 @@
       <workItem from="1765331588199" duration="14611000" />
       <workItem from="1765594111681" duration="3260000" />
       <workItem from="1765728928374" duration="1767000" />
+      <workItem from="1774823760950" duration="619000" />
     </task>
     <task id="LOCAL-00001" summary="Remoção temporária de multiplayer">
       <option name="closed" value="true" />
@@ -305,7 +305,15 @@
       <option name="project" value="LOCAL" />
       <updated>1765734232157</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Coordenadas dos mapas">
+      <option name="closed" value="true" />
+      <created>1765742359081</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1765742359081</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -333,6 +341,7 @@
     <MESSAGE value="Fluidez do pacman, não permitir que se move em direções que não existem" />
     <MESSAGE value="Correção do bug do ciano ao tornar-se alvo" />
     <MESSAGE value="Remoção do botão multiplayer" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remoção do botão multiplayer" />
+    <MESSAGE value="Coordenadas dos mapas" />
+    <option name="LAST_COMMIT_MESSAGE" value="Coordenadas dos mapas" />
   </component>
 </project>
